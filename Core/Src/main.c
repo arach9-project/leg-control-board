@@ -20,7 +20,6 @@
 #include "main.h"
 #include "adc.h"
 #include "cordic.h"
-#include "drv8316_fields.h"
 #include "fdcan.h"
 #include "gpio.h"
 #include "spi.h"
@@ -28,11 +27,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "drv8316.h"
 #include <limits.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+
+#include "drv8316/drv8316.h"
+#include "drv8316/registers.h"
 
 /* USER CODE END Includes */
 

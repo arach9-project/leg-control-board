@@ -4,3 +4,6 @@
 /Users/mustafayousif/Code/arach/leg_control_board/build/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
 /Users/mustafayousif/Code/arach/leg_control_board/build/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
 /Users/mustafayousif/Code/arach/leg_control_board/build/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
+/Users/mustafayousif/Code/arach/leg_control_board/build/Components/DRV8316/CMakeFiles/drv8316.dir
+/Users/mustafayousif/Code/arach/leg_control_board/build/Components/DRV8316/CMakeFiles/edit_cache.dir
+/Users/mustafayousif/Code/arach/leg_control_board/build/Components/DRV8316/CMakeFiles/rebuild_cache.dir

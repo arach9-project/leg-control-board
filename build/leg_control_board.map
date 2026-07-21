@@ -1,5 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
+Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+                              CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj (DRV8316_Init)
 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
                               /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o (exit)
 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
@@ -4280,230 +4282,229 @@ Discarded input sections
  .text          0x00000000       0x14 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .data          0x00000000        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .bss           0x00000000        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .group         0x00000000        0xc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .text          0x00000000        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .data          0x00000000        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .bss           0x00000000        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .group         0x00000000        0xc Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .text          0x00000000        0x0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .data          0x00000000        0x0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .bss           0x00000000        0x0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Update_Diagnostics
-                0x00000000       0x94 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x94 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Overtemperature_Reporting
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Overtemperature_Reporting
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Overvoltage_Protection
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Overvoltage_Protection
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Overvoltage_Level
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Overvoltage_Level
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_PWM_100_Frequency
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_PWM_100_Frequency
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_OCP_Mode
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_OCP_Mode
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_OCP_Level
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_OCP_Level
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_OCP_Retry_Time
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_OCP_Retry_Time
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_OCP_Deglitch_Time
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_OCP_Deglitch_Time
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_OCP_CBC
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_OCP_CBC
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Driver_State
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Driver_State
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Current_Sense_Gain
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Current_Sense_Gain
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_ASR
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_ASR
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_AAR
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_AAR
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_ILIM_Recirculation
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_ILIM_Recirculation
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Buck_State
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Buck_State
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Buck_Voltage
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Buck_Voltage
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Buck_Current_Limit
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Buck_Current_Limit
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Buck_Power_Sequencing
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Buck_Power_Sequencing
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Delay_Target
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Delay_Target
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Delay_Compensation
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Delay_Compensation
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_SDO_Mode
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_SDO_Mode
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_PWM_Mode
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_PWM_Mode
-                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Register_Lock
-                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Lock_Registers
-                0x00000000       0x1a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x1a Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Unlock_Registers
-                0x00000000       0x1a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x1a Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Clear_Faults
-                0x00000000       0x4e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0xaea CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x8e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x51 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x103 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x6a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x1df CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x186 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x16d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x2e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x28 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x1c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0xfb CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000     0x1011 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x11f CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000    0x1138f CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x6d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000     0x3558 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x190 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x5c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000     0x141d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x535 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x1b6 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x288 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x41d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x18b CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x43 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x23d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000     0x1111 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x72e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x391 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x1f4 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x211 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x6bd CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x401 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x107 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x122 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x3d1 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x2fe CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0xbda CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x47e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x306 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x7b CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x2a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x34 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x364 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x10 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x4a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x34 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x10 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x58 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x1e5 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x170 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x4e Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0xaea Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x22 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x22 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x8e Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x51 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x103 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x6a Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x1df Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x16d Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x2e Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x28 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x1c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x22 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0xfb Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000     0x1011 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x11f Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000    0x1138f Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x6d Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000     0x3558 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x190 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x5c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000     0x141d Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x535 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x1b6 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x288 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x41d Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x18b Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x43 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x23d Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000     0x1111 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x72e Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x391 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x1f4 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x211 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x6bd Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x401 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x107 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x122 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x3d1 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x2fe Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0xbda Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x47e Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x306 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x7b Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x2a Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x3c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x34 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x16 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x3c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x364 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x10 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x16 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x4a Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x34 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x10 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x58 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x1e5 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x16 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000       0x16 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00000000      0x170 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text          0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
@@ -4744,8 +4745,8 @@ LOAD CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
 LOAD CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
 LOAD CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
 LOAD CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
-LOAD CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
+LOAD Components/DRV8316/libdrv8316.a
 START GROUP
 LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a
 LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a
@@ -5156,37 +5157,37 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x08005874                RTC_Alarm_IRQHandler
  *fill*         0x08005876        0x2 
  .text.delay_us_dwt
-                0x08005878       0x4c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005878       0x4c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_SPI_Transfer
-                0x080058c4       0xd0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080058c4       0xd0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x080058c4                DRV8316_SPI_Transfer
  .text.count_bits
-                0x08005994       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005994       0x3c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005994                count_bits
  .text.even_parity
-                0x080059d0       0x26 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080059d0       0x26 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x080059d0                even_parity
  .text.DRV8316_Read_Register
-                0x080059f6       0xaa CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080059f6       0xaa Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x080059f6                DRV8316_Read_Register
  .text.DRV8316_Write_Register
-                0x08005aa0       0xaa CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005aa0       0xaa Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005aa0                DRV8316_Write_Register
  .text.DRV8316_Init
-                0x08005b4a       0x80 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005b4a       0x80 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005b4a                DRV8316_Init
  .text.DRV8316_Get_Field
-                0x08005bca       0x66 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005bca       0x66 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Set_Field
-                0x08005c30       0x80 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005c30       0x80 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .text.DRV8316_Get_Slew
-                0x08005cb0       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005cb0       0x44 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005cb0                DRV8316_Get_Slew
  .text.DRV8316_Set_Slew
-                0x08005cf4       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005cf4       0x30 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005cf4                DRV8316_Set_Slew
  .text.DRV8316_Set_Register_Lock
-                0x08005d24       0x36 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005d24       0x36 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                 0x08005d24                DRV8316_Set_Register_Lock
  *fill*         0x08005d5a        0x2 
  .text.setvbuf  0x08005d5c      0x168 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
@@ -5604,7 +5605,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000056a       0x21 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .ARM.attributes
-                0x0000058b       0x34 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x0000058b       0x34 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .ARM.attributes
                 0x000005bf       0x34 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
  .ARM.attributes
@@ -5721,10 +5722,10 @@ LOAD linker stubs
                                  0x46 (size before relaxing)
  .comment       0x00000045        0x0 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
                                  0x46 (size before relaxing)
- .comment       0x00000045        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .comment       0x00000045        0x0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
                                  0x46 (size before relaxing)
 
-.debug_info     0x00000000    0x19514
+.debug_info     0x00000000    0x19519
  .debug_info    0x00000000      0x593 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_info    0x00000593     0x2068 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_info    0x000025fb     0x1d85 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -5739,21 +5740,21 @@ LOAD linker stubs
  .debug_info    0x0000a7aa     0x167c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_info    0x0000be26     0x2c57 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_info    0x0000ea7d     0x1d9a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_info    0x00010817     0x1bc7 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_info    0x000123de      0x4a5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_info    0x00012883      0xfdf CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_info    0x00013862      0x804 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_info    0x00014066      0xb2a CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_info    0x00014b90      0xb00 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_info    0x00015690     0x1110 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_info    0x000167a0      0x118 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_info    0x000168b8      0x2df CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_info    0x00016b97      0x16d CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_info    0x00016d04      0x6b9 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_info    0x000173bd       0x30 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_info    0x000173ed     0x2127 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_info    0x00010817     0x1bcc CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_info    0x000123e3      0x4a5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_info    0x00012888      0xfdf CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_info    0x00013867      0x804 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_info    0x0001406b      0xb2a CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_info    0x00014b95      0xb00 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_info    0x00015695     0x1110 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_info    0x000167a5      0x118 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_info    0x000168bd      0x2df CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_info    0x00016b9c      0x16d CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x00016d09      0x6b9 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_info    0x000173c2       0x30 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_info    0x000173f2     0x2127 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
-.debug_abbrev   0x00000000     0x3821
+.debug_abbrev   0x00000000     0x3830
  .debug_abbrev  0x00000000      0x120 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_abbrev  0x00000120      0x2d9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_abbrev  0x000003f9      0x2f4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -5768,19 +5769,19 @@ LOAD linker stubs
  .debug_abbrev  0x000019e0      0x263 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_abbrev  0x00001c43      0x2ad cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_abbrev  0x00001ef0      0x2cb cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000021bb      0x425 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_abbrev  0x000025e0      0x15f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x0000273f      0x1fb CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_abbrev  0x0000293a      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_abbrev  0x00002aee      0x1d9 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_abbrev  0x00002cc7      0x1fc CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_abbrev  0x00002ec3      0x273 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x00003136       0x79 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_abbrev  0x000031af       0xdf CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_abbrev  0x0000328e       0xc2 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00003350      0x1c2 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_abbrev  0x00003512       0x24 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_abbrev  0x00003536      0x2eb CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_abbrev  0x000021bb      0x434 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x000025ef      0x15f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x0000274e      0x1fb CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_abbrev  0x00002949      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_abbrev  0x00002afd      0x1d9 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_abbrev  0x00002cd6      0x1fc CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_abbrev  0x00002ed2      0x273 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x00003145       0x79 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_abbrev  0x000031be       0xdf CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_abbrev  0x0000329d       0xc2 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x0000335f      0x1c2 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_abbrev  0x00003521       0x24 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_abbrev  0x00003545      0x2eb Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
 .debug_aranges  0x00000000     0x1920
  .debug_aranges
@@ -5836,7 +5837,7 @@ LOAD linker stubs
  .debug_aranges
                 0x000016f8       0x28 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .debug_aranges
-                0x00001720      0x200 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00001720      0x200 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
 .debug_rnglists
                 0x00000000     0x1334
@@ -5893,9 +5894,9 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000119a       0x19 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .debug_rnglists
-                0x000011b3      0x181 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x000011b3      0x181 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
-.debug_macro    0x00000000    0x2327b
+.debug_macro    0x00000000    0x233f9
  .debug_macro   0x00000000      0x206 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000206      0xaea cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000cf0       0x2e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
@@ -5952,72 +5953,73 @@ LOAD linker stubs
  .debug_macro   0x0001f3ad      0x20e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_macro   0x0001f5bb      0x20e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_macro   0x0001f7c9      0x20c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_macro   0x0001f9d5      0x387 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001fd5c      0x236 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001ff92       0x22 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001ffb4      0x186 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002013a       0x7b CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000201b5       0x2a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000201df       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002021b       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002024f       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020265       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000202a1      0x364 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020605       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020615       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002062b       0x4a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020675       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000206a9       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000206b9       0x58 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020711      0x1e5 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000208f6       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002090c       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020922      0x170 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020a92       0x7c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020b0e       0x17 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020b25      0x118 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020c3d      0x21f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_macro   0x00020e5c      0x21f CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_macro   0x0002107b      0x21f CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_macro   0x0002129a      0x21f CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_macro   0x000214b9      0x21f CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_macro   0x000216d8      0x21f CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_macro   0x000218f7      0x21f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_macro   0x00021b16      0x215 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_macro   0x00021d2b      0x103 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021e2e       0x10 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021e3e       0x75 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021eb3       0x94 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021f47       0x57 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021f9e      0x23c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x000221da      0x265 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002243f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002244f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002245f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002246f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002247f       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002249b       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000224ed       0x22 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002250f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002251f       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022571       0xcf CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022640       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002265c       0x3d CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022699       0x3b CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000226d4      0x134 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022808       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002281e       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022834       0x29 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002285d      0x242 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022a9f       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022abb       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022acb      0x18a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022c55       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022c6b       0xce CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022d39      0x306 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x0002303f      0x23c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x0001f9d5      0x37d CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001fd52      0x236 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001ff88       0x7b CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020003      0x364 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020367       0x7c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000203e3       0x17 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000203fa      0x118 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020512       0x22 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020534       0x2a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002055e       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002059a       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000205ce       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000205e4       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020620       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020630       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020646       0x4a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020690       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000206c4       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000206d4       0x58 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002072c      0x1e5 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020911       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020927       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002093d      0x170 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020aad      0x18c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020c39      0x21f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_macro   0x00020e58      0x21f CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_macro   0x00021077      0x21f CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_macro   0x00021296      0x21f CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_macro   0x000214b5      0x21f CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_macro   0x000216d4      0x21f CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_macro   0x000218f3      0x21f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_macro   0x00021b12      0x215 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_macro   0x00021d27      0x103 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021e2a       0x10 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021e3a       0x75 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021eaf       0x94 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021f43       0x57 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021f9a      0x23c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x000221d6      0x265 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002243b       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002244b       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002245b       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002246b       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002247b       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022497       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x000224e9       0x22 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002250b       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002251b       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002256d       0xcf CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002263c       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022658       0x3d CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022695       0x3b CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x000226d0      0x134 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022804       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002281a       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022830       0x29 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022859      0x242 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022a9b       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022ab7       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022ac7      0x18a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022c51       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022c67       0xce CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022d35      0x302 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x00023037      0x186 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+ .debug_macro   0x000231bd      0x23c Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
-.debug_line     0x00000000    0x1a1fb
+.debug_line     0x00000000    0x1a2a1
  .debug_line    0x00000000      0x7cd cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_line    0x000007cd     0x1fcc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_line    0x00002799     0x1a01 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -6032,75 +6034,75 @@ LOAD linker stubs
  .debug_line    0x0000b95e     0x2047 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_line    0x0000d9a5     0x3fb0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_line    0x00011955     0x1fb8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_line    0x0001390d      0xa79 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_line    0x00014386      0x7b5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_line    0x00014b3b      0x919 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_line    0x00015454      0x7a6 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_line    0x00015bfa      0x7ff CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_line    0x000163f9      0x7dd CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_line    0x00016bd6      0xadd CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_line    0x000176b3      0x80f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_line    0x00017ec2      0x761 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_line    0x00018623      0x2e4 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_line    0x00018907      0x608 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_line    0x00018f0f       0x7b CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_line    0x00018f8a     0x1271 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_line    0x0001390d      0xac5 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_line    0x000143d2      0x7b5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00014b87      0x919 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_line    0x000154a0      0x7a6 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_line    0x00015c46      0x7ff CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_line    0x00016445      0x7dd CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_line    0x00016c22      0xadd CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_line    0x000176ff      0x80f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_line    0x00017f0e      0x761 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_line    0x0001866f      0x2e4 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00018953      0x608 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_line    0x00018f5b       0x7b CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_line    0x00018fd6     0x12cb Components/DRV8316/libdrv8316.a(drv8316.c.obj)
 
-.debug_str      0x00000000    0xe310d
- .debug_str     0x00000000    0xe310d cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
+.debug_str      0x00000000    0xe311e
+ .debug_str     0x00000000    0xe311e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
                               0xd38bf (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
                               0xd48ec (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
                               0xd4892 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
                               0xd43fe (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
                               0xd3fb8 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
                               0xd3fb9 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
                               0xd3a4a (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
                               0xd3dad (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
                               0xd40ba (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c.obj
                               0xd3d65 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
                               0xd4e66 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
                               0xd41f1 (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
                               0xd4dbd (size before relaxing)
- .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_str     0x000e311e        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
                               0xd4a31 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
-                              0xd90a6 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+                              0xd90a9 (size before relaxing)
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
                               0xd4162 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
                               0xd49be (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
                               0xd4506 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
                               0xd469d (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
                               0xd4697 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
                               0xd4b0c (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
                               0xd3fc7 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
                               0xd40b8 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
                                0x71ba (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
                                0x94c0 (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_str     0x000e311e        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
                                  0x9c (size before relaxing)
- .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                              0xd94ef (size before relaxing)
+ .debug_str     0x000e311e        0x0 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
+                              0xd9500 (size before relaxing)
 
 .debug_frame    0x00000000     0x7388
  .debug_frame   0x00000000       0x58 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
@@ -6128,7 +6130,7 @@ LOAD linker stubs
  .debug_frame   0x00005ef8       0x34 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_frame   0x00005f2c       0x34 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
  .debug_frame   0x00005f60      0x2ac CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_frame   0x0000620c      0x8b8 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_frame   0x0000620c      0x8b8 Components/DRV8316/libdrv8316.a(drv8316.c.obj)
  .debug_frame   0x00006ac4       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
  .debug_frame   0x00006afc       0x5c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
  .debug_frame   0x00006b58      0x144 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
