@@ -1,0 +1,3 @@
+[submodule "Components/DRV8316"]
+	path = Components/DRV8316
+	url = git@github.com:sylas-project/drv8316.git
