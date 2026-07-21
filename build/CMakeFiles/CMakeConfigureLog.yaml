@@ -26,6 +26,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -50,6 +51,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/uname"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/uname"
       - "/Users/3urdparty/.pixi/bin/uname"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/uname"
       - "/Users/mustafayousif/.local/share/mamba/condabin/uname"
       - "/opt/homebrew/bin/uname"
       - "/opt/homebrew/sbin/uname"
@@ -64,6 +66,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -125,6 +128,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -161,6 +165,9 @@ events:
       - "/Users/3urdparty/.pixi/bin/ninja-build"
       - "/Users/3urdparty/.pixi/bin/ninja"
       - "/Users/3urdparty/.pixi/bin/samu"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/ninja-build"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/ninja"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/samu"
       - "/Users/mustafayousif/.local/share/mamba/condabin/ninja-build"
       - "/Users/mustafayousif/.local/share/mamba/condabin/ninja"
       - "/Users/mustafayousif/.local/share/mamba/condabin/samu"
@@ -174,6 +181,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -226,6 +234,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -256,6 +265,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -315,6 +325,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -416,6 +427,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -493,6 +505,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -519,6 +532,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -572,6 +586,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -598,6 +613,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -651,6 +667,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -677,6 +694,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -730,6 +748,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -756,6 +775,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -809,6 +829,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -835,6 +856,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -888,6 +910,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -914,6 +937,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -967,6 +991,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -993,6 +1018,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1046,6 +1072,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1070,6 +1097,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-dlltool"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-dlltool"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-dlltool"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-dlltool"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-dlltool"
       - "/opt/homebrew/bin/arm-none-eabi-dlltool"
       - "/opt/homebrew/sbin/arm-none-eabi-dlltool"
@@ -1093,6 +1121,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/dlltool"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/dlltool"
       - "/Users/3urdparty/.pixi/bin/dlltool"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/dlltool"
       - "/Users/mustafayousif/.local/share/mamba/condabin/dlltool"
       - "/opt/homebrew/bin/dlltool"
       - "/opt/homebrew/sbin/dlltool"
@@ -1119,6 +1148,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1172,6 +1202,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1198,6 +1229,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1251,6 +1283,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1275,6 +1308,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-tapi"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-tapi"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-tapi"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-tapi"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-tapi"
       - "/opt/homebrew/bin/arm-none-eabi-tapi"
       - "/opt/homebrew/sbin/arm-none-eabi-tapi"
@@ -1298,6 +1332,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/tapi"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/tapi"
       - "/Users/3urdparty/.pixi/bin/tapi"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/tapi"
       - "/Users/mustafayousif/.local/share/mamba/condabin/tapi"
       - "/opt/homebrew/bin/tapi"
       - "/opt/homebrew/sbin/tapi"
@@ -1324,6 +1359,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1379,6 +1415,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1403,6 +1440,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-15.2"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-15.2"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-15.2"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-15.2"
@@ -1426,6 +1464,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-15"
@@ -1449,6 +1488,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar15"
@@ -1475,6 +1515,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1530,6 +1571,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1554,6 +1596,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-15.2"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-15.2"
@@ -1577,6 +1620,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-15"
@@ -1600,6 +1644,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib15"
@@ -1626,6 +1671,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1678,6 +1724,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1708,6 +1755,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1767,6 +1815,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1868,6 +1917,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -1947,6 +1997,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -1971,6 +2022,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-15.2"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-15.2"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-15.2"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-15.2"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-15.2"
@@ -1994,6 +2046,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-15"
@@ -2017,6 +2070,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar15"
@@ -2043,6 +2097,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -2098,6 +2153,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2122,6 +2178,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-15.2"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-15.2"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-15.2"
@@ -2145,6 +2202,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-15"
@@ -2168,6 +2226,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib15"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib15"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib15"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib15"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib15"
@@ -2194,6 +2253,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -2229,8 +2289,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-wQ24tv"
-      binary: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-wQ24tv"
+      source: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-CQzsib"
+      binary: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-CQzsib"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: " -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage"
@@ -2240,10 +2300,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-wQ24tv'
+        Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-CQzsib'
         
-        Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_56469
-        [1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage  -std=gnu17   -v -o CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_4e52e
+        [1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage  -std=gnu17   -v -o CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc
         Target: arm-none-eabi
@@ -2251,8 +2311,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 15.2.1 20251203 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/'
-         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_56469.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -std=gnu17 -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccoI57gg.s
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/'
+         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_4e52e.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -std=gnu17 -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccR5usxG.s
         GNU C17 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) version 15.2.1 20251203 (arm-none-eabi)
         	compiled by GNU C version Apple LLVM 13.0.0 (clang-1300.0.29.30), GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
         
@@ -2269,13 +2329,13 @@ events:
          /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: 102968aafa3cff165d00ca07963f2f7f
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/'
-         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccoI57gg.s
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/'
+         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccR5usxG.s
         GNU assembler version 2.45.1 (arm-none-eabi) using BFD version (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 2.45.1.20251203
         COMPILER_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.'
-        [2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_56469.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_56469.a  CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_56469.a && /opt/homebrew/bin/cmake -E touch libcmTC_56469.a && :
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.'
+        [2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_4e52e.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_4e52e.a  CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_4e52e.a && /opt/homebrew/bin/cmake -E touch libcmTC_4e52e.a && :
         
       exitCode: 0
   -
@@ -2308,10 +2368,10 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(arm-none-eabi-g\\+\\+|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(arm-none-eabi-g\\+\\+|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-wQ24tv']
+        ignore line: [Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-CQzsib']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_56469]
-        ignore line: [[1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage  -std=gnu17   -v -o CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_4e52e]
+        ignore line: [[1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage  -std=gnu17   -v -o CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc]
         ignore line: [Target: arm-none-eabi]
@@ -2319,8 +2379,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 15.2.1 20251203 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/']
-        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_56469.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -std=gnu17 -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccoI57gg.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/']
+        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1 -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_4e52e.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -std=gnu17 -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccR5usxG.s]
         ignore line: [GNU C17 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) version 15.2.1 20251203 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version Apple LLVM 13.0.0 (clang-1300.0.29.30)  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
         ignore line: []
@@ -2337,13 +2397,13 @@ events:
         ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 102968aafa3cff165d00ca07963f2f7f]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/']
-        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccoI57gg.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/']
+        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccR5usxG.s]
         ignore line: [GNU assembler version 2.45.1 (arm-none-eabi) using BFD version (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 2.45.1.20251203]
         ignore line: [COMPILER_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.']
-        ignore line: [[2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_56469.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_56469.a  CMakeFiles/cmTC_56469.dir/CMakeCCompilerABI.c.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_56469.a && /opt/homebrew/bin/cmake -E touch libcmTC_56469.a && :]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-std=gnu17' '-v' '-o' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_4e52e.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_4e52e.a  CMakeFiles/cmTC_4e52e.dir/CMakeCCompilerABI.c.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_4e52e.a && /opt/homebrew/bin/cmake -E touch libcmTC_4e52e.a && :]
         ignore line: []
         ignore line: []
         implicit libs: []
@@ -2361,8 +2421,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-mpqVB2"
-      binary: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-mpqVB2"
+      source: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-vQR29c"
+      binary: "/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-vQR29c"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics"
       CMAKE_CXX_FLAGS_DEBUG: "-O0 -g3"
@@ -2373,10 +2433,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-mpqVB2'
+        Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-vQR29c'
         
-        Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_521a8
-        [1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -o CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_f2667
+        [1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -o CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++
         Target: arm-none-eabi
@@ -2384,8 +2444,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 15.2.1 20251203 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/'
-         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1plus -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_521a8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqyqLPO.s
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/'
+         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1plus -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_f2667.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqOva7v.s
         GNU C++17 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) version 15.2.1 20251203 (arm-none-eabi)
         	compiled by GNU C version Apple LLVM 13.0.0 (clang-1300.0.29.30), GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
         
@@ -2408,13 +2468,13 @@ events:
          /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: 70dd2b75a43d778853878c77fa3ca703
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/'
-         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqyqLPO.s
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/'
+         /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqOva7v.s
         GNU assembler version 2.45.1 (arm-none-eabi) using BFD version (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 2.45.1.20251203
         COMPILER_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.'
-        [2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_521a8.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_521a8.a  CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_521a8.a && /opt/homebrew/bin/cmake -E touch libcmTC_521a8.a && :
+        COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.'
+        [2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_f2667.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_f2667.a  CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_f2667.a && /opt/homebrew/bin/cmake -E touch libcmTC_f2667.a && :
         
       exitCode: 0
   -
@@ -2453,10 +2513,10 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(arm-none-eabi-g\\+\\+|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(arm-none-eabi-g\\+\\+|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-mpqVB2']
+        ignore line: [Change Dir: '/Users/mustafayousif/Code/arach/leg_control_board/build/CMakeFiles/CMakeScratch/TryCompile-vQR29c']
         ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_521a8]
-        ignore line: [[1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -o CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /opt/homebrew/bin/ninja -v cmTC_f2667]
+        ignore line: [[1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++   -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -Wall -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -o CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++]
         ignore line: [Target: arm-none-eabi]
@@ -2464,8 +2524,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 15.2.1 20251203 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/']
-        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1plus -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_521a8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqyqLPO.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/']
+        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/cc1plus -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/ -isysroot /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_f2667.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -mlibarch=armv7e-m+fp -march=armv7e-m+fp -Wall -version -fstack-usage -fdata-sections -ffunction-sections -fstack-usage -fno-rtti -fno-exceptions -fno-threadsafe-statics -o /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqOva7v.s]
         ignore line: [GNU C++17 (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) version 15.2.1 20251203 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version Apple LLVM 13.0.0 (clang-1300.0.29.30)  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
         ignore line: []
@@ -2488,13 +2548,13 @@ events:
         ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 70dd2b75a43d778853878c77fa3ca703]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/']
-        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqyqLPO.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/']
+        ignore line: [ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/as -v -march=armv7e-m+fp -mfloat-abi=hard -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj /var/folders/p6/mrc8kcdj7rs24fnljyvj8v440000gn/T//ccqOva7v.s]
         ignore line: [GNU assembler version 2.45.1 (arm-none-eabi) using BFD version (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 2.45.1.20251203]
         ignore line: [COMPILER_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../libexec/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [[2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_521a8.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_521a8.a  CMakeFiles/cmTC_521a8.dir/CMakeCXXCompilerABI.cpp.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_521a8.a && /opt/homebrew/bin/cmake -E touch libcmTC_521a8.a && :]
+        ignore line: [COLLECT_GCC_OPTIONS='-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-fstack-usage' '-mcpu=cortex-m4' '-mfpu=fpv4-sp-d16' '-mfloat-abi=hard' '-Wall' '-fdata-sections' '-ffunction-sections' '-fstack-usage' '-fno-rtti' '-fno-exceptions' '-fno-threadsafe-statics' '-v' '-o' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mthumb' '-mlibarch=armv7e-m+fp' '-march=armv7e-m+fp' '-dumpdir' 'CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [[2/2] : && /opt/homebrew/bin/cmake -E rm -f libcmTC_f2667.a && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ar qc libcmTC_f2667.a  CMakeFiles/cmTC_f2667.dir/CMakeCXXCompilerABI.cpp.obj && /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-ranlib libcmTC_f2667.a && /opt/homebrew/bin/cmake -E touch libcmTC_f2667.a && :]
         ignore line: []
         ignore line: []
         linker tool for 'CXX': [1/2] /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-g++
@@ -2560,6 +2620,7 @@ events:
       - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2590,6 +2651,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -2661,6 +2723,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2685,6 +2748,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-"
@@ -2708,6 +2772,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ar-"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ar-"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ar-"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ar-"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ar-"
@@ -2734,6 +2799,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"
@@ -2792,6 +2858,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/"
       - "/Users/3urdparty/.pixi/bin/"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/"
       - "/Users/mustafayousif/.local/share/mamba/condabin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
@@ -2816,6 +2883,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-"
@@ -2839,6 +2907,7 @@ events:
       - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/Caskroom/mambaforge/base/bin/arm-none-eabi-gcc-ranlib-"
       - "/Users/3urdparty/.pixi/bin/arm-none-eabi-gcc-ranlib-"
+      - "/Users/mustafayousif/.local/share/nvim/mason/bin/arm-none-eabi-gcc-ranlib-"
       - "/Users/mustafayousif/.local/share/mamba/condabin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/bin/arm-none-eabi-gcc-ranlib-"
       - "/opt/homebrew/sbin/arm-none-eabi-gcc-ranlib-"
@@ -2865,6 +2934,7 @@ events:
         - "/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin"
         - "/opt/homebrew/Caskroom/mambaforge/base/bin"
         - "/Users/3urdparty/.pixi/bin"
+        - "/Users/mustafayousif/.local/share/nvim/mason/bin"
         - "/Users/mustafayousif/.cargo/bin"
         - "/Users/mustafayousif/.local/bin"
         - "/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOS/bin"

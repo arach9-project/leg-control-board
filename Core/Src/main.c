@@ -20,6 +20,7 @@
 #include "main.h"
 #include "adc.h"
 #include "cordic.h"
+#include "drv8316_fields.h"
 #include "fdcan.h"
 #include "gpio.h"
 #include "spi.h"
@@ -176,12 +177,28 @@ int main(void) {
                      M0_nSLEEP_Pin) != HAL_OK)
         Error_Handler();
 
-    uint8_t rx;
-    bool locked = false;
-    DRV8316_PWM_Mode_t mode;
-    DRV8316_Set_PWM_Mode(&hdrv, DRV8316_PWM_MODE_3X);
-    DRV8316_Get_PWM_Mode(&hdrv, &mode);
-    printf("%d\r\n", mode);
+    DRV8316_SlewRate_t slew;
+    DRV8316_Set_Slew(&hdrv, DRV8316_SLEW_RATE_50V_US);
+    DRV8316_Get_Slew(&hdrv, &slew);
+    printf("%d\r\n", slew);
+    // 1. Explicitly unlock
+    // DRV8316_Write_Register(&hdrv, 0x03, 0x03, &rx); // 011b = unlock all
+    // printf("[0x%02x] = %02x\r\n", address, rx_frame & 0xFFU);
+    //
+    // // 2. Now write CTRL_2
+    // DRV8316_Write_Register(&hdrv, 0x04, 0x38, &rx);
+    //
+    // // 3. Retry CTRL_5
+    // DRV8316_Write_Register(&hdrv, 0x07, 0x02, &rx);
+    // DRV8316_Read_Register(&hdrv, 0x07, &rx);
+    // printf("CTRL5 = 0x%02X\r\n", rx & 0xFF); // expect 0x02
+    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_IC_STAT, rx_buf);
+    //
+    // DRV8316_Read_Register(&hdrv, DRV8316_REG_STAT_1, &rx_buf);
+    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_STAT_1, rx_buf);
+    //
+    // DRV8316_Read_Register(&hdrv, DRV8316_REG_STAT_2, &rx_buf);
+    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_STAT_2, rx_buf);
 
     /* USER CODE END 2 */
 

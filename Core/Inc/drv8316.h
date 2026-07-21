@@ -1,6 +1,7 @@
 #ifndef DRV8316_DRIVER_H
 #define DRV8316_DRIVER_H
 
+#include "drv8316_fields.h"
 #include "stm32g4xx_hal.h"
 #include <stdbool.h> // Provides bool, true, false
 #include <stdint.h>
@@ -10,48 +11,6 @@
 /**
  * @brief DRV8316 SPI Register Addresses
  */
-typedef enum {
-    DRV8316_REG_IC_STAT = 0x00, // IC Status Register (Global faults indicator)
-    DRV8316_REG_STAT_1 =
-        0x01, // Status Register 1 (Supply & communication diagnostics)
-    DRV8316_REG_STAT_2 =
-        0x02, // Status Register 2 (Individual bridge MOSFET overcurrents)
-    DRV8316_REG_CTRL_1 = 0x03, // Control Register 1 (Clear faults, thermal
-                               // warnings, gate unlock)
-    DRV8316_REG_CTRL_2 =
-        0x04, // Control Register 2 (PWM Mode, Slew Rate, Buck Config)
-    DRV8316_REG_CTRL_3 =
-        0x05, // Control Register 3 (Current Sense Amplifier gain & blanking)
-    DRV8316_REG_CTRL_4 = 0x06,
-    DRV8316_REG_CTRL_5 = 0x07,
-    DRV8316_REG_CTRL_6 = 0x08,
-    DRV8316_REG_CTRL_10 =
-        0xC // Control Register 4 (OCP thresholds and degradation options)
-} DRV8316_Register_t;
-
-#define DRV8316_CTRL2_SLEW_MASK (0x07 << 5)     // Bits [7:5]
-#define DRV8316_CTRL2_PWM_MODE_MASK (0x03 << 2) // Bits [3:2]
-#define DRV8316_CTRL2_BUCK_SEL_MASK (0x03 << 0) // Bits [1:0]
-//
-
-typedef enum {
-    DRV8316_REG_LOCK_UNLOCK = 0x03,
-    DRV8316_REG_LOCK_LOCK = 0x06,
-} DRV8316_Register_Lock_Status_t;
-
-typedef enum {
-    DRV8316_PWM_MODE_6X = 0,    /* Bits 2:1 = 00 */
-    DRV8316_PWM_MODE_6X_CL = 1, /* Bits 2:1 = 01 */
-    DRV8316_PWM_MODE_3X = 2,    /* Bits 2:1 = 10 */
-    DRV8316_PWM_MODE_3X_CL = 3  /* Bits 2:1 = 11 */
-} DRV8316_PWM_Mode_t;
-
-typedef enum {
-    DRV8316_BUCK_3V3 = 0x00,
-    DRV8316_BUCK_5V0 = 0x01,
-    DRV8316_BUCK_4V5 = 0x02,
-    DRV8316_BUCK_DISABLED = 0x03
-} DRV8316_Buck_Sel_t;
 /**
  * @brief Register 0x00 - IC Status Flags
  */
@@ -139,17 +98,157 @@ HAL_StatusTypeDef DRV8316_Write_Register(DRV8316_HandleTypeDef *hdrv,
                                          const uint8_t address,
                                          const uint8_t value, uint16_t *rx);
 
+/* CTRL_3 */
 HAL_StatusTypeDef
-DRV8316_Set_Register_Lock(DRV8316_HandleTypeDef *hdrv,
-                          const DRV8316_Register_Lock_Status_t val);
+DRV8316_Get_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OTW_Report_t *reporting);
+HAL_StatusTypeDef
+DRV8316_Set_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OTW_Report_t reporting);
 
 HAL_StatusTypeDef
-DRV8316_Get_Register_Lock(DRV8316_HandleTypeDef *hdrv,
-                          DRV8316_Register_Lock_Status_t *state);
+DRV8316_Get_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_OVP_Enable_t *enabled);
+HAL_StatusTypeDef
+DRV8316_Set_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_OVP_Enable_t enabled);
+
+HAL_StatusTypeDef DRV8316_Get_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv,
+                                                DRV8316_OVP_Level_t *level);
+HAL_StatusTypeDef DRV8316_Set_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv,
+                                                DRV8316_OVP_Level_t level);
+
+HAL_StatusTypeDef
+DRV8316_Get_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_PWM100DutyFrequency_t *frequency);
+HAL_StatusTypeDef
+DRV8316_Set_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_PWM100DutyFrequency_t frequency);
+
+/* CTRL_4 */
+HAL_StatusTypeDef DRV8316_Get_OCP_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_OCP_Mode_t *mode);
+HAL_StatusTypeDef DRV8316_Set_OCP_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_OCP_Mode_t mode);
+
+HAL_StatusTypeDef DRV8316_Get_OCP_Level(DRV8316_HandleTypeDef *hdrv,
+                                        DRV8316_OCP_Level_t *level);
+HAL_StatusTypeDef DRV8316_Set_OCP_Level(DRV8316_HandleTypeDef *hdrv,
+                                        DRV8316_OCP_Level_t level);
+
+HAL_StatusTypeDef
+DRV8316_Get_OCP_Retry_Time(DRV8316_HandleTypeDef *hdrv,
+                           DRV8316_OCP_RetryTime_t *retry_time);
+HAL_StatusTypeDef
+DRV8316_Set_OCP_Retry_Time(DRV8316_HandleTypeDef *hdrv,
+                           DRV8316_OCP_RetryTime_t retry_time);
+
+HAL_StatusTypeDef
+DRV8316_Get_OCP_Deglitch_Time(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_OCP_DeglitchTime_t *deglitch_time);
+HAL_StatusTypeDef
+DRV8316_Set_OCP_Deglitch_Time(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_OCP_DeglitchTime_t deglitch_time);
+
+HAL_StatusTypeDef DRV8316_Get_OCP_CBC(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OCP_CBC_t *enabled);
+HAL_StatusTypeDef DRV8316_Set_OCP_CBC(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OCP_CBC_t enabled);
+
+HAL_StatusTypeDef DRV8316_Get_Driver_State(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DriverState_t *state);
+HAL_StatusTypeDef DRV8316_Set_Driver_State(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DriverState_t state);
+
+/* CTRL_5 */
+HAL_StatusTypeDef DRV8316_Get_Current_Sense_Gain(DRV8316_HandleTypeDef *hdrv,
+                                                 DRV8316_CSA_Gain_t *gain);
+HAL_StatusTypeDef DRV8316_Set_Current_Sense_Gain(DRV8316_HandleTypeDef *hdrv,
+                                                 DRV8316_CSA_Gain_t gain);
+
+HAL_StatusTypeDef DRV8316_Get_ASR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_ASR_Enable_t *enabled);
+HAL_StatusTypeDef DRV8316_Set_ASR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_ASR_Enable_t enabled);
+
+HAL_StatusTypeDef DRV8316_Get_AAR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_AAR_Enable_t *enabled);
+HAL_StatusTypeDef DRV8316_Set_AAR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_AAR_Enable_t enabled);
+
+HAL_StatusTypeDef
+DRV8316_Get_ILIM_Recirculation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_ILIM_Recirculation_t *mode);
+HAL_StatusTypeDef
+DRV8316_Set_ILIM_Recirculation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_ILIM_Recirculation_t mode);
+
+/* CTRL_6 */
+HAL_StatusTypeDef DRV8316_Get_Buck_State(DRV8316_HandleTypeDef *hdrv,
+                                         DRV8316_BuckDisable_t *state);
+HAL_StatusTypeDef DRV8316_Set_Buck_State(DRV8316_HandleTypeDef *hdrv,
+                                         DRV8316_BuckDisable_t state);
+
+HAL_StatusTypeDef DRV8316_Get_Buck_Voltage(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_BuckVoltage_t *voltage);
+HAL_StatusTypeDef DRV8316_Set_Buck_Voltage(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_BuckVoltage_t voltage);
+
+HAL_StatusTypeDef
+DRV8316_Get_Buck_Current_Limit(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_BuckCurrentLimit_t *limit);
+HAL_StatusTypeDef
+DRV8316_Set_Buck_Current_Limit(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_BuckCurrentLimit_t limit);
+
+HAL_StatusTypeDef
+DRV8316_Get_Buck_Power_Sequencing(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_BuckPowerSequence_t *state);
+HAL_StatusTypeDef
+DRV8316_Set_Buck_Power_Sequencing(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_BuckPowerSequence_t state);
+
+/* CTRL_10 */
+HAL_StatusTypeDef DRV8316_Get_Delay_Target(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DelayTarget_t *target);
+HAL_StatusTypeDef DRV8316_Set_Delay_Target(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DelayTarget_t target);
+
+HAL_StatusTypeDef
+DRV8316_Get_Delay_Compensation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_DelayCompensation_t *enabled);
+HAL_StatusTypeDef
+DRV8316_Set_Delay_Compensation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_DelayCompensation_t enabled);
+
+HAL_StatusTypeDef DRV8316_Get_SDO_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_SDO_Mode_t *mode);
+
+HAL_StatusTypeDef DRV8316_Set_SDO_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_SDO_Mode_t mode);
+
+HAL_StatusTypeDef DRV8316_Get_Slew(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_SlewRate_t *slew);
+
+HAL_StatusTypeDef DRV8316_Set_Slew(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_SlewRate_t slew);
+
+HAL_StatusTypeDef DRV8316_Get_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_PWM_Mode_t *mode);
 
 HAL_StatusTypeDef DRV8316_Set_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
                                        DRV8316_PWM_Mode_t mode);
 
-HAL_StatusTypeDef DRV8316_Get_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
-                                       DRV8316_PWM_Mode_t *mode);
+HAL_StatusTypeDef
+DRV8316_Get_Register_Lock(DRV8316_HandleTypeDef *hdrv,
+                          DRV8316_RegisterLock_t *lock_status);
+
+HAL_StatusTypeDef DRV8316_Set_Register_Lock(DRV8316_HandleTypeDef *hdrv,
+                                            DRV8316_RegisterLock_t lock_status);
+
+HAL_StatusTypeDef DRV8316_Lock_Registers(DRV8316_HandleTypeDef *hdrv);
+
+HAL_StatusTypeDef DRV8316_Unlock_Registers(DRV8316_HandleTypeDef *hdrv);
+
+HAL_StatusTypeDef DRV8316_Clear_Faults(DRV8316_HandleTypeDef *hdrv);
 #endif

@@ -1,5 +1,6 @@
 
 #include "drv8316.h"
+#include "drv8316_fields.h"
 #include "main.h"
 #include "stm32g431xx.h"
 #include "stm32g4xx_hal_def.h"
@@ -195,582 +196,794 @@ HAL_StatusTypeDef DRV8316_Init(DRV8316_HandleTypeDef *hdrv,
     return HAL_OK;
 }
 
-HAL_StatusTypeDef
-DRV8316_Set_Register_Lock(DRV8316_HandleTypeDef *hdrv,
-                          const DRV8316_Register_Lock_Status_t val) {
-    uint16_t rx_buf;
-    if (DRV8316_Write_Register(hdrv, DRV8316_REG_CTRL_1, val, &rx_buf) !=
-        HAL_OK) {
+/*
+ * These helpers expect masks that are already shifted into their register
+ * positions. They preserve all unrelated register bits.
+ */
+
+static HAL_StatusTypeDef DRV8316_Get_Field(DRV8316_HandleTypeDef *hdrv,
+                                           uint8_t register_address,
+                                           uint8_t mask, uint8_t offset,
+                                           uint8_t *value) {
+    uint8_t reg_value = 0U;
+
+    if ((hdrv == NULL) || (value == NULL)) {
         return HAL_ERROR;
     }
+
+    if (DRV8316_Read_Register(hdrv, register_address, &reg_value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *value = (uint8_t)((reg_value & mask) >> offset);
     return HAL_OK;
+}
+
+static HAL_StatusTypeDef DRV8316_Set_Field(DRV8316_HandleTypeDef *hdrv,
+                                           uint8_t register_address,
+                                           uint8_t mask, uint8_t offset,
+                                           uint8_t value) {
+    uint8_t reg_value = 0U;
+
+    if (hdrv == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Read_Register(hdrv, register_address, &reg_value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    reg_value &= (uint8_t)~mask;
+    reg_value |= (uint8_t)((value << offset) & mask);
+
+    return DRV8316_Write_Register(hdrv, register_address, reg_value, NULL);
+}
+
+/* ============================================================
+ * CTRL_3
+ * ============================================================ */
+
+HAL_StatusTypeDef
+DRV8316_Get_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OTW_Report_t *reporting) {
+    uint8_t value = 0U;
+
+    if (reporting == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_3, DRV8316_CTRL3_OTW_REP_MASK,
+                          DRV8316_CTRL3_OTW_REP_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *reporting = (DRV8316_OTW_Report_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OTW_Report_t reporting) {
+    if ((uint8_t)reporting > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_3,
+                             DRV8316_CTRL3_OTW_REP_MASK,
+                             DRV8316_CTRL3_OTW_REP_OFFSET, (uint8_t)reporting);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_OVP_Enable_t *enabled) {
+    uint8_t value = 0U;
+
+    if (enabled == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_3, DRV8316_CTRL3_OVP_EN_MASK,
+                          DRV8316_CTRL3_OVP_EN_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *enabled = (DRV8316_OVP_Enable_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_OVP_Enable_t enabled) {
+    if ((uint8_t)enabled > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_3,
+                             DRV8316_CTRL3_OVP_EN_MASK,
+                             DRV8316_CTRL3_OVP_EN_OFFSET, (uint8_t)enabled);
+}
+
+HAL_StatusTypeDef DRV8316_Get_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv,
+                                                DRV8316_OVP_Level_t *level) {
+    uint8_t value = 0U;
+
+    if (level == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_3, DRV8316_CTRL3_OVP_SEL_MASK,
+                          DRV8316_CTRL3_OVP_SEL_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *level = (DRV8316_OVP_Level_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv,
+                                                DRV8316_OVP_Level_t level) {
+    if ((uint8_t)level > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_3,
+                             DRV8316_CTRL3_OVP_SEL_MASK,
+                             DRV8316_CTRL3_OVP_SEL_OFFSET, (uint8_t)level);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_PWM100DutyFrequency_t *frequency) {
+    uint8_t value = 0U;
+
+    if (frequency == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(
+            hdrv, DRV8316_REG_CTRL_3, DRV8316_CTRL3_PWM_100_DUTY_MASK,
+            DRV8316_CTRL3_PWM_100_DUTY_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *frequency = (DRV8316_PWM100DutyFrequency_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_PWM100DutyFrequency_t frequency) {
+    if ((uint8_t)frequency > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(
+        hdrv, DRV8316_REG_CTRL_3, DRV8316_CTRL3_PWM_100_DUTY_MASK,
+        DRV8316_CTRL3_PWM_100_DUTY_OFFSET, (uint8_t)frequency);
+}
+
+/* ============================================================
+ * CTRL_4
+ * ============================================================ */
+
+HAL_StatusTypeDef DRV8316_Get_OCP_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_OCP_Mode_t *mode) {
+    uint8_t value = 0U;
+
+    if (mode == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_MODE_MASK,
+                          DRV8316_CTRL4_OCP_MODE_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *mode = (DRV8316_OCP_Mode_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_OCP_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_OCP_Mode_t mode) {
+    if ((uint8_t)mode > 3U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_4,
+                             DRV8316_CTRL4_OCP_MODE_MASK,
+                             DRV8316_CTRL4_OCP_MODE_OFFSET, (uint8_t)mode);
+}
+
+HAL_StatusTypeDef DRV8316_Get_OCP_Level(DRV8316_HandleTypeDef *hdrv,
+                                        DRV8316_OCP_Level_t *level) {
+    uint8_t value = 0U;
+
+    if (level == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_LVL_MASK,
+                          DRV8316_CTRL4_OCP_LVL_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *level = (DRV8316_OCP_Level_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_OCP_Level(DRV8316_HandleTypeDef *hdrv,
+                                        DRV8316_OCP_Level_t level) {
+    if ((uint8_t)level > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_4,
+                             DRV8316_CTRL4_OCP_LVL_MASK,
+                             DRV8316_CTRL4_OCP_LVL_OFFSET, (uint8_t)level);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_OCP_Retry_Time(DRV8316_HandleTypeDef *hdrv,
+                           DRV8316_OCP_RetryTime_t *retry_time) {
+    uint8_t value = 0U;
+
+    if (retry_time == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4,
+                          DRV8316_CTRL4_OCP_RETRY_MASK,
+                          DRV8316_CTRL4_OCP_RETRY_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *retry_time = (DRV8316_OCP_RetryTime_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_OCP_Retry_Time(DRV8316_HandleTypeDef *hdrv,
+                           DRV8316_OCP_RetryTime_t retry_time) {
+    if ((uint8_t)retry_time > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(
+        hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_RETRY_MASK,
+        DRV8316_CTRL4_OCP_RETRY_OFFSET, (uint8_t)retry_time);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_OCP_Deglitch_Time(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_OCP_DeglitchTime_t *deglitch_time) {
+    uint8_t value = 0U;
+
+    if (deglitch_time == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_DEG_MASK,
+                          DRV8316_CTRL4_OCP_DEG_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *deglitch_time = (DRV8316_OCP_DeglitchTime_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_OCP_Deglitch_Time(DRV8316_HandleTypeDef *hdrv,
+                              DRV8316_OCP_DeglitchTime_t deglitch_time) {
+    if ((uint8_t)deglitch_time > 3U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(
+        hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_DEG_MASK,
+        DRV8316_CTRL4_OCP_DEG_OFFSET, (uint8_t)deglitch_time);
+}
+
+HAL_StatusTypeDef DRV8316_Get_OCP_CBC(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OCP_CBC_t *enabled) {
+    uint8_t value = 0U;
+
+    if (enabled == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_OCP_CBC_MASK,
+                          DRV8316_CTRL4_OCP_CBC_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *enabled = (DRV8316_OCP_CBC_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_OCP_CBC(DRV8316_HandleTypeDef *hdrv,
+                                      DRV8316_OCP_CBC_t enabled) {
+    if ((uint8_t)enabled > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_4,
+                             DRV8316_CTRL4_OCP_CBC_MASK,
+                             DRV8316_CTRL4_OCP_CBC_OFFSET, (uint8_t)enabled);
+}
+
+HAL_StatusTypeDef DRV8316_Get_Driver_State(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DriverState_t *state) {
+    uint8_t value = 0U;
+
+    if (state == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_4, DRV8316_CTRL4_DRV_OFF_MASK,
+                          DRV8316_CTRL4_DRV_OFF_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *state = (DRV8316_DriverState_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Driver_State(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DriverState_t state) {
+    if ((uint8_t)state > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_4,
+                             DRV8316_CTRL4_DRV_OFF_MASK,
+                             DRV8316_CTRL4_DRV_OFF_OFFSET, (uint8_t)state);
+}
+
+/* ============================================================
+ * CTRL_5
+ * ============================================================ */
+
+HAL_StatusTypeDef DRV8316_Get_Current_Sense_Gain(DRV8316_HandleTypeDef *hdrv,
+                                                 DRV8316_CSA_Gain_t *gain) {
+    uint8_t value = 0U;
+
+    if (gain == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_5, DRV8316_CTRL5_CSA_GAIN_MASK,
+                          DRV8316_CTRL5_CSA_GAIN_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *gain = (DRV8316_CSA_Gain_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Current_Sense_Gain(DRV8316_HandleTypeDef *hdrv,
+                                                 DRV8316_CSA_Gain_t gain) {
+    if ((uint8_t)gain > 3U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_5,
+                             DRV8316_CTRL5_CSA_GAIN_MASK,
+                             DRV8316_CTRL5_CSA_GAIN_OFFSET, (uint8_t)gain);
+}
+
+HAL_StatusTypeDef DRV8316_Get_ASR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_ASR_Enable_t *enabled) {
+    uint8_t value = 0U;
+
+    if (enabled == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_5, DRV8316_CTRL5_EN_ASR_MASK,
+                          DRV8316_CTRL5_EN_ASR_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *enabled = (DRV8316_ASR_Enable_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_ASR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_ASR_Enable_t enabled) {
+    if ((uint8_t)enabled > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_5,
+                             DRV8316_CTRL5_EN_ASR_MASK,
+                             DRV8316_CTRL5_EN_ASR_OFFSET, (uint8_t)enabled);
+}
+
+HAL_StatusTypeDef DRV8316_Get_AAR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_AAR_Enable_t *enabled) {
+    uint8_t value = 0U;
+
+    if (enabled == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_5, DRV8316_CTRL5_EN_AAR_MASK,
+                          DRV8316_CTRL5_EN_AAR_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *enabled = (DRV8316_AAR_Enable_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_AAR(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_AAR_Enable_t enabled) {
+    if ((uint8_t)enabled > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_5,
+                             DRV8316_CTRL5_EN_AAR_MASK,
+                             DRV8316_CTRL5_EN_AAR_OFFSET, (uint8_t)enabled);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_ILIM_Recirculation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_ILIM_Recirculation_t *mode) {
+    uint8_t value = 0U;
+
+    if (mode == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_5,
+                          DRV8316_CTRL5_ILIM_RECIR_MASK,
+                          DRV8316_CTRL5_ILIM_RECIR_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *mode = (DRV8316_ILIM_Recirculation_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_ILIM_Recirculation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_ILIM_Recirculation_t mode) {
+    if ((uint8_t)mode > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_5,
+                             DRV8316_CTRL5_ILIM_RECIR_MASK,
+                             DRV8316_CTRL5_ILIM_RECIR_OFFSET, (uint8_t)mode);
+}
+
+/* ============================================================
+ * CTRL_6
+ * ============================================================ */
+
+HAL_StatusTypeDef DRV8316_Get_Buck_State(DRV8316_HandleTypeDef *hdrv,
+                                         DRV8316_BuckDisable_t *state) {
+    uint8_t value = 0U;
+
+    if (state == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_6, DRV8316_CTRL6_BUCK_DIS_MASK,
+                          DRV8316_CTRL6_BUCK_DIS_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *state = (DRV8316_BuckDisable_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Buck_State(DRV8316_HandleTypeDef *hdrv,
+                                         DRV8316_BuckDisable_t state) {
+    if ((uint8_t)state > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_6,
+                             DRV8316_CTRL6_BUCK_DIS_MASK,
+                             DRV8316_CTRL6_BUCK_DIS_OFFSET, (uint8_t)state);
+}
+
+HAL_StatusTypeDef DRV8316_Get_Buck_Voltage(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_BuckVoltage_t *voltage) {
+    uint8_t value = 0U;
+
+    if (voltage == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_6, DRV8316_CTRL6_BUCK_SEL_MASK,
+                          DRV8316_CTRL6_BUCK_SEL_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *voltage = (DRV8316_BuckVoltage_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Buck_Voltage(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_BuckVoltage_t voltage) {
+    if ((uint8_t)voltage > 3U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_6,
+                             DRV8316_CTRL6_BUCK_SEL_MASK,
+                             DRV8316_CTRL6_BUCK_SEL_OFFSET, (uint8_t)voltage);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_Buck_Current_Limit(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_BuckCurrentLimit_t *limit) {
+    uint8_t value = 0U;
+
+    if (limit == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_6, DRV8316_CTRL6_BUCK_CL_MASK,
+                          DRV8316_CTRL6_BUCK_CL_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *limit = (DRV8316_BuckCurrentLimit_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_Buck_Current_Limit(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_BuckCurrentLimit_t limit) {
+    if ((uint8_t)limit > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_6,
+                             DRV8316_CTRL6_BUCK_CL_MASK,
+                             DRV8316_CTRL6_BUCK_CL_OFFSET, (uint8_t)limit);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_Buck_Power_Sequencing(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_BuckPowerSequence_t *state) {
+    uint8_t value = 0U;
+
+    if (state == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_6,
+                          DRV8316_CTRL6_BUCK_PS_DIS_MASK,
+                          DRV8316_CTRL6_BUCK_PS_DIS_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *state = (DRV8316_BuckPowerSequence_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_Buck_Power_Sequencing(DRV8316_HandleTypeDef *hdrv,
+                                  DRV8316_BuckPowerSequence_t state) {
+    if ((uint8_t)state > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_6,
+                             DRV8316_CTRL6_BUCK_PS_DIS_MASK,
+                             DRV8316_CTRL6_BUCK_PS_DIS_OFFSET, (uint8_t)state);
+}
+
+/* ============================================================
+ * CTRL_10
+ * ============================================================ */
+
+HAL_StatusTypeDef DRV8316_Get_Delay_Target(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DelayTarget_t *target) {
+    uint8_t value = 0U;
+
+    if (target == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_10,
+                          DRV8316_CTRL10_DLY_TARGET_MASK,
+                          DRV8316_CTRL10_DLY_TARGET_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *target = (DRV8316_DelayTarget_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Delay_Target(DRV8316_HandleTypeDef *hdrv,
+                                           DRV8316_DelayTarget_t target) {
+    if ((uint8_t)target > 0x0FU) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_10,
+                             DRV8316_CTRL10_DLY_TARGET_MASK,
+                             DRV8316_CTRL10_DLY_TARGET_OFFSET, (uint8_t)target);
+}
+
+HAL_StatusTypeDef
+DRV8316_Get_Delay_Compensation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_DelayCompensation_t *enabled) {
+    uint8_t value = 0U;
+
+    if (enabled == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_10,
+                          DRV8316_CTRL10_DLYCMP_EN_MASK,
+                          DRV8316_CTRL10_DLYCMP_EN_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *enabled = (DRV8316_DelayCompensation_t)value;
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef
+DRV8316_Set_Delay_Compensation(DRV8316_HandleTypeDef *hdrv,
+                               DRV8316_DelayCompensation_t enabled) {
+    if ((uint8_t)enabled > 1U) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_10,
+                             DRV8316_CTRL10_DLYCMP_EN_MASK,
+                             DRV8316_CTRL10_DLYCMP_EN_OFFSET, (uint8_t)enabled);
+}
+HAL_StatusTypeDef DRV8316_Get_SDO_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_SDO_Mode_t *mode) {
+    uint8_t value = 0U;
+
+    if (mode == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_2, DRV8316_CTRL2_SDO_MODE_MASK,
+                          DRV8316_CTRL2_SDO_MODE_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *mode = (DRV8316_SDO_Mode_t)value;
+
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_SDO_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_SDO_Mode_t mode) {
+    if ((uint8_t)mode > (uint8_t)DRV8316_SDO_MODE_PUSH_PULL) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_2,
+                             DRV8316_CTRL2_SDO_MODE_MASK,
+                             DRV8316_CTRL2_SDO_MODE_OFFSET, (uint8_t)mode);
+}
+
+HAL_StatusTypeDef DRV8316_Get_Slew(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_SlewRate_t *slew) {
+    uint8_t value = 0U;
+
+    if (slew == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_2, DRV8316_CTRL2_SLEW_MASK,
+                          DRV8316_CTRL2_SLEW_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *slew = (DRV8316_SlewRate_t)value;
+
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_Slew(DRV8316_HandleTypeDef *hdrv,
+                                   DRV8316_SlewRate_t slew) {
+    if ((uint8_t)slew > (uint8_t)DRV8316_SLEW_RATE_200V_US) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_2, DRV8316_CTRL2_SLEW_MASK,
+                             DRV8316_CTRL2_SLEW_OFFSET, (uint8_t)slew);
+}
+
+HAL_StatusTypeDef DRV8316_Get_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_PWM_Mode_t *mode) {
+    uint8_t value = 0U;
+
+    if (mode == NULL) {
+        return HAL_ERROR;
+    }
+
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_2, DRV8316_CTRL2_PWM_MODE_MASK,
+                          DRV8316_CTRL2_PWM_MODE_OFFSET, &value) != HAL_OK) {
+        return HAL_ERROR;
+    }
+
+    *mode = (DRV8316_PWM_Mode_t)value;
+
+    return HAL_OK;
+}
+
+HAL_StatusTypeDef DRV8316_Set_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_PWM_Mode_t mode) {
+    if ((uint8_t)mode > (uint8_t)DRV8316_PWM_MODE_3X_CL) {
+        return HAL_ERROR;
+    }
+
+    return DRV8316_Set_Field(hdrv, DRV8316_REG_CTRL_2,
+                             DRV8316_CTRL2_PWM_MODE_MASK,
+                             DRV8316_CTRL2_PWM_MODE_OFFSET, (uint8_t)mode);
 }
 
 HAL_StatusTypeDef
 DRV8316_Get_Register_Lock(DRV8316_HandleTypeDef *hdrv,
-                          DRV8316_Register_Lock_Status_t *state) {
-    uint8_t ctrl1;
+                          DRV8316_RegisterLock_t *lock_status) {
+    uint8_t value = 0U;
 
-    if ((hdrv == NULL) || (state == NULL)) {
+    if (lock_status == NULL) {
         return HAL_ERROR;
     }
 
-    if (DRV8316_Read_Register(hdrv, DRV8316_REG_CTRL_1, &ctrl1) != HAL_OK) {
+    if (DRV8316_Get_Field(hdrv, DRV8316_REG_CTRL_1, DRV8316_CTRL1_REG_LOCK_MASK,
+                          DRV8316_CTRL1_REG_LOCK_OFFSET, &value) != HAL_OK) {
         return HAL_ERROR;
     }
 
-    switch (ctrl1 & 0x07) // Extract bits [2:0]
-    {
-        case 0x03:
-            *state = DRV8316_REG_LOCK_UNLOCK;
-            break;
-
-        case 0x06:
-            *state = DRV8316_REG_LOCK_LOCK;
-            break;
-
-        default:
-            return HAL_ERROR;
-    }
+    *lock_status = (DRV8316_RegisterLock_t)value;
 
     return HAL_OK;
 }
 
-// void DRV8316Driver3PWM::init(SPIClass *_spi) {
-//     DRV8316Driver::init(_spi);
-//     setRegistersLocked(false);
-//     delayMicroseconds(1);
-//     DRV8316Driver::setPWMMode(DRV8316_PWMMode::PWM3_Mode);
-//     BLDCDriver3PWM::init();
-// };
-//
-// void DRV8316Driver6PWM::init(SPIClass *_spi) {
-//     DRV8316Driver::init(_spi);
-//     setRegistersLocked(false);
-//     delayMicroseconds(1);
-//     DRV8316Driver::setPWMMode(
-//         DRV8316_PWMMode::PWM6_Mode); // default mode is 6-PWM
-//     BLDCDriver6PWM::init();
-// };
-//
-//
-// void handleInterrupt() {
-// }
-//
-// void DRV8316Driver::init(SPIClass *_spi) {
-//     // TODO make SPI speed configurable
-//     spi = _spi;
-//     settings = SPISettings(1000000, MSBFIRST, SPI_MODE1);
-//
-//     // setup pins
-//     pinMode(cs, OUTPUT);
-//     digitalWrite(cs, HIGH); // switch off
-//
-//     // SPI has an internal SPI-device counter, it is possible to call
-//     "begin()"
-//     // from different devices
-//     spi->begin();
-//
-//     if (_isset(nFault)) {
-//         pinMode(nFault, INPUT);
-//         // TODO add interrupt handler on the nFault pin if configured
-//         // add configuration for how to handle faults... idea: interrupt
-//         handler
-//         // calls a callback, depending on the type of fault consider what
-//         would
-//         // be a useful configuration in practice? What do we want to do on a
-//         // fault, e.g. over-temperature for example?
-//
-//         // attachInterrupt(digitalPinToInterrupt(nFault), handleInterrupt,
-//         // PinStatus::FALLING);
-//     }
-// };
-//
-//
-//
+HAL_StatusTypeDef
+DRV8316_Set_Register_Lock(DRV8316_HandleTypeDef *hdrv,
+                          DRV8316_RegisterLock_t lock_status) {
+    if ((lock_status != DRV8316_REG_LOCK_UNLOCK) &&
+        (lock_status != DRV8316_REG_LOCK_LOCK)) {
+        return HAL_ERROR;
+    }
 
-HAL_StatusTypeDef DRV8316_Get_IC_Status(DRV8316_HandleTypeDef *hdrv) {
-    // IC_Status data;
-    // Status__1 data1;
-    // Status__2 data2;
-    // uint16_t result = readSPI(IC_Status_ADDR);
-    // data.reg = (result & 0x00FF);
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = readSPI(Status__1_ADDR);
-    // data1.reg = (result & 0x00FF);
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = readSPI(Status__2_ADDR);
-    // data2.reg = (result & 0x00FF);
-    // return DRV8316Status(data, data1, data2);
+    return DRV8316_Set_Field(
+        hdrv, DRV8316_REG_CTRL_1, DRV8316_CTRL1_REG_LOCK_MASK,
+        DRV8316_CTRL1_REG_LOCK_OFFSET, (uint8_t)lock_status);
 }
 
-HAL_StatusTypeDef DRV8316_Clear_Fault(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__2_ADDR);
-    // Control__2 data;
-    // data.reg = (result & 0x00FF);
-    // data.CLR_FLT |= 1;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__2_ADDR, data.reg);
-};
+HAL_StatusTypeDef DRV8316_Lock_Registers(DRV8316_HandleTypeDef *hdrv) {
+    return DRV8316_Set_Register_Lock(hdrv, DRV8316_REG_LOCK_LOCK);
+}
 
-/*
- * CTRL2 Register (0x04)
- *
- *  Bit:   7   6   5   4   3   2   1   0
- *       +---+---+---+---+---+---+---+---+
- * CTRL2 |   |   |   |   |   | P | P | C |
- *       +---+---+---+---+---+---+---+---+
- *                             ^^^^^   ^
- *                        PWM_MODE  CLR_FLT
- *
- * PWM_MODE (Bits 2:1)
- *   00 = 6x PWM
- *   01 = 6x PWM + Current Limit
- *   10 = 3x PWM
- *   11 = 3x PWM + Current Limit
- */
-HAL_StatusTypeDef DRV8316_Set_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
-                                       DRV8316_PWM_Mode_t mode) {
-    uint8_t ctrl_2 = 0;
+HAL_StatusTypeDef DRV8316_Unlock_Registers(DRV8316_HandleTypeDef *hdrv) {
+    return DRV8316_Set_Register_Lock(hdrv, DRV8316_REG_LOCK_UNLOCK);
+}
+
+HAL_StatusTypeDef DRV8316_Clear_Faults(DRV8316_HandleTypeDef *hdrv) {
+    uint8_t ctrl_2 = 0U;
+
+    if (hdrv == NULL) {
+        return HAL_ERROR;
+    }
+
     if (DRV8316_Read_Register(hdrv, DRV8316_REG_CTRL_2, &ctrl_2) != HAL_OK) {
         return HAL_ERROR;
-    };
-    ctrl_2 &= ~(0x03U << 1);
-    ctrl_2 |= (((uint8_t)mode & 0x03U) << 1);
+    }
 
-    DRV8316_Write_Register(hdrv, DRV8316_REG_CTRL_2, ctrl_2, NULL);
-    return HAL_OK;
-};
+    /*
+     * CLR_FLT is write-one-to-clear.
+     * Preserve the other CTRL_2 fields and set bit 0.
+     */
+    ctrl_2 |= DRV8316_CTRL2_CLR_FLT_MASK;
 
-HAL_StatusTypeDef DRV8316_Get_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
-                                       DRV8316_PWM_Mode_t *mode) {
-    uint8_t ctrl_2 = 0;
-    if (DRV8316_Read_Register(hdrv, DRV8316_REG_CTRL_2, &ctrl_2) != HAL_OK) {
-        return HAL_ERROR;
-    };
-    *mode = (DRV8316_PWM_Mode_t)((ctrl_2 >> 1) & 0x03);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_Slew(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__2_ADDR);
-    // Control__2 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_Slew)data.SLEW;
-    // TODO: Implement this
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_Slew(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__2_ADDR);
-    // Control__2 data;
-    // data.reg = (result & 0x00FF);
-    // data.SLEW = slewRate;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__2_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_SDO_Mode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__2_ADDR);
-    // Control__2 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_SDOMode)data.SDO_MODE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_SDO_Mode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__2_ADDR);
-    // Control__2 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_SDOMode)data.SDO_MODE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_Is_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // return data.OTW_REP == OTW_REP_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_Set_Overtemperature_Reporting(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // data.OTW_REP = reportFault ? OTW_REP_ENABLE : OTW_REP_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__3_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Is_SPI_Fault_Reporting(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // return data.SPI_FLT_REP == SPI_FLT_REP_ENABLE;
-    return HAL_OK;
+    return DRV8316_Write_Register(hdrv, DRV8316_REG_CTRL_2, ctrl_2, NULL);
 }
-
-HAL_StatusTypeDef DRV8316_Set_SPI_Fault_Reporting(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // data.SPI_FLT_REP = reportFault ? SPI_FLT_REP_ENABLE :
-    // SPI_FLT_REP_DISABLE; delayMicroseconds(1); // delay at least 400ns
-    // between operations result = writeSPI(Control__3_ADDR, data.reg);
-    return HAL_OK;
-}
-
-HAL_StatusTypeDef
-DRV8316_Is_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // return data.OVP_EN == OVP_EN_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_Set_Overvoltage_Protection(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // data.OVP_EN = enabled ? OVP_EN_ENABLE : OVP_EN_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__3_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_OVP)data.OVP_SEL;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_Overvoltage_Level(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // data.OVP_SEL = voltage;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__3_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_PWM100DUTY)data.PWM_100_DUTY_SEL;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_PWM_100_Frequency(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__3_ADDR);
-    // Control__3 data;
-    // data.reg = (result & 0x00FF);
-    // data.PWM_100_DUTY_SEL = freq;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__3_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_OCP_Mode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_OCPMode)data.OCP_MODE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_OCP_Mode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.OCP_MODE = ocpMode;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_OCP_Level(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_OCPLevel)data.OCP_LVL;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Set_OCP_Level(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.OCP_LVL = amps;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_Get_OCP_Retry_Time(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_OCPRetry)data.OCP_RETRY;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setOCPRetryTime(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.OCP_RETRY = ms;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getOCPDeglitchTime(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_OCPDeglitch)data.OCP_DEG;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setOCPDeglitchTime(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.OCP_DEG = ms;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_isOCPClearInPWMCycleChange(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return data.OCP_CBC == OCP_CBC_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_setOCPClearInPWMCycleChange(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.OCP_CBC = enable ? OCP_CBC_ENABLE : OCP_CBC_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_isDriverOffEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // return data.DRV_OFF == DRV_OFF_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setDriverOffEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__4_ADDR);
-    // Control__4 data;
-    // data.reg = (result & 0x00FF);
-    // data.DRV_OFF = enabled ? DRV_OFF_ENABLE : DRV_OFF_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__4_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getCurrentSenseGain(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_CSAGain)data.CSA_GAIN;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setCurrentSenseGain(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // data.CSA_GAIN = gain;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__5_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_isActiveSynchronousRectificationEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // return data.EN_ASR == EN_ASR_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_setActiveSynchronousRectificationEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // data.EN_ASR = enabled ? EN_ASR_ENABLE : EN_ASR_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__5_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_isActiveAsynchronousRectificationEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // return data.EN_AAR == EN_AAR_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef
-DRV8316_setActiveAsynchronousRectificationEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // data.EN_AAR = enabled ? EN_AAR_ENABLE : EN_AAR_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__5_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getRecirculationMode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_Recirculation)data.ILIM_RECIR;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setRecirculationMode(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__5_ADDR);
-    // Control__5 data;
-    // data.reg = (result & 0x00FF);
-    // data.ILIM_RECIR = recirculationMode;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__5_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_isBuckEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // return data.BUCK_DIS == BUCK_DIS_BUCK_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setBuckEnabled(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // data.BUCK_DIS = enabled ? BUCK_DIS_BUCK_ENABLE : BUCK_DIS_BUCK_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__6_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getBuckVoltage(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_BuckVoltage)data.BUCK_SEL;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setBuckVoltage(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // data.BUCK_SEL = volts;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__6_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getBuckCurrentLimit(DRV8316_HandleTypeDef *hdrv) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_BuckCurrentLimit)data.BUCK_CL;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setBuckCurrentLimit(DRV8316_BuckCurrentLimit mamps) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // data.BUCK_CL = mamps;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__6_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_isBuckPowerSequencingEnabled() {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // return data.BUCK_PS_DIS == BUCK_PS_DIS_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setBuckPowerSequencingEnabled(bool enabled) {
-    // uint16_t result = readSPI(Control__6_ADDR);
-    // Control__6 data;
-    // data.reg = (result & 0x00FF);
-    // data.BUCK_PS_DIS = enabled ? BUCK_PS_DIS_ENABLE : BUCK_PS_DIS_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns
-    // between operations result = writeSPI(Control__6_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_getDelayTarget() {
-    // uint16_t result = readSPI(Control__10_ADDR);
-    // Control__10 data;
-    // data.reg = (result & 0x00FF);
-    // return (DRV8316_DelayTarget)data.DLY_TARGET;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setDelayTarget(DRV8316_DelayTarget us) {
-    // uint16_t result = readSPI(Control__10_ADDR);
-    // Control__10 data;
-    // data.reg = (result & 0x00FF);
-    // data.DLY_TARGET = us;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__10_ADDR, data.reg);
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_isDelayCompensationEnabled() {
-    // uint16_t result = readSPI(Control__10_ADDR);
-    // Control__10 data;
-    // data.reg = (result & 0x00FF);
-    // return data.DLYCMP_EN == DLYCMP_EN_ENABLE;
-    return HAL_OK;
-};
-
-HAL_StatusTypeDef DRV8316_setDelayCompensationEnabled(bool enabled) {
-    // uint16_t result = readSPI(Control__10_ADDR);
-    // Control__10 data;
-    // data.reg = (result & 0x00FF);
-    // data.DLYCMP_EN = enabled ? DLYCMP_EN_ENABLE : DLYCMP_EN_DISABLE;
-    // delayMicroseconds(1); // delay at least 400ns between operations
-    // result = writeSPI(Control__10_ADDR, data.reg);
-    return HAL_OK;
-};

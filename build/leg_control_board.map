@@ -4347,18 +4347,114 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .text.DRV8316_Update_Diagnostics
                 0x00000000       0x94 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Overtemperature_Reporting
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Overtemperature_Reporting
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Overvoltage_Protection
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Overvoltage_Protection
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Overvoltage_Level
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Overvoltage_Level
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_PWM_100_Frequency
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_PWM_100_Frequency
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_OCP_Mode
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_OCP_Mode
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_OCP_Level
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_OCP_Level
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_OCP_Retry_Time
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_OCP_Retry_Time
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_OCP_Deglitch_Time
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_OCP_Deglitch_Time
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_OCP_CBC
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_OCP_CBC
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Driver_State
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Driver_State
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Current_Sense_Gain
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Current_Sense_Gain
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_ASR
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_ASR
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_AAR
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_AAR
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_ILIM_Recirculation
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_ILIM_Recirculation
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Buck_State
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Buck_State
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Buck_Voltage
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Buck_Voltage
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Buck_Current_Limit
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Buck_Current_Limit
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Buck_Power_Sequencing
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Buck_Power_Sequencing
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Delay_Target
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Delay_Target
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Delay_Compensation
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Delay_Compensation
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_SDO_Mode
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_SDO_Mode
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_PWM_Mode
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_PWM_Mode
+                0x00000000       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .text.DRV8316_Get_Register_Lock
-                0x00000000       0x60 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00000000       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Lock_Registers
+                0x00000000       0x1a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Unlock_Registers
+                0x00000000       0x1a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Clear_Faults
+                0x00000000       0x4e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0xaea CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000      0x16d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x2e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x28 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x8e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x51 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0x103 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x6a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0x1df CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x00000000      0x186 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x00000000      0x16d CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x00000000       0x2e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x00000000       0x28 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x1c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0xfb CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
@@ -4391,7 +4487,6 @@ Discarded input sections
  .debug_macro   0x00000000      0xbda CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0x47e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0x306 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x22 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x7b CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x2a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
@@ -4409,7 +4504,6 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .debug_macro   0x00000000      0x170 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00000000       0x16 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .text          0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-exit.o)
@@ -4675,7 +4769,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x08000000                g_pfnVectors
                 0x080001d8                        . = ALIGN (0x4)
 
-.text           0x080001e0     0x6bc0
+.text           0x080001e0     0x6c28
                 0x080001e0                        . = ALIGN (0x4)
  *(.text)
  .text          0x080001e0       0xa0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memchr.o)
@@ -4886,424 +4980,426 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
  .text.SWO_Init
                 0x080045a0       0x88 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
                 0x080045a0                SWO_Init
- .text.main     0x08004628      0x15c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .text.main     0x08004628      0x140 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
                 0x08004628                main
  .text.SystemClock_Config
-                0x08004784       0x80 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
-                0x08004784                SystemClock_Config
- .text._write   0x08004804       0x38 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
-                0x08004804                _write
+                0x08004768       0x80 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+                0x08004768                SystemClock_Config
+ .text._write   0x080047e8       0x38 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+                0x080047e8                _write
  .text.Error_Handler
-                0x0800483c       0x24 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
-                0x0800483c                Error_Handler
+                0x08004820       0x24 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+                0x08004820                Error_Handler
  .text.MX_GPIO_Init
-                0x08004860      0x198 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
-                0x08004860                MX_GPIO_Init
+                0x08004844      0x198 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+                0x08004844                MX_GPIO_Init
  .text.MX_ADC1_Init
-                0x080049f8       0xf0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
-                0x080049f8                MX_ADC1_Init
+                0x080049dc       0xf0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+                0x080049dc                MX_ADC1_Init
  .text.MX_ADC2_Init
-                0x08004ae8       0xcc CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
-                0x08004ae8                MX_ADC2_Init
+                0x08004acc       0xcc CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+                0x08004acc                MX_ADC2_Init
  .text.HAL_ADC_MspInit
-                0x08004bb4      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
-                0x08004bb4                HAL_ADC_MspInit
+                0x08004b98      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+                0x08004b98                HAL_ADC_MspInit
  .text.MX_CORDIC_Init
-                0x08004d68       0x28 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
-                0x08004d68                MX_CORDIC_Init
+                0x08004d4c       0x28 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+                0x08004d4c                MX_CORDIC_Init
  .text.HAL_CORDIC_MspInit
-                0x08004d90       0x3c CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
-                0x08004d90                HAL_CORDIC_MspInit
+                0x08004d74       0x3c CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+                0x08004d74                HAL_CORDIC_MspInit
  .text.MX_FDCAN1_Init
-                0x08004dcc       0x8c CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
-                0x08004dcc                MX_FDCAN1_Init
+                0x08004db0       0x8c CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+                0x08004db0                MX_FDCAN1_Init
  .text.HAL_FDCAN_MspInit
-                0x08004e58       0xb4 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
-                0x08004e58                HAL_FDCAN_MspInit
+                0x08004e3c       0xb4 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+                0x08004e3c                HAL_FDCAN_MspInit
  .text.MX_SPI1_Init
-                0x08004f0c       0x7c CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
-                0x08004f0c                MX_SPI1_Init
+                0x08004ef0       0x7c CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+                0x08004ef0                MX_SPI1_Init
  .text.HAL_SPI_MspInit
-                0x08004f88       0x84 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
-                0x08004f88                HAL_SPI_MspInit
+                0x08004f6c       0x84 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+                0x08004f6c                HAL_SPI_MspInit
  .text.MX_TIM1_Init
-                0x0800500c      0x1e0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
-                0x0800500c                MX_TIM1_Init
+                0x08004ff0      0x1e0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+                0x08004ff0                MX_TIM1_Init
  .text.MX_TIM2_Init
-                0x080051ec      0x130 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
-                0x080051ec                MX_TIM2_Init
+                0x080051d0      0x130 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+                0x080051d0                MX_TIM2_Init
  .text.MX_TIM8_Init
-                0x0800531c      0x1a8 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
-                0x0800531c                MX_TIM8_Init
+                0x08005300      0x1a8 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+                0x08005300                MX_TIM8_Init
  .text.HAL_TIM_Base_MspInit
-                0x080054c4       0xd4 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
-                0x080054c4                HAL_TIM_Base_MspInit
+                0x080054a8       0xd4 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+                0x080054a8                HAL_TIM_Base_MspInit
  .text.HAL_TIM_MspPostInit
-                0x08005598      0x100 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
-                0x08005598                HAL_TIM_MspPostInit
+                0x0800557c      0x100 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+                0x0800557c                HAL_TIM_MspPostInit
  .text.NMI_Handler
-                0x08005698        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x08005698                NMI_Handler
+                0x0800567c        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x0800567c                NMI_Handler
  .text.HardFault_Handler
-                0x080056a0        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056a0                HardFault_Handler
+                0x08005684        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08005684                HardFault_Handler
  .text.MemManage_Handler
-                0x080056a8        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056a8                MemManage_Handler
+                0x0800568c        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x0800568c                MemManage_Handler
  .text.BusFault_Handler
-                0x080056b0        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056b0                BusFault_Handler
+                0x08005694        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08005694                BusFault_Handler
  .text.UsageFault_Handler
-                0x080056b8        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056b8                UsageFault_Handler
+                0x0800569c        0x8 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x0800569c                UsageFault_Handler
  .text.SVC_Handler
-                0x080056c0        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056c0                SVC_Handler
+                0x080056a4        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080056a4                SVC_Handler
  .text.DebugMon_Handler
-                0x080056cc        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056cc                DebugMon_Handler
+                0x080056b0        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080056b0                DebugMon_Handler
  .text.PendSV_Handler
-                0x080056d8        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056d8                PendSV_Handler
+                0x080056bc        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080056bc                PendSV_Handler
  .text.SysTick_Handler
-                0x080056e4        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080056e4                SysTick_Handler
+                0x080056c8        0xc CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080056c8                SysTick_Handler
  .text.HAL_MspInit
-                0x080056f0       0x48 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
-                0x080056f0                HAL_MspInit
- .text._sbrk    0x08005738       0x6c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
-                0x08005738                _sbrk
- .text._read    0x080057a4       0x3a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
-                0x080057a4                _read
- .text._close   0x080057de       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
-                0x080057de                _close
- .text._fstat   0x080057f4       0x1e CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
-                0x080057f4                _fstat
- .text._isatty  0x08005812       0x14 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
-                0x08005812                _isatty
- .text._lseek   0x08005826       0x18 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
-                0x08005826                _lseek
- *fill*         0x0800583e        0x2 
+                0x080056d4       0x48 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+                0x080056d4                HAL_MspInit
+ .text._sbrk    0x0800571c       0x6c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+                0x0800571c                _sbrk
+ .text._read    0x08005788       0x3a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+                0x08005788                _read
+ .text._close   0x080057c2       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+                0x080057c2                _close
+ .text._fstat   0x080057d8       0x1e CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+                0x080057d8                _fstat
+ .text._isatty  0x080057f6       0x14 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+                0x080057f6                _isatty
+ .text._lseek   0x0800580a       0x18 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+                0x0800580a                _lseek
+ *fill*         0x08005822        0x2 
  .text.Reset_Handler
-                0x08005840       0x50 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
-                0x08005840                Reset_Handler
+                0x08005824       0x50 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+                0x08005824                Reset_Handler
  .text.Default_Handler
-                0x08005890        0x2 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
-                0x08005890                TIM1_BRK_TIM15_IRQHandler
-                0x08005890                EXTI2_IRQHandler
-                0x08005890                TIM8_TRG_COM_IRQHandler
-                0x08005890                TIM8_CC_IRQHandler
-                0x08005890                TIM1_CC_IRQHandler
-                0x08005890                USB_HP_IRQHandler
-                0x08005890                CORDIC_IRQHandler
-                0x08005890                EXTI3_IRQHandler
-                0x08005890                I2C3_ER_IRQHandler
-                0x08005890                EXTI0_IRQHandler
-                0x08005890                I2C2_EV_IRQHandler
-                0x08005890                FPU_IRQHandler
-                0x08005890                FDCAN1_IT1_IRQHandler
-                0x08005890                TIM1_UP_TIM16_IRQHandler
-                0x08005890                ADC1_2_IRQHandler
-                0x08005890                SPI1_IRQHandler
-                0x08005890                TIM6_DAC_IRQHandler
-                0x08005890                TIM8_UP_IRQHandler
-                0x08005890                DMA2_Channel2_IRQHandler
-                0x08005890                DMA1_Channel4_IRQHandler
-                0x08005890                USART3_IRQHandler
-                0x08005890                TIM4_IRQHandler
-                0x08005890                DMA2_Channel1_IRQHandler
-                0x08005890                I2C1_EV_IRQHandler
-                0x08005890                DMA1_Channel6_IRQHandler
-                0x08005890                UART4_IRQHandler
-                0x08005890                DMA2_Channel4_IRQHandler
-                0x08005890                TIM3_IRQHandler
-                0x08005890                RCC_IRQHandler
-                0x08005890                DMA1_Channel1_IRQHandler
-                0x08005890                Default_Handler
-                0x08005890                RTC_TAMP_LSECSS_IRQHandler
-                0x08005890                FMAC_IRQHandler
-                0x08005890                EXTI15_10_IRQHandler
-                0x08005890                TIM7_IRQHandler
-                0x08005890                UCPD1_IRQHandler
-                0x08005890                I2C3_EV_IRQHandler
-                0x08005890                EXTI9_5_IRQHandler
-                0x08005890                RTC_WKUP_IRQHandler
-                0x08005890                PVD_PVM_IRQHandler
-                0x08005890                SPI2_IRQHandler
-                0x08005890                DMA2_Channel5_IRQHandler
-                0x08005890                CRS_IRQHandler
-                0x08005890                DMA1_Channel5_IRQHandler
-                0x08005890                USB_LP_IRQHandler
-                0x08005890                EXTI4_IRQHandler
-                0x08005890                RNG_IRQHandler
-                0x08005890                TIM1_TRG_COM_TIM17_IRQHandler
-                0x08005890                DMA1_Channel3_IRQHandler
-                0x08005890                WWDG_IRQHandler
-                0x08005890                LPUART1_IRQHandler
-                0x08005890                DMA2_Channel6_IRQHandler
-                0x08005890                FDCAN1_IT0_IRQHandler
-                0x08005890                TIM2_IRQHandler
-                0x08005890                COMP1_2_3_IRQHandler
-                0x08005890                EXTI1_IRQHandler
-                0x08005890                USART2_IRQHandler
-                0x08005890                I2C2_ER_IRQHandler
-                0x08005890                DMA1_Channel2_IRQHandler
-                0x08005890                TIM8_BRK_IRQHandler
-                0x08005890                FLASH_IRQHandler
-                0x08005890                USART1_IRQHandler
-                0x08005890                SPI3_IRQHandler
-                0x08005890                I2C1_ER_IRQHandler
-                0x08005890                LPTIM1_IRQHandler
-                0x08005890                DMAMUX_OVR_IRQHandler
-                0x08005890                USBWakeUp_IRQHandler
-                0x08005890                SAI1_IRQHandler
-                0x08005890                DMA2_Channel3_IRQHandler
-                0x08005890                COMP4_IRQHandler
-                0x08005890                RTC_Alarm_IRQHandler
- *fill*         0x08005892        0x2 
+                0x08005874        0x2 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+                0x08005874                TIM1_BRK_TIM15_IRQHandler
+                0x08005874                EXTI2_IRQHandler
+                0x08005874                TIM8_TRG_COM_IRQHandler
+                0x08005874                TIM8_CC_IRQHandler
+                0x08005874                TIM1_CC_IRQHandler
+                0x08005874                USB_HP_IRQHandler
+                0x08005874                CORDIC_IRQHandler
+                0x08005874                EXTI3_IRQHandler
+                0x08005874                I2C3_ER_IRQHandler
+                0x08005874                EXTI0_IRQHandler
+                0x08005874                I2C2_EV_IRQHandler
+                0x08005874                FPU_IRQHandler
+                0x08005874                FDCAN1_IT1_IRQHandler
+                0x08005874                TIM1_UP_TIM16_IRQHandler
+                0x08005874                ADC1_2_IRQHandler
+                0x08005874                SPI1_IRQHandler
+                0x08005874                TIM6_DAC_IRQHandler
+                0x08005874                TIM8_UP_IRQHandler
+                0x08005874                DMA2_Channel2_IRQHandler
+                0x08005874                DMA1_Channel4_IRQHandler
+                0x08005874                USART3_IRQHandler
+                0x08005874                TIM4_IRQHandler
+                0x08005874                DMA2_Channel1_IRQHandler
+                0x08005874                I2C1_EV_IRQHandler
+                0x08005874                DMA1_Channel6_IRQHandler
+                0x08005874                UART4_IRQHandler
+                0x08005874                DMA2_Channel4_IRQHandler
+                0x08005874                TIM3_IRQHandler
+                0x08005874                RCC_IRQHandler
+                0x08005874                DMA1_Channel1_IRQHandler
+                0x08005874                Default_Handler
+                0x08005874                RTC_TAMP_LSECSS_IRQHandler
+                0x08005874                FMAC_IRQHandler
+                0x08005874                EXTI15_10_IRQHandler
+                0x08005874                TIM7_IRQHandler
+                0x08005874                UCPD1_IRQHandler
+                0x08005874                I2C3_EV_IRQHandler
+                0x08005874                EXTI9_5_IRQHandler
+                0x08005874                RTC_WKUP_IRQHandler
+                0x08005874                PVD_PVM_IRQHandler
+                0x08005874                SPI2_IRQHandler
+                0x08005874                DMA2_Channel5_IRQHandler
+                0x08005874                CRS_IRQHandler
+                0x08005874                DMA1_Channel5_IRQHandler
+                0x08005874                USB_LP_IRQHandler
+                0x08005874                EXTI4_IRQHandler
+                0x08005874                RNG_IRQHandler
+                0x08005874                TIM1_TRG_COM_TIM17_IRQHandler
+                0x08005874                DMA1_Channel3_IRQHandler
+                0x08005874                WWDG_IRQHandler
+                0x08005874                LPUART1_IRQHandler
+                0x08005874                DMA2_Channel6_IRQHandler
+                0x08005874                FDCAN1_IT0_IRQHandler
+                0x08005874                TIM2_IRQHandler
+                0x08005874                COMP1_2_3_IRQHandler
+                0x08005874                EXTI1_IRQHandler
+                0x08005874                USART2_IRQHandler
+                0x08005874                I2C2_ER_IRQHandler
+                0x08005874                DMA1_Channel2_IRQHandler
+                0x08005874                TIM8_BRK_IRQHandler
+                0x08005874                FLASH_IRQHandler
+                0x08005874                USART1_IRQHandler
+                0x08005874                SPI3_IRQHandler
+                0x08005874                I2C1_ER_IRQHandler
+                0x08005874                LPTIM1_IRQHandler
+                0x08005874                DMAMUX_OVR_IRQHandler
+                0x08005874                USBWakeUp_IRQHandler
+                0x08005874                SAI1_IRQHandler
+                0x08005874                DMA2_Channel3_IRQHandler
+                0x08005874                COMP4_IRQHandler
+                0x08005874                RTC_Alarm_IRQHandler
+ *fill*         0x08005876        0x2 
  .text.delay_us_dwt
-                0x08005894       0x4c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005878       0x4c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
  .text.DRV8316_SPI_Transfer
-                0x080058e0       0xd0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x080058e0                DRV8316_SPI_Transfer
+                0x080058c4       0xd0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080058c4                DRV8316_SPI_Transfer
  .text.count_bits
-                0x080059b0       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x080059b0                count_bits
+                0x08005994       0x3c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005994                count_bits
  .text.even_parity
-                0x080059ec       0x26 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x080059ec                even_parity
+                0x080059d0       0x26 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080059d0                even_parity
  .text.DRV8316_Read_Register
-                0x08005a12       0xaa CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005a12                DRV8316_Read_Register
+                0x080059f6       0xaa CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x080059f6                DRV8316_Read_Register
  .text.DRV8316_Write_Register
-                0x08005abc       0xbc CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005abc                DRV8316_Write_Register
+                0x08005aa0       0xaa CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005aa0                DRV8316_Write_Register
  .text.DRV8316_Init
-                0x08005b78       0x80 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005b78                DRV8316_Init
+                0x08005b4a       0x80 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005b4a                DRV8316_Init
+ .text.DRV8316_Get_Field
+                0x08005bca       0x66 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Set_Field
+                0x08005c30       0x80 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .text.DRV8316_Get_Slew
+                0x08005cb0       0x44 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005cb0                DRV8316_Get_Slew
+ .text.DRV8316_Set_Slew
+                0x08005cf4       0x30 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005cf4                DRV8316_Set_Slew
  .text.DRV8316_Set_Register_Lock
-                0x08005bf8       0x2e CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005bf8                DRV8316_Set_Register_Lock
- *fill*         0x08005c26        0x2 
- .text.DRV8316_Set_PWM_Mode
-                0x08005c28       0x7c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005c28                DRV8316_Set_PWM_Mode
- .text.DRV8316_Get_PWM_Mode
-                0x08005ca4       0x50 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                0x08005ca4                DRV8316_Get_PWM_Mode
- .text.setvbuf  0x08005cf4      0x168 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
-                0x08005cf4                setvbuf
+                0x08005d24       0x36 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x08005d24                DRV8316_Set_Register_Lock
+ *fill*         0x08005d5a        0x2 
+ .text.setvbuf  0x08005d5c      0x168 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
+                0x08005d5c                setvbuf
  .text.__sflush_r
-                0x08005e5c      0x100 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
-                0x08005e5c                __sflush_r
+                0x08005ec4      0x100 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
+                0x08005ec4                __sflush_r
  .text._fflush_r
-                0x08005f5c       0x50 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
-                0x08005f5c                _fflush_r
- .text.std      0x08005fac       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08005fc4       0x50 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
+                0x08005fc4                _fflush_r
+ .text.std      0x08006014       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
  .text.stdio_exit_handler
-                0x08006018       0x18 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08006080       0x18 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
  .text.cleanup_stdio
-                0x08006030       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08006098       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
  .text.global_stdio_init.part.0
-                0x08006070       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x080060d8       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
  .text.__sfp_lock_acquire
-                0x080060b0        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
-                0x080060b0                __sfp_lock_acquire
+                0x08006118        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08006118                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x080060bc        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
-                0x080060bc                __sfp_lock_release
- .text.__sinit  0x080060c8       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
-                0x080060c8                __sinit
+                0x08006124        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08006124                __sfp_lock_release
+ .text.__sinit  0x08006130       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+                0x08006130                __sinit
  .text._fwalk_sglue
-                0x080060f8       0x3a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fwalk.o)
-                0x080060f8                _fwalk_sglue
+                0x08006160       0x3a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fwalk.o)
+                0x08006160                _fwalk_sglue
  .text.__swhatbuf_r
-                0x08006132       0x48 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
-                0x08006132                __swhatbuf_r
+                0x0800619a       0x48 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
+                0x0800619a                __swhatbuf_r
  .text.__smakebuf_r
-                0x0800617a       0x72 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
-                0x0800617a                __smakebuf_r
- .text.printf   0x080061ec       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-printf.o)
-                0x080061ec                printf
-                0x080061ec                iprintf
- .text._puts_r  0x08006210       0xaa /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
-                0x08006210                _puts_r
- *fill*         0x080062ba        0x2 
- .text.puts     0x080062bc       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
-                0x080062bc                puts
- .text.memset   0x080062cc       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
-                0x080062cc                memset
+                0x080061e2       0x72 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
+                0x080061e2                __smakebuf_r
+ .text.printf   0x08006254       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-printf.o)
+                0x08006254                printf
+                0x08006254                iprintf
+ .text._puts_r  0x08006278       0xaa /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
+                0x08006278                _puts_r
+ *fill*         0x08006322        0x2 
+ .text.puts     0x08006324       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
+                0x08006324                puts
+ .text.memset   0x08006334       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+                0x08006334                memset
  .text._isatty_r
-                0x080062dc       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-isattyr.o)
-                0x080062dc                _isatty_r
- .text.__errno  0x080062fc        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
-                0x080062fc                __errno
+                0x08006344       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-isattyr.o)
+                0x08006344                _isatty_r
+ .text.__errno  0x08006364        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+                0x08006364                __errno
  .text.__libc_init_array
-                0x08006308       0x48 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
-                0x08006308                __libc_init_array
+                0x08006370       0x48 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+                0x08006370                __libc_init_array
  .text.__retarget_lock_init_recursive
-                0x08006350        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
-                0x08006350                __retarget_lock_init_recursive
+                0x080063b8        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
+                0x080063b8                __retarget_lock_init_recursive
  .text.__retarget_lock_acquire_recursive
-                0x08006352        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
-                0x08006352                __retarget_lock_acquire_recursive
+                0x080063ba        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
+                0x080063ba                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08006354        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
-                0x08006354                __retarget_lock_release_recursive
- *fill*         0x08006356        0x2 
+                0x080063bc        0x2 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
+                0x080063bc                __retarget_lock_release_recursive
+ *fill*         0x080063be        0x2 
  .text._fstat_r
-                0x08006358       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fstatr.o)
-                0x08006358                _fstat_r
- .text._free_r  0x0800637c       0x98 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-freer.o)
-                0x0800637c                _free_r
- .text.malloc   0x08006414       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-malloc.o)
-                0x08006414                malloc
+                0x080063c0       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fstatr.o)
+                0x080063c0                _fstat_r
+ .text._free_r  0x080063e4       0x98 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-freer.o)
+                0x080063e4                _free_r
+ .text.malloc   0x0800647c       0x10 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-malloc.o)
+                0x0800647c                malloc
  .text.sbrk_aligned
-                0x08006424       0x44 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
+                0x0800648c       0x44 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x08006468       0xf8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
-                0x08006468                _malloc_r
+                0x080064d0       0xf8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
+                0x080064d0                _malloc_r
  .text.__sfputc_r
-                0x08006560       0x2a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
+                0x080065c8       0x2a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x0800658a       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
-                0x0800658a                __sfputs_r
- *fill*         0x080065ae        0x2 
+                0x080065f2       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
+                0x080065f2                __sfputs_r
+ *fill*         0x08006616        0x2 
  .text._vfprintf_r
-                0x080065b0      0x228 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
-                0x080065b0                _vfiprintf_r
-                0x080065b0                _vfprintf_r
+                0x08006618      0x228 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
+                0x08006618                _vfiprintf_r
+                0x08006618                _vfprintf_r
  .text._printf_common
-                0x080067d8       0xea /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x080067d8                _printf_common
- *fill*         0x080068c2        0x2 
+                0x08006840       0xea /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08006840                _printf_common
+ *fill*         0x0800692a        0x2 
  .text._printf_i
-                0x080068c4      0x254 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x080068c4                _printf_i
+                0x0800692c      0x254 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x0800692c                _printf_i
  .text.__malloc_lock
-                0x08006b18        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
-                0x08006b18                __malloc_lock
+                0x08006b80        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
+                0x08006b80                __malloc_lock
  .text.__malloc_unlock
-                0x08006b24        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
-                0x08006b24                __malloc_unlock
- .text.__sread  0x08006b30       0x22 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
-                0x08006b30                __sread
+                0x08006b8c        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
+                0x08006b8c                __malloc_unlock
+ .text.__sread  0x08006b98       0x22 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
+                0x08006b98                __sread
  .text.__swrite
-                0x08006b52       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
-                0x08006b52                __swrite
- .text.__sseek  0x08006b8a       0x26 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
-                0x08006b8a                __sseek
+                0x08006bba       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
+                0x08006bba                __swrite
+ .text.__sseek  0x08006bf2       0x26 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
+                0x08006bf2                __sseek
  .text.__sclose
-                0x08006bb0        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
-                0x08006bb0                __sclose
+                0x08006c18        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
+                0x08006c18                __sclose
  .text.__swbuf_r
-                0x08006bb8       0x7a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wbuf.o)
-                0x08006bb8                __swbuf_r
- *fill*         0x08006c32        0x2 
+                0x08006c20       0x7a /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wbuf.o)
+                0x08006c20                __swbuf_r
+ *fill*         0x08006c9a        0x2 
  .text.__swsetup_r
-                0x08006c34       0xa8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wsetup.o)
-                0x08006c34                __swsetup_r
+                0x08006c9c       0xa8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wsetup.o)
+                0x08006c9c                __swsetup_r
  .text._lseek_r
-                0x08006cdc       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lseekr.o)
-                0x08006cdc                _lseek_r
- .text._read_r  0x08006d00       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-readr.o)
-                0x08006d00                _read_r
- .text._sbrk_r  0x08006d24       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-sbrkr.o)
-                0x08006d24                _sbrk_r
+                0x08006d44       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lseekr.o)
+                0x08006d44                _lseek_r
+ .text._read_r  0x08006d68       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-readr.o)
+                0x08006d68                _read_r
+ .text._sbrk_r  0x08006d8c       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-sbrkr.o)
+                0x08006d8c                _sbrk_r
  .text._write_r
-                0x08006d44       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-writer.o)
-                0x08006d44                _write_r
+                0x08006dac       0x24 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-writer.o)
+                0x08006dac                _write_r
  .text._close_r
-                0x08006d68       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-closer.o)
-                0x08006d68                _close_r
+                0x08006dd0       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-closer.o)
+                0x08006dd0                _close_r
  *(.glue_7)
- .glue_7        0x08006d88        0x0 linker stubs
+ .glue_7        0x08006df0        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08006d88        0x0 linker stubs
+ .glue_7t       0x08006df0        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08006d88        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08006df0        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x08006d88        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x08006d88                _init
- .init          0x08006d8c        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08006df0        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x08006df0                _init
+ .init          0x08006df4        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08006d94        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x08006d94                _fini
- .fini          0x08006d98        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
-                0x08006da0                        . = ALIGN (0x4)
-                0x08006da0                        _etext = .
+ .fini          0x08006dfc        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x08006dfc                _fini
+ .fini          0x08006e00        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x08006e08                        . = ALIGN (0x4)
+                0x08006e08                        _etext = .
 
-.vfp11_veneer   0x08006da0        0x0
- .vfp11_veneer  0x08006da0        0x0 linker stubs
+.vfp11_veneer   0x08006e08        0x0
+ .vfp11_veneer  0x08006e08        0x0 linker stubs
 
-.v4_bx          0x08006da0        0x0
- .v4_bx         0x08006da0        0x0 linker stubs
+.v4_bx          0x08006e08        0x0
+ .v4_bx         0x08006e08        0x0 linker stubs
 
-.iplt           0x08006da0        0x0
- .iplt          0x08006da0        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x08006e08        0x0
+ .iplt          0x08006e08        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08006da0       0xd8
-                0x08006da0                        . = ALIGN (0x4)
+.rodata         0x08006e08       0x5c
+                0x08006e08                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x08006da0       0x2c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .rodata        0x08006dcc       0x66 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .rodata        0x08006e08       0x18 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
  *(.rodata*)
- *fill*         0x08006e32        0x2 
  .rodata.AHBPrescTable
-                0x08006e34       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
-                0x08006e34                AHBPrescTable
+                0x08006e20       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
+                0x08006e20                AHBPrescTable
  .rodata._vfprintf_r.str1.1
-                0x08006e44       0x33 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
+                0x08006e30       0x33 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
                                  0x11 (size before relaxing)
  .rodata._printf_i.str1.1
-                0x08006e77        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08006e63        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
                                  0x22 (size before relaxing)
-                0x08006e78                        . = ALIGN (0x4)
- *fill*         0x08006e77        0x1 
+                0x08006e64                        . = ALIGN (0x4)
+ *fill*         0x08006e63        0x1 
 
-.ARM.extab      0x08006e78        0x0
-                0x08006e78                        . = ALIGN (0x4)
+.ARM.extab      0x08006e64        0x0
+                0x08006e64                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08006e78                        . = ALIGN (0x4)
+                0x08006e64                        . = ALIGN (0x4)
 
-.ARM            0x08006e78        0x8
-                0x08006e78                        . = ALIGN (0x4)
-                0x08006e78                        __exidx_start = .
+.ARM            0x08006e64        0x8
+                0x08006e64                        . = ALIGN (0x4)
+                0x08006e64                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08006e78        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memchr.o)
-                0x08006e80                        __exidx_end = .
-                0x08006e80                        . = ALIGN (0x4)
+ .ARM.exidx     0x08006e64        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memchr.o)
+                0x08006e6c                        __exidx_end = .
+                0x08006e6c                        . = ALIGN (0x4)
 
-.preinit_array  0x08006e80        0x0
-                0x08006e80                        . = ALIGN (0x4)
-                0x08006e80                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08006e6c        0x0
+                0x08006e6c                        . = ALIGN (0x4)
+                0x08006e6c                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08006e80                        PROVIDE (__preinit_array_end = .)
-                0x08006e80                        . = ALIGN (0x4)
+                0x08006e6c                        PROVIDE (__preinit_array_end = .)
+                0x08006e6c                        . = ALIGN (0x4)
 
-.init_array     0x08006e80        0x4
-                0x08006e80                        . = ALIGN (0x4)
-                0x08006e80                        PROVIDE (__init_array_start = .)
+.init_array     0x08006e6c        0x4
+                0x08006e6c                        . = ALIGN (0x4)
+                0x08006e6c                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08006e80        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08006e84                        PROVIDE (__init_array_end = .)
-                0x08006e84                        . = ALIGN (0x4)
+ .init_array    0x08006e6c        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08006e70                        PROVIDE (__init_array_end = .)
+                0x08006e70                        . = ALIGN (0x4)
 
-.fini_array     0x08006e84        0x4
-                0x08006e84                        . = ALIGN (0x4)
+.fini_array     0x08006e70        0x4
+                0x08006e70                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08006e84        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08006e70        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x08006e88                        . = ALIGN (0x4)
-                0x08006e88                        _sidata = LOADADDR (.data)
+                0x08006e74                        . = ALIGN (0x4)
+                0x08006e74                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x08006e88        0x0
- .rel.iplt      0x08006e88        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08006e74        0x0
+ .rel.iplt      0x08006e74        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000       0x68 load address 0x08006e88
+.data           0x20000000       0x68 load address 0x08006e74
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -5330,16 +5426,16 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x20000068                        . = ALIGN (0x4)
 
 .tm_clone_table
-                0x20000068        0x0 load address 0x08006ef0
+                0x20000068        0x0 load address 0x08006edc
  .tm_clone_table
                 0x20000068        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x20000068        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x20000068        0x0 load address 0x08006ef0
+.igot.plt       0x20000068        0x0 load address 0x08006edc
  .igot.plt      0x20000068        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.tdata          0x20000068        0x0 load address 0x08006ef0
+.tdata          0x20000068        0x0 load address 0x08006edc
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x20000068                        . = ALIGN (0x4)
                 0x20000068                        _edata = .
@@ -5356,7 +5452,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 [!provide]                        PROVIDE (__data_source_end = __tdata_source_end)
                 [!provide]                        PROVIDE (__data_source_size = (__data_source_end - __data_source))
 
-.tbss           0x20000068        0x0 load address 0x08006ef0
+.tbss           0x20000068        0x0 load address 0x08006edc
                 0x20000068                        _sbss = .
                 0x20000068                        __bss_start__ = _sbss
  *(.tbss .tbss.*)
@@ -5373,7 +5469,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 [!provide]                        PROVIDE (__arm32_tls_tcb_offset = MAX (0x8, __tls_align))
                 [!provide]                        PROVIDE (__arm64_tls_tcb_offset = MAX (0x10, __tls_align))
 
-.bss            0x20000068      0x420 load address 0x08006ef0
+.bss            0x20000068      0x420 load address 0x08006edc
  *(.bss)
  *(.bss*)
  .bss.completed.1
@@ -5432,7 +5528,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 [!provide]                        PROVIDE (__bss_size = (__bss_end - __bss_start))
 
 ._user_heap_stack
-                0x20000488      0x600 load address 0x08006ef0
+                0x20000488      0x600 load address 0x08006edc
                 0x20000488                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 0x20000488                        PROVIDE (_end = .)
@@ -5628,7 +5724,7 @@ LOAD linker stubs
  .comment       0x00000045        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
                                  0x46 (size before relaxing)
 
-.debug_info     0x00000000    0x185a2
+.debug_info     0x00000000    0x19514
  .debug_info    0x00000000      0x593 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_info    0x00000593     0x2068 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_info    0x000025fb     0x1d85 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -5643,19 +5739,19 @@ LOAD linker stubs
  .debug_info    0x0000a7aa     0x167c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_info    0x0000be26     0x2c57 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_info    0x0000ea7d     0x1d9a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_info    0x00010817     0x1c61 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_info    0x00012478      0x4a5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_info    0x0001291d      0xfdf CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_info    0x000138fc      0x804 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_info    0x00014100      0xb2a CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_info    0x00014c2a      0xb00 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_info    0x0001572a     0x1110 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_info    0x0001683a      0x118 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_info    0x00016952      0x2df CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_info    0x00016c31      0x16d CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_info    0x00016d9e      0x6b9 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_info    0x00017457       0x30 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_info    0x00017487     0x111b CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_info    0x00010817     0x1bc7 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_info    0x000123de      0x4a5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_info    0x00012883      0xfdf CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_info    0x00013862      0x804 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_info    0x00014066      0xb2a CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_info    0x00014b90      0xb00 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_info    0x00015690     0x1110 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_info    0x000167a0      0x118 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_info    0x000168b8      0x2df CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_info    0x00016b97      0x16d CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x00016d04      0x6b9 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_info    0x000173bd       0x30 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_info    0x000173ed     0x2127 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
 .debug_abbrev   0x00000000     0x3821
  .debug_abbrev  0x00000000      0x120 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
@@ -5672,21 +5768,21 @@ LOAD linker stubs
  .debug_abbrev  0x000019e0      0x263 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_abbrev  0x00001c43      0x2ad cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_abbrev  0x00001ef0      0x2cb cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000021bb      0x43c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_abbrev  0x000025f7      0x15f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x00002756      0x1fb CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_abbrev  0x00002951      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_abbrev  0x00002b05      0x1d9 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_abbrev  0x00002cde      0x1fc CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_abbrev  0x00002eda      0x273 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x0000314d       0x79 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_abbrev  0x000031c6       0xdf CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_abbrev  0x000032a5       0xc2 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00003367      0x1c2 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_abbrev  0x00003529       0x24 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_abbrev  0x0000354d      0x2d4 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_abbrev  0x000021bb      0x425 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x000025e0      0x15f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x0000273f      0x1fb CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_abbrev  0x0000293a      0x1b4 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_abbrev  0x00002aee      0x1d9 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_abbrev  0x00002cc7      0x1fc CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_abbrev  0x00002ec3      0x273 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x00003136       0x79 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_abbrev  0x000031af       0xdf CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_abbrev  0x0000328e       0xc2 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x00003350      0x1c2 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_abbrev  0x00003512       0x24 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_abbrev  0x00003536      0x2eb CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
-.debug_aranges  0x00000000     0x1798
+.debug_aranges  0x00000000     0x1920
  .debug_aranges
                 0x00000000       0x28 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_aranges
@@ -5740,10 +5836,10 @@ LOAD linker stubs
  .debug_aranges
                 0x000016f8       0x28 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .debug_aranges
-                0x00001720       0x78 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x00001720      0x200 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
 .debug_rnglists
-                0x00000000     0x120d
+                0x00000000     0x1334
  .debug_rnglists
                 0x00000000       0x1a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_rnglists
@@ -5797,9 +5893,9 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000119a       0x19 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
  .debug_rnglists
-                0x000011b3       0x5a CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                0x000011b3      0x181 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
-.debug_macro    0x00000000    0x230ef
+.debug_macro    0x00000000    0x2327b
  .debug_macro   0x00000000      0x206 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000206      0xaea cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000cf0       0x2e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
@@ -5856,72 +5952,72 @@ LOAD linker stubs
  .debug_macro   0x0001f3ad      0x20e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_macro   0x0001f5bb      0x20e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_macro   0x0001f7c9      0x20c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_macro   0x0001f9d5      0x379 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001fd4e      0x236 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001ff84       0x22 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0001ffa6       0x7b CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020021       0x2a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002004b       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020087       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000200bb       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000200d1       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002010d      0x364 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020471       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020481       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020497       0x4a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000204e1       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020515       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020525       0x58 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002057d      0x1e5 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020762       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020778       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x0002078e      0x170 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000208fe       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020914       0x7c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020990       0x17 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x000209a7      0x118 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_macro   0x00020abf      0x21f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_macro   0x00020cde      0x21f CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_macro   0x00020efd      0x21f CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_macro   0x0002111c      0x21f CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_macro   0x0002133b      0x21f CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_macro   0x0002155a      0x21f CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_macro   0x00021779      0x21f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_macro   0x00021998      0x215 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_macro   0x00021bad      0x103 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021cb0       0x10 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021cc0       0x75 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021d35       0x94 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021dc9       0x57 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x00021e20      0x23c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002205c      0x265 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000222c1       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000222d1       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000222e1       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000222f1       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022301       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002231d       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002236f       0x22 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022391       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000223a1       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000223f3       0xcf CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000224c2       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000224de       0x3d CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002251b       0x3b CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022556      0x134 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002268a       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000226a0       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000226b6       0x29 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x000226df      0x242 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022921       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002293d       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x0002294d      0x18a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022ad7       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022aed       0xce CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_macro   0x00022bbb      0x2f8 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_macro   0x00022eb3      0x23c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x0001f9d5      0x387 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001fd5c      0x236 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001ff92       0x22 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0001ffb4      0x186 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002013a       0x7b CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000201b5       0x2a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000201df       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002021b       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002024f       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020265       0x3c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000202a1      0x364 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020605       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020615       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002062b       0x4a CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020675       0x34 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000206a9       0x10 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000206b9       0x58 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020711      0x1e5 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x000208f6       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x0002090c       0x16 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020922      0x170 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020a92       0x7c CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020b0e       0x17 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020b25      0x118 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_macro   0x00020c3d      0x21f CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_macro   0x00020e5c      0x21f CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_macro   0x0002107b      0x21f CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_macro   0x0002129a      0x21f CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_macro   0x000214b9      0x21f CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_macro   0x000216d8      0x21f CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_macro   0x000218f7      0x21f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_macro   0x00021b16      0x215 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_macro   0x00021d2b      0x103 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021e2e       0x10 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021e3e       0x75 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021eb3       0x94 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021f47       0x57 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00021f9e      0x23c CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x000221da      0x265 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002243f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002244f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002245f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002246f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002247f       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002249b       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x000224ed       0x22 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002250f       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002251f       0x52 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022571       0xcf CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022640       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002265c       0x3d CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022699       0x3b CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x000226d4      0x134 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022808       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002281e       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022834       0x29 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x0002285d      0x242 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022a9f       0x1c CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022abb       0x10 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022acb      0x18a CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022c55       0x16 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022c6b       0xce CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_macro   0x00022d39      0x306 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_macro   0x0002303f      0x23c CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
-.debug_line     0x00000000    0x19a75
+.debug_line     0x00000000    0x1a1fb
  .debug_line    0x00000000      0x7cd cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_line    0x000007cd     0x1fcc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_line    0x00002799     0x1a01 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -5936,77 +6032,77 @@ LOAD linker stubs
  .debug_line    0x0000b95e     0x2047 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
  .debug_line    0x0000d9a5     0x3fb0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_line    0x00011955     0x1fb8 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_line    0x0001390d      0xa69 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
- .debug_line    0x00014376      0x7b5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
- .debug_line    0x00014b2b      0x919 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
- .debug_line    0x00015444      0x7a6 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
- .debug_line    0x00015bea      0x7ff CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
- .debug_line    0x000163e9      0x7dd CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
- .debug_line    0x00016bc6      0xadd CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
- .debug_line    0x000176a3      0x80f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_line    0x00017eb2      0x761 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_line    0x00018613      0x2e4 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
- .debug_line    0x000188f7      0x608 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_line    0x00018eff       0x7b CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
- .debug_line    0x00018f7a      0xafb CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_line    0x0001390d      0xa79 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+ .debug_line    0x00014386      0x7b5 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00014b3b      0x919 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_line    0x00015454      0x7a6 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_line    0x00015bfa      0x7ff CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_line    0x000163f9      0x7dd CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_line    0x00016bd6      0xadd CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_line    0x000176b3      0x80f CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_line    0x00017ec2      0x761 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_line    0x00018623      0x2e4 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00018907      0x608 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_line    0x00018f0f       0x7b CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_line    0x00018f8a     0x1271 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
 
-.debug_str      0x00000000    0xe1962
- .debug_str     0x00000000    0xe1962 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
+.debug_str      0x00000000    0xe310d
+ .debug_str     0x00000000    0xe310d cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
                               0xd38bf (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
                               0xd48ec (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
                               0xd4892 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
                               0xd43fe (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
                               0xd3fb8 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
                               0xd3fb9 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
                               0xd3a4a (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
                               0xd3dad (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
                               0xd40ba (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cordic.c.obj
                               0xd3d65 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c.obj
                               0xd4e66 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c.obj
                               0xd41f1 (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
                               0xd4dbd (size before relaxing)
- .debug_str     0x000e1962        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_str     0x000e310d        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
                               0xd4a31 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
-                              0xd8746 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/main.c.obj
+                              0xd90a6 (size before relaxing)
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/gpio.c.obj
                               0xd4162 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/adc.c.obj
                               0xd49be (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/cordic.c.obj
                               0xd4506 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/fdcan.c.obj
                               0xd469d (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/spi.c.obj
                               0xd4697 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/tim.c.obj
                               0xd4b0c (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_it.c.obj
                               0xd3fc7 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
                               0xd40b8 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
                                0x71ba (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
                                0x94c0 (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/startup_stm32g431xx.s.obj
                                  0x9c (size before relaxing)
- .debug_str     0x000e1962        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
-                              0xd7d06 (size before relaxing)
+ .debug_str     0x000e310d        0x0 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+                              0xd94ef (size before relaxing)
 
-.debug_frame    0x00000000     0x6ca4
+.debug_frame    0x00000000     0x7388
  .debug_frame   0x00000000       0x58 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_frame   0x00000058      0xacc cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_frame   0x00000b24      0x81c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
@@ -6032,36 +6128,36 @@ LOAD linker stubs
  .debug_frame   0x00005ef8       0x34 CMakeFiles/leg_control_board.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_frame   0x00005f2c       0x34 CMakeFiles/leg_control_board.dir/Core/Src/sysmem.c.obj
  .debug_frame   0x00005f60      0x2ac CMakeFiles/leg_control_board.dir/Core/Src/syscalls.c.obj
- .debug_frame   0x0000620c      0x1d4 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
- .debug_frame   0x000063e0       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
- .debug_frame   0x00006418       0x5c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
- .debug_frame   0x00006474      0x144 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
- .debug_frame   0x000065b8       0x34 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fwalk.o)
- .debug_frame   0x000065ec       0x58 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
- .debug_frame   0x00006644       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-printf.o)
- .debug_frame   0x000066b0       0x3c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
- .debug_frame   0x000066ec       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
- .debug_frame   0x0000670c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-isattyr.o)
- .debug_frame   0x00006738       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
- .debug_frame   0x00006758       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
- .debug_frame   0x00006784       0xb0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
- .debug_frame   0x00006834       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-reent.o)
- .debug_frame   0x0000686c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fstatr.o)
- .debug_frame   0x00006898       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-freer.o)
- .debug_frame   0x000068d0       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-malloc.o)
- .debug_frame   0x00006900       0x50 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
- .debug_frame   0x00006950       0xa8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
- .debug_frame   0x000069f8       0x60 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_frame   0x00006a58       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
- .debug_frame   0x00006a88       0x88 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
- .debug_frame   0x00006b10       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wbuf.o)
- .debug_frame   0x00006b50       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wsetup.o)
- .debug_frame   0x00006b7c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lseekr.o)
- .debug_frame   0x00006ba8       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-readr.o)
- .debug_frame   0x00006bd4       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00006c00       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-writer.o)
- .debug_frame   0x00006c2c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-closer.o)
- .debug_frame   0x00006c58       0x4c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memchr.o)
+ .debug_frame   0x0000620c      0x8b8 CMakeFiles/leg_control_board.dir/Core/Src/drv8316.c.obj
+ .debug_frame   0x00006ac4       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-setvbuf.o)
+ .debug_frame   0x00006afc       0x5c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00006b58      0x144 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00006c9c       0x34 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00006cd0       0x58 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-makebuf.o)
+ .debug_frame   0x00006d28       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-printf.o)
+ .debug_frame   0x00006d94       0x3c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-puts.o)
+ .debug_frame   0x00006dd0       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memset.o)
+ .debug_frame   0x00006df0       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-isattyr.o)
+ .debug_frame   0x00006e1c       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-errno.o)
+ .debug_frame   0x00006e3c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-init.o)
+ .debug_frame   0x00006e68       0xb0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lock.o)
+ .debug_frame   0x00006f18       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-reent.o)
+ .debug_frame   0x00006f50       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-fstatr.o)
+ .debug_frame   0x00006f7c       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-freer.o)
+ .debug_frame   0x00006fb4       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00006fe4       0x50 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00007034       0xa8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf.o)
+ .debug_frame   0x000070dc       0x60 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000713c       0x30 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-mlock.o)
+ .debug_frame   0x0000716c       0x88 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-stdio.o)
+ .debug_frame   0x000071f4       0x40 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wbuf.o)
+ .debug_frame   0x00007234       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-wsetup.o)
+ .debug_frame   0x00007260       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x0000728c       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-readr.o)
+ .debug_frame   0x000072b8       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x000072e4       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-writer.o)
+ .debug_frame   0x00007310       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-closer.o)
+ .debug_frame   0x0000733c       0x4c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(libc_a-memchr.o)
 
 .debug_line_str
                 0x00000000      0x16a
