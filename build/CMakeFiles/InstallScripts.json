@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/mustafayousif/Code/arach/leg_control_board/build/cmake_install.cmake",
-		"/Users/mustafayousif/Code/arach/leg_control_board/build/cmake/stm32cubemx/cmake_install.cmake",
-		"/Users/mustafayousif/Code/arach/leg_control_board/build/Components/DRV8316/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

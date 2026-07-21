@@ -1,7 +1,0 @@
-/Users/mustafayousif/Code/arach/leg_control_board/cmake/stm32cubemx/../../Drivers/CMSIS/Include/core_cm4.h:2059:26:ITM_SendChar	16	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:70:6:SWO_Init	8	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:90:6:to_binary_str	24	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:119:5:main	72	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:220:6:SystemClock_Config	88	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:255:5:_write	32	static
-/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/main.c:270:6:Error_Handler	8	static
