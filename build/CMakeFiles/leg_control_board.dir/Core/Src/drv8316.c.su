@@ -1,0 +1,12 @@
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:14:20:delay_us_dwt	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:22:19:DRV8316_SPI_Transfer	40	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:65:9:count_bits	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:75:9:even_parity	16	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:79:19:DRV8316_Read_Register	48	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:109:19:DRV8316_Write_Register	48	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:145:19:DRV8316_Update_Diagnostics	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:171:19:DRV8316_Init	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:199:1:DRV8316_Set_Register_Lock	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:210:1:DRV8316_Get_Register_Lock	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:385:19:DRV8316_Set_PWM_Mode	24	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/drv8316.c:400:19:DRV8316_Get_PWM_Mode	24	static

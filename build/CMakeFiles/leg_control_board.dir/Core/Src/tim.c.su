@@ -1,0 +1,6 @@
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:32:6:MX_TIM1_Init	128	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:129:6:MX_TIM2_Init	64	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:195:6:MX_TIM8_Init	120	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:284:6:HAL_TIM_Base_MspInit	56	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:334:6:HAL_TIM_MspPostInit	48	static
+/Users/mustafayousif/Code/arach/leg_control_board/Core/Src/tim.c:409:6:HAL_TIM_Base_MspDeInit	16	static

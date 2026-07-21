@@ -1,0 +1,155 @@
+#ifndef DRV8316_DRIVER_H
+#define DRV8316_DRIVER_H
+
+#include "stm32g4xx_hal.h"
+#include <stdbool.h> // Provides bool, true, false
+#include <stdint.h>
+#include <stdio.h>
+
+// Inside drv8316.h
+/**
+ * @brief DRV8316 SPI Register Addresses
+ */
+typedef enum {
+    DRV8316_REG_IC_STAT = 0x00, // IC Status Register (Global faults indicator)
+    DRV8316_REG_STAT_1 =
+        0x01, // Status Register 1 (Supply & communication diagnostics)
+    DRV8316_REG_STAT_2 =
+        0x02, // Status Register 2 (Individual bridge MOSFET overcurrents)
+    DRV8316_REG_CTRL_1 = 0x03, // Control Register 1 (Clear faults, thermal
+                               // warnings, gate unlock)
+    DRV8316_REG_CTRL_2 =
+        0x04, // Control Register 2 (PWM Mode, Slew Rate, Buck Config)
+    DRV8316_REG_CTRL_3 =
+        0x05, // Control Register 3 (Current Sense Amplifier gain & blanking)
+    DRV8316_REG_CTRL_4 = 0x06,
+    DRV8316_REG_CTRL_5 = 0x07,
+    DRV8316_REG_CTRL_6 = 0x08,
+    DRV8316_REG_CTRL_10 =
+        0xC // Control Register 4 (OCP thresholds and degradation options)
+} DRV8316_Register_t;
+
+#define DRV8316_CTRL2_SLEW_MASK (0x07 << 5)     // Bits [7:5]
+#define DRV8316_CTRL2_PWM_MODE_MASK (0x03 << 2) // Bits [3:2]
+#define DRV8316_CTRL2_BUCK_SEL_MASK (0x03 << 0) // Bits [1:0]
+//
+
+typedef enum {
+    DRV8316_REG_LOCK_UNLOCK = 0x03,
+    DRV8316_REG_LOCK_LOCK = 0x06,
+} DRV8316_Register_Lock_Status_t;
+
+typedef enum {
+    DRV8316_PWM_MODE_6X = 0,    /* Bits 2:1 = 00 */
+    DRV8316_PWM_MODE_6X_CL = 1, /* Bits 2:1 = 01 */
+    DRV8316_PWM_MODE_3X = 2,    /* Bits 2:1 = 10 */
+    DRV8316_PWM_MODE_3X_CL = 3  /* Bits 2:1 = 11 */
+} DRV8316_PWM_Mode_t;
+
+typedef enum {
+    DRV8316_BUCK_3V3 = 0x00,
+    DRV8316_BUCK_5V0 = 0x01,
+    DRV8316_BUCK_4V5 = 0x02,
+    DRV8316_BUCK_DISABLED = 0x03
+} DRV8316_Buck_Sel_t;
+/**
+ * @brief Register 0x00 - IC Status Flags
+ */
+typedef union {
+    struct {
+        uint8_t fault_active : 1; // Bit 0: Master Device Fault (nFAULT pin)
+        uint8_t overtemp : 1;    // Bit 1: Overtemperature Warning/Shutdown (OT)
+        uint8_t overvoltage : 1; // Bit 2: Overvoltage Lockout (OVLO)
+        uint8_t undervoltage : 1; // Bit 3: Undervoltage Lockout (UVLO)
+        uint8_t overcurrent : 1;  // Bit 4: Overcurrent Protection (OCP)
+        uint8_t spi_fault : 1;    // Bit 5: SPI Protocol Error (SPI_FLT)
+        uint8_t buck_fault : 1;   // Bit 6: Buck Regulator Fault (BK_FLT)
+        uint8_t reserved : 1;     // Bit 7: Reserved
+    };
+    uint8_t raw;
+} DRV8316_Status0_t;
+
+/**
+ * @brief Register 0x01 - Detailed Status 1 Flags
+ */
+typedef union {
+    struct {
+        uint8_t fault : 1; // Bit 0: Mirror of master fault
+        uint8_t ot : 1;    // Bit 1: Mirror of overtemperature
+        uint8_t ovp : 1;   // Bit 2: Mirror of overvoltage
+        uint8_t npor
+            : 1; // Bit 3: Not Power-On-Reset (0 = supply browned out/reset)
+        uint8_t ocp : 1;      // Bit 4: Mirror of overcurrent
+        uint8_t spi_flt : 1;  // Bit 5: Mirror of SPI fault
+        uint8_t bk_flt : 1;   // Bit 6: Mirror of buck fault
+        uint8_t reserved : 1; // Bit 7: Reserved
+    };
+    uint8_t raw;
+} DRV8316_Status1_t;
+
+/**
+ * @brief Register 0x02 - Per-Phase Bridge Status 2 Flags
+ */
+typedef union {
+    struct {
+        uint8_t ocp_ls_a : 1; // Bit 0: Overcurrent Phase A Low-Side MOSFET
+        uint8_t ocp_hs_a : 1; // Bit 1: Overcurrent Phase A High-Side MOSFET
+        uint8_t ocp_ls_b : 1; // Bit 2: Overcurrent Phase B Low-Side MOSFET
+        uint8_t ocp_hs_b : 1; // Bit 3: Overcurrent Phase B High-Side MOSFET
+        uint8_t ocp_ls_c : 1; // Bit 4: Overcurrent Phase C Low-Side MOSFET
+        uint8_t ocp_hs_c : 1; // Bit 5: Overcurrent Phase C High-Side MOSFET
+        uint8_t otsw : 1; // Bit 6: Overtemperature Warning threshold breached
+        uint8_t reserved : 1; // Bit 7: Reserved
+    };
+    uint8_t raw;
+} DRV8316_Status2_t;
+
+typedef struct {
+    SPI_HandleTypeDef *hspi;
+
+    GPIO_TypeDef *cs_port;
+    uint16_t cs_pin;
+
+    GPIO_TypeDef *nfault_port;
+    uint16_t nfault_pin;
+
+    GPIO_TypeDef *drvoff_port;
+    uint16_t drvoff_pin;
+
+    GPIO_TypeDef *nSleep_port;
+    uint16_t nSleep_pin;
+    struct {
+        DRV8316_Status0_t ic_status; // Reg 0x00
+        DRV8316_Status1_t status_1;  // Reg 0x01
+        DRV8316_Status2_t status_2;  // Reg 0x02
+    } diagnostics;
+
+} DRV8316_HandleTypeDef;
+
+HAL_StatusTypeDef DRV8316_Init(DRV8316_HandleTypeDef *hdrv,
+                               SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port,
+                               uint16_t cs_pin, GPIO_TypeDef *nfault_port,
+                               uint16_t nfault_pin, GPIO_TypeDef *nSleep_port,
+                               uint16_t nSleep_pin);
+
+HAL_StatusTypeDef DRV8316_Read_Register(DRV8316_HandleTypeDef *hdrv,
+                                        const uint8_t address, uint8_t *value);
+
+HAL_StatusTypeDef DRV8316_Write_Register(DRV8316_HandleTypeDef *hdrv,
+                                         const uint8_t address,
+                                         const uint8_t value, uint16_t *rx);
+
+HAL_StatusTypeDef
+DRV8316_Set_Register_Lock(DRV8316_HandleTypeDef *hdrv,
+                          const DRV8316_Register_Lock_Status_t val);
+
+HAL_StatusTypeDef
+DRV8316_Get_Register_Lock(DRV8316_HandleTypeDef *hdrv,
+                          DRV8316_Register_Lock_Status_t *state);
+
+HAL_StatusTypeDef DRV8316_Set_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_PWM_Mode_t mode);
+
+HAL_StatusTypeDef DRV8316_Get_PWM_Mode(DRV8316_HandleTypeDef *hdrv,
+                                       DRV8316_PWM_Mode_t *mode);
+#endif

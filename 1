@@ -1,0 +1,62 @@
+
+#include "drv8316.h"
+#include "stm32g431xx.h"
+#include "stm32g4xx_hal_def.h"
+#include "stm32g4xx_hal_gpio.h"
+#include "stm32g4xx_hal_spi.h"
+#include <stdint.h>
+
+uint8_t tx_buf[2];
+uint8_t rx_buf[2];
+
+HAL_StatusTypeDef DRV8316_SPI_Write(SPI_HandleTypeDef *hspi,
+                                    GPIO_TypeDef *nSCS_Port, uint16_t nSCS_Pin,
+                                    uint16_t command_word) {
+    uint16_t rx = 0;
+
+    HAL_GPIO_WritePin(nSCS_Port, nSCS_Pin, GPIO_PIN_RESET);
+
+    HAL_SPI_TransmitReceive(hspi, (uint8_t *)&command_word, (uint8_t *)&rx, 1,
+                            10);
+
+    HAL_GPIO_WritePin(nSCS_Port, nSCS_Pin, GPIO_PIN_SET);
+
+    return rx;
+}
+
+HAL_StatusTypeDef DRV8316_Init(DRV8316_HandleTypeDef *hdrv,
+                               SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port,
+                               uint16_t cs_pin, GPIO_TypeDef *nfault_port,
+                               uint16_t nfault_pin) {
+    return HAL_OK;
+    return HAL_ERROR;
+};
+
+// Pins:
+// - DRVOFF: I When this pin is pulled high the six MOSFETs in the power stage
+// are turned OFF making all outputs Hi-Z.
+// - INH_A: High-side driver control input for OUTA. This pin controls the
+// output of the high-side MOSFET.
+// - INH_B:  High-side driver control input for OUTB. This pin controls the
+// output of the high-side MOSFET.
+// - INH_C:  High-side driver control input for OUTC. This pin controls the
+// output of the high-side MOSFET.
+//
+// - INL_A: Low-side driver control input for OUTA. This pin controls the output
+// of the high-side MOSFET.
+// - INL_B:  Low-side driver control input for OUTB. This pin controls the
+// output of the high-side MOSFET.
+// - INL_C:  Low-side driver control input for OUTC. This pin controls the
+// output of the high-side MOSFET.
+//
+// Mode: PWM input mode setting. This pin is a 2-level input pin set by an
+// external resistor.
+// - nFault: Fault indicator. Pulled logic-low with fault condition; Open-drain
+// output requires an external pull-up resistor to 1.8 V to 5.0 V. If external
+// supply is used to pull up nFAULT, ensure that it is pulled to >2.2 V on power
+// up or the device will enter test mode
+// -nSCS: CS
+// nSLEEP: pull low to sleep
+// SCLK: SPI clock
+// SDA: SPI DO, captured on falling edge of SCLK pin
+// SOA, SOB, SOC
