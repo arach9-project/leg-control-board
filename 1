@@ -1,0 +1,18 @@
+#include "stdio.h"
+
+typedef struct {
+    float phase_a;
+    float phase_b;
+    float phase_c;
+} MotorPhaseCurrents;
+
+typedef struct {
+    float adc_reference_voltage;
+    uint32_t adc_full_scale;
+
+    float csa_gain_v_per_a;
+
+    float offset_a_counts;
+    float offset_b_counts;
+    float offset_c_counts;
+} MotorCurrentSense;

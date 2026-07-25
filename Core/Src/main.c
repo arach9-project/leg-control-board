@@ -28,6 +28,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <limits.h>
+#include <math.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -56,6 +57,8 @@
 
 /* USER CODE BEGIN PV */
 
+#define PI 3.14159265358979323846f
+#define TWO_PI 6.28318530718f
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -156,14 +159,16 @@ int main(void) {
     MX_TIM2_Init();
     MX_TIM8_Init();
     /* USER CODE BEGIN 2 */
-    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 1);
-    HAL_Delay(100);
-    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
-    HAL_Delay(100);
-    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 1);
-    HAL_Delay(100);
-    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
 
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    __HAL_TIM_MOE_ENABLE(&htim1);
+
+    // 4. Force Fixed Test Duty Cycles directly in registers (ARR = 1000)
+    TIM1->CCR1 = 600; // ~60% duty cycle (~1.98V DC on CH1)
+    TIM1->CCR2 = 400; // ~40% duty cycle (~1.32V DC on CH2)
+    TIM1->CCR3 = 400; // ~40% duty cycle (~1.32V DC on CH3)
     DRV8316_HandleTypeDef hdrv;
     HAL_GPIO_WritePin(M0_nSCS_GPIO_Port, M0_nSCS_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(M1_nSCS_GPIO_Port, M1_nSCS_Pin, GPIO_PIN_SET);
@@ -173,42 +178,63 @@ int main(void) {
     HAL_GPIO_WritePin(M1_nSLEEP_GPIO_Port, M1_nSLEEP_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(M2_nSLEEP_GPIO_Port, M2_nSLEEP_Pin, GPIO_PIN_RESET);
 
-    if (DRV8316_Init(&hdrv, &hspi1, M0_nSCS_GPIO_Port, M0_nSCS_Pin,
-                     M0_nFAULT_GPIO_Port, M0_nFAULT_Pin, M0_nSLEEP_GPIO_Port,
-                     M0_nSLEEP_Pin) != HAL_OK)
-        Error_Handler();
-
-    DRV8316_SlewRate_t slew;
-    DRV8316_Set_Slew(&hdrv, DRV8316_SLEW_RATE_50V_US);
-    DRV8316_Get_Slew(&hdrv, &slew);
-    printf("%d\r\n", slew);
-    // 1. Explicitly unlock
-    // DRV8316_Write_Register(&hdrv, 0x03, 0x03, &rx); // 011b = unlock all
-    // printf("[0x%02x] = %02x\r\n", address, rx_frame & 0xFFU);
-    //
-    // // 2. Now write CTRL_2
-    // DRV8316_Write_Register(&hdrv, 0x04, 0x38, &rx);
-    //
-    // // 3. Retry CTRL_5
-    // DRV8316_Write_Register(&hdrv, 0x07, 0x02, &rx);
-    // DRV8316_Read_Register(&hdrv, 0x07, &rx);
-    // printf("CTRL5 = 0x%02X\r\n", rx & 0xFF); // expect 0x02
-    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_IC_STAT, rx_buf);
-    //
-    // DRV8316_Read_Register(&hdrv, DRV8316_REG_STAT_1, &rx_buf);
-    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_STAT_1, rx_buf);
-    //
-    // DRV8316_Read_Register(&hdrv, DRV8316_REG_STAT_2, &rx_buf);
-    // printf("DRV8316 (0x%02x)=0x%04X\r\n", DRV8316_REG_STAT_2, rx_buf);
-
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
+
+    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 1);
+    HAL_Delay(100);
+    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
+    HAL_Delay(100);
+    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 1);
+    HAL_Delay(100);
+    HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
+
+    if (DRV8316_Init(&hdrv, &hspi1, &htim1, M0_nSCS_GPIO_Port, M0_nSCS_Pin,
+                     M0_nFAULT_GPIO_Port, M0_nFAULT_Pin, M0_nSLEEP_GPIO_Port,
+                     M0_nSLEEP_Pin, M0_PWM_U_GPIO_Port, M0_PWM_U_Pin,
+                     M0_PWM_V_GPIO_Port, M0_PWM_V_Pin, M0_PWM_W_GPIO_Port,
+                     M0_PWM_W_Pin) != HAL_OK)
+        Error_Handler();
+
+    if (DRV8316_Set_PWM_Mode(&hdrv, DRV8316_PWM_MODE_3X) != HAL_OK) {
+        Error_Handler();
+    }
+
+    float theta_el = 0.0f;
+    float target_speed_hz = 5.0f;
+    float voltage_amplitude = 0.15f;
+    float dt = 0.001f;
+
     while (1) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+
+        // 5. Update timer CCR
+
+        // Update timer CCR registers
+
+        theta_el += TWO_PI * target_speed_hz * dt;
+        if (theta_el >= TWO_PI)
+            theta_el -= TWO_PI;
+
+        // Normalized Phase calc
+        float v_a = sinf(theta_el);
+        float v_b = sinf(theta_el - TWO_PI / 3.0f);
+        float v_c = sinf(theta_el + TWO_PI / 3.0f);
+
+        // 3. Scale by Vq (target amplitude)
+
+        // 4. Map [-1.0, +1.0] -> [0, ARR]
+        uint16_t half_arr = TIM1->ARR / 2.0f;
+        uint16_t ccr_a = (1.0f + voltage_amplitude * v_a) * half_arr;
+        uint16_t ccr_b = (v_b + 1) * half_arr;
+        uint16_t ccr_c = (v_c + 1) * half_arr;
+        DRV8316_Set_PWM(&hdrv, ccr_a, ccr_b, ccr_c);
+
+        HAL_Delay(1);
     }
     /* USER CODE END 3 */
 }
