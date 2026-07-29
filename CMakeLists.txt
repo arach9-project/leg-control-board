@@ -6,6 +6,7 @@ cmake_minimum_required(VERSION 3.22)
 #
 # User is free to modify the file as much as necessary
 #
+#
 
 # Setup compiler settings
 set(CMAKE_C_STANDARD 17)
@@ -25,7 +26,12 @@ set(CMAKE_PROJECT_NAME leg_control_board)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Core project settings
-project(${CMAKE_PROJECT_NAME})
+project(${CMAKE_PROJECT_NAME}
+    LANGUAGES C CXX ASM
+)
+
+enable_language(C CXX ASM)
+
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Enable CMake support for ASM and C languages
@@ -37,16 +43,20 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 add_subdirectory(Components/DRV8316)
-# add_subdirectory(Components/FOC)
+add_subdirectory(Components/AS5048A)
+add_subdirectory(Components/FOC9)
+add_subdirectory(Platform)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
+    # FOC9
 )
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE 
-  Core/Src/foc.c
+  Core/Src/swo.c
+  Core/Src/current_sense.c
 )
 
 # Add include paths
@@ -67,6 +77,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
     # Add user defined libraries
     drv8316
-    # foc
+    as5048a
+    foc9
 
 )

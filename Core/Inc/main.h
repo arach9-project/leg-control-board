@@ -150,6 +150,24 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 
+#define M0_IU_ADC_RANK ADC_INJECTED_RANK_1
+// #define M0_IU_ADC_CHANNEL CHANNEL_4
+//
+#define M1_IU_ADC_RANK ADC_INJECTED_RANK_2
+// #define M1_IU_ADC_CHANNEL CHANNEL_15
+//
+#define M2_IU_ADC_RANK ADC_INJECTED_RANK_3
+// #define M2_IU_ADC_CHANNEL CHANNEL_12
+
+#define M0_IV_ADC_RANK ADC_INJECTED_RANK_3
+// #define M0_IV_ADC_CHANNEL CHANNEL_17
+
+#define M1_IV_ADC_RANK ADC_INJECTED_RANK_3
+// #define M1_IV_ADC_CHANNEL CHANNEL_5
+
+#define M2_IV_ADC_RANK ADC_INJECTED_RANK_3
+// #define M2_IV_ADC_CHANNEL CHANNEL_11
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -19,22 +19,28 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "as5048a_adapter.h"
 #include "cordic.h"
+#include "current_sense.h"
+#include "drv8316/drv8316_types.h"
 #include "fdcan.h"
 #include "gpio.h"
 #include "spi.h"
+#include "stm32g4xx_hal.h"
+#include "stm32g4xx_hal_def.h"
+#include "stm32g4xx_hal_gpio.h"
+#include "stm32g4xx_hal_tim.h"
 #include "tim.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "drv8316_adapter.h"
+#include "swo.h"
 #include <limits.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
-
-#include "drv8316/drv8316.h"
-#include "drv8316/registers.h"
 
 /* USER CODE END Includes */
 
@@ -57,8 +63,6 @@
 
 /* USER CODE BEGIN PV */
 
-#define PI 3.14159265358979323846f
-#define TWO_PI 6.28318530718f
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,49 +73,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-void SWO_Init() {
-    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-    // __HAL_RCC_DBGMCU_CLK_ENABLE();
-    DBGMCU->CR |= DBGMCU_CR_TRACE_IOEN;
-    DBGMCU->CR &= ~DBGMCU_CR_TRACE_MODE;
-    ITM->LAR = 0xC5ACCE55;
-    TPI->SPPR = 0x00000002; // NRZ
-    TPI->ACPR = 7;          // 84MHz / 42 = 2MHz SWO
-    ITM->TCR |= ITM_TCR_ITMENA_Msk | ITM_TCR_SWOENA_Msk | ITM_TCR_SYNCENA_Msk;
-    ITM->TER = 1UL;
-
-    setvbuf(stdout, NULL, _IONBF, 0); // disable printf buffering
-}
-
-/**
- * @brief Converts a 16-bit word into a formatted binary string.
- * @param buf Must be at least 19 bytes long (16 bits + 1 space + 1 prefix
- * space/char + 1 null terminator)
- * @param val The 16-bit value to convert
- */
-void to_binary_str(char *buf, uint16_t val) {
-    int buf_idx = 0;
-
-    // Optional: Add a nice visual prefix
-    buf[buf_idx++] = '0';
-    buf[buf_idx++] = 'b';
-
-    // Loop through all 16 bits starting from the Most Significant Bit (Bit 15)
-    for (int i = 15; i >= 0; i--) {
-        // Add a clean space between the high byte and low byte for readability
-        if (i == 7) {
-            buf[buf_idx++] = ' ';
-        }
-
-        // Check if the specific bit is set, and write the corresponding
-        // character
-        buf[buf_idx++] = (val & (1 << i)) ? '1' : '0';
-    }
-
-    // Always null-terminate the string!
-    buf[buf_idx] = '\0';
-}
 
 /* USER CODE END 0 */
 
@@ -160,23 +121,60 @@ int main(void) {
     MX_TIM8_Init();
     /* USER CODE BEGIN 2 */
 
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-    __HAL_TIM_MOE_ENABLE(&htim1);
+    if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK) {
+        Error_Handler();
+    };
+    if (HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED) != HAL_OK) {
+        Error_Handler();
+    };
 
-    // 4. Force Fixed Test Duty Cycles directly in registers (ARR = 1000)
-    TIM1->CCR1 = 600; // ~60% duty cycle (~1.98V DC on CH1)
-    TIM1->CCR2 = 400; // ~40% duty cycle (~1.32V DC on CH2)
-    TIM1->CCR3 = 400; // ~40% duty cycle (~1.32V DC on CH3)
-    DRV8316_HandleTypeDef hdrv;
-    HAL_GPIO_WritePin(M0_nSCS_GPIO_Port, M0_nSCS_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(M1_nSCS_GPIO_Port, M1_nSCS_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(M2_nSCS_GPIO_Port, M2_nSCS_Pin, GPIO_PIN_SET);
+    CurrentSense_Init();
+
+    if (drv8316_init_instance(DRV8316_INSTANCE_1) != HAL_OK) {
+        Error_Handler();
+    }
+
+    if (drv8316_set_pwm_mode(DRV8316_INSTANCE_1, DRV8316_PWM_MODE_3X) !=
+        HAL_OK) {
+        Error_Handler();
+    };
+
+    if (as5048a_init() != HAL_OK) {
+        Error_Handler();
+    }
+
+    // if (as5048a_begin_continuous_angle_read(AS5048A_INSTANCE_1) != HAL_OK) {
+    //     Error_Handler();
+    // }
 
     HAL_GPIO_WritePin(M0_nSLEEP_GPIO_Port, M0_nSLEEP_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(M1_nSLEEP_GPIO_Port, M1_nSLEEP_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(M2_nSLEEP_GPIO_Port, M2_nSLEEP_Pin, GPIO_PIN_RESET);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0U);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0U);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0U);
+
+    if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) {
+        Error_Handler();
+    };
+
+    if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2) != HAL_OK) {
+        Error_Handler();
+    };
+
+    if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) {
+        Error_Handler();
+    };
+
+    if (HAL_ADCEx_InjectedStart(&hadc2)) {
+        Error_Handler();
+    };
+
+    if (HAL_ADCEx_InjectedStart_IT(&hadc1)) {
+        Error_Handler();
+    };
+
+    if (CurrentSense_ProcessAdcISR() != HAL_OK) {
+        Error_Handler();
+    };
 
     /* USER CODE END 2 */
 
@@ -191,50 +189,21 @@ int main(void) {
     HAL_Delay(100);
     HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
 
-    if (DRV8316_Init(&hdrv, &hspi1, &htim1, M0_nSCS_GPIO_Port, M0_nSCS_Pin,
-                     M0_nFAULT_GPIO_Port, M0_nFAULT_Pin, M0_nSLEEP_GPIO_Port,
-                     M0_nSLEEP_Pin, M0_PWM_U_GPIO_Port, M0_PWM_U_Pin,
-                     M0_PWM_V_GPIO_Port, M0_PWM_V_Pin, M0_PWM_W_GPIO_Port,
-                     M0_PWM_W_Pin) != HAL_OK)
-        Error_Handler();
-
-    if (DRV8316_Set_PWM_Mode(&hdrv, DRV8316_PWM_MODE_3X) != HAL_OK) {
-        Error_Handler();
-    }
-
-    float theta_el = 0.0f;
-    float target_speed_hz = 5.0f;
-    float voltage_amplitude = 0.15f;
-    float dt = 0.001f;
-
     while (1) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
 
-        // 5. Update timer CCR
+        // AS5048A_Sample_t sample;
+        // const HAL_StatusTypeDef status =
+        //     as5048a_sample(AS5048A_INSTANCE_1, &sample);
+        //
+        // if (status == HAL_OK && sample.valid) {
+        //     printf("angle: %.2f deg  agc: %u\r\n", sample.angle.degrees,
+        //            sample.diagnostics.agc);
+        // }
 
-        // Update timer CCR registers
-
-        theta_el += TWO_PI * target_speed_hz * dt;
-        if (theta_el >= TWO_PI)
-            theta_el -= TWO_PI;
-
-        // Normalized Phase calc
-        float v_a = sinf(theta_el);
-        float v_b = sinf(theta_el - TWO_PI / 3.0f);
-        float v_c = sinf(theta_el + TWO_PI / 3.0f);
-
-        // 3. Scale by Vq (target amplitude)
-
-        // 4. Map [-1.0, +1.0] -> [0, ARR]
-        uint16_t half_arr = TIM1->ARR / 2.0f;
-        uint16_t ccr_a = (1.0f + voltage_amplitude * v_a) * half_arr;
-        uint16_t ccr_b = (v_b + 1) * half_arr;
-        uint16_t ccr_c = (v_c + 1) * half_arr;
-        DRV8316_Set_PWM(&hdrv, ccr_a, ccr_b, ccr_c);
-
-        HAL_Delay(1);
+        HAL_Delay(10U);
     }
     /* USER CODE END 3 */
 }
@@ -277,15 +246,6 @@ void SystemClock_Config(void) {
 }
 
 /* USER CODE BEGIN 4 */
-// In main.c, add this ITM send function
-int _write(int file, char *ptr, int len) {
-    for (int i = 0; i < len; i++) {
-        ITM_SendChar(*ptr++);
-    }
-    return len;
-}
-
-#define DBG_BUF_SIZE 128
 
 /* USER CODE END 4 */
 
