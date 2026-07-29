@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Arach9_FP") (type "KiCad") (uri "/Users/mustafayousif/PCB/Arach9/Arach9_FP.pretty") (options "") (descr ""))
+)
