@@ -1,3 +1,9 @@
 [submodule "Components/DRV8316"]
 	path = Components/DRV8316
 	url = git@github.com:sylas-project/drv8316.git
+[submodule "Components/FOC9"]
+	path = Components/FOC9
+	url = git@github.com:sylas-project/foc9.git
+[submodule "Components/As5048a"]
+	path = Components/As5048a
+	url = git@github.com:sylas-project/as5048a.git
