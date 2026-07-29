@@ -3,7 +3,7 @@
 	url = git@github.com:sylas-project/as5048a.git
 [submodule "firmware/Components/FOC9"]
 	path = firmware/Components/FOC9
-	url = git@github.com:sylas-project/as5048a.git
+	url = git@github.com:sylas-project/foc9.git
 [submodule "firmware/Components/DRV8316"]
 	path = firmware/Components/DRV8316
-	url = git@github.com:sylas-project/as5048a.git
+	url = git@github.com:sylas-project/drv8316.git
