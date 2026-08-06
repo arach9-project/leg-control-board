@@ -1,6 +1,5 @@
 
 #include "main.h"
-#include <stdio.h>
 
 #define DBG_BUF_SIZE 128
 // In main.c, add this ITM send function

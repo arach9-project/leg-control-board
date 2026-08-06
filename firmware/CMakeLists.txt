@@ -40,6 +40,28 @@ enable_language(C ASM)
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
 
+set(LINKER_SCRIPT
+    "${CMAKE_SOURCE_DIR}/STM32G431xx_FLASH.ld"
+)
+
+if(NOT EXISTS "${LINKER_SCRIPT}")
+    message(FATAL_ERROR "Linker script not found: ${LINKER_SCRIPT}")
+endif()
+
+target_link_options(leg_control_board PRIVATE
+    "-T${LINKER_SCRIPT}"
+    "-Wl,-Map=${CMAKE_PROJECT_NAME}.map"
+    "-Wl,--gc-sections"
+    "-Wl,--print-memory-usage"
+    "--specs=nano.specs"
+    "--specs=nosys.specs"
+    "-u_printf_float"
+)
+
+set_target_properties(leg_control_board PROPERTIES
+    SUFFIX ".elf"
+)
+
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 add_subdirectory(Components/DRV8316)
