@@ -188,6 +188,7 @@ cmake \
   -S "$ROOT_DIR" \
   -B "$BUILD_DIR" \
   -G Ninja \
+  -DARM_TOOLCHAIN_BIN="/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin" \
   -DCMAKE_TOOLCHAIN_FILE="$TOOLCHAIN_FILE" \
   -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON

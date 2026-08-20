@@ -3,8 +3,8 @@
 
 #include "main.h"
 #include "spi.h"
-#include "stdio.h"
 #include "stm32g4xx_hal_def.h"
+#include <stdio.h>
 
 /*
  * Board-specific wiring belongs here, not in Components/AS5048A.

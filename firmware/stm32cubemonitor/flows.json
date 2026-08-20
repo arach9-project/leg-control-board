@@ -1,0 +1,225 @@
+[
+    {
+        "id": "3348d4ff65870d36",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3c482981df0962d8",
+        "type": "ui_chartst",
+        "z": "3348d4ff65870d36",
+        "group": "f9c34dde.1e2f4",
+        "name": "myChart",
+        "order": 4,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7d5fba12f636339c",
+        "type": "acquisition out",
+        "z": "3348d4ff65870d36",
+        "name": "myProbe_Out",
+        "probeconfig": "",
+        "x": 580,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "483924b612657043",
+        "type": "acquisition in",
+        "z": "3348d4ff65870d36",
+        "name": "myProbe_In",
+        "probeconfig": "f995e3589fb5901e",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "3ea53ade1915ad0d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a811c9a9f7538caa",
+        "type": "ui_button",
+        "z": "3348d4ff65870d36",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "3c482981df0962d8"
+            ]
+        ]
+    },
+    {
+        "id": "6232e651af843e61",
+        "type": "ui_button",
+        "z": "3348d4ff65870d36",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb5f76e37147d523",
+        "type": "ui_button",
+        "z": "3348d4ff65870d36",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ea53ade1915ad0d",
+        "type": "processing",
+        "z": "3348d4ff65870d36",
+        "groupname": "myVariables",
+        "groupid": "d59587ff.cd1748",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "logformat": "stcm",
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "3c482981df0962d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ebea8f654c108eef",
+        "type": "ui_toast",
+        "z": "3348d4ff65870d36",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 570,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d69d7adeea9b79ec",
+        "type": "variables",
+        "z": "3348d4ff65870d36",
+        "groupname": "",
+        "accesspoint": 0,
+        "execonfig": "",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "",
+        "triggerthreshold": "",
+        "frequencyType": "0",
+        "mode": "direct",
+        "lastImportedTime": -1,
+        "openStatus": false,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false
+    },
+    {
+        "id": "f995e3589fb5901e",
+        "type": "probe",
+        "probeid": "000C001C4142501920353451",
+        "probename": "ST-Link v3 000C001C4142501920353451",
+        "protocol": "SWD",
+        "frequency": "24000 kHz",
+        "probeproperty": "{\"SWD\":[\"24000 kHz\",\"8000 kHz\",\"3300 kHz\",\"1000 kHz\",\"200 kHz\",\"50 kHz\",\"5 kHz\"],\"JTAG\":[\"21333 kHz\",\"16000 kHz\",\"12000 kHz\",\"8000 kHz\",\"1777 kHz\",\"750 kHz\"]}",
+        "probeversion": "ST Link firmware version V3.J15",
+        "connectionType": "p2p",
+        "nickname": "ST-Link-V3-Minie"
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "16e387838d04df37",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@stm32/node-red-contrib-stm32cubemonitor": "2.6.0",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

@@ -23,6 +23,7 @@
 #include "fdcan.h"
 #include "gpio.h"
 #include "spi.h"
+#include "stm32g4xx_hal_def.h"
 #include "tim.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -30,6 +31,7 @@
 #include "as5048a_adapter.h"
 #include "current_sense.h"
 #include "drv8316_adapter.h"
+#include "foc_adapter.h"
 #include "swo.h"
 #include <limits.h>
 #include <math.h>
@@ -123,8 +125,6 @@ int main(void) {
         Error_Handler();
     };
 
-    CurrentSense_Init();
-
     if (drv8316_init_instance(DRV8316_INSTANCE_1) != HAL_OK) {
         Error_Handler();
     }
@@ -138,14 +138,20 @@ int main(void) {
         Error_Handler();
     }
 
-    // if (as5048a_begin_continuous_angle_read(AS5048A_INSTANCE_1) != HAL_OK) {
-    //     Error_Handler();
-    // }
+    if (as5048a_begin_continuous_angle_read(AS5048A_INSTANCE_1) != HAL_OK) {
+        Error_Handler();
+    }
+
+    CurrentSense_Init();
 
     HAL_GPIO_WritePin(M0_nSLEEP_GPIO_Port, M0_nSLEEP_Pin, GPIO_PIN_SET);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0U);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0U);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0U);
+
+    uint32_t arr = __HAL_TIM_GET_AUTORELOAD(&htim1);
+    uint32_t neutral = arr / 2U;
+
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, neutral);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, neutral);
+    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, neutral);
 
     if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) {
         Error_Handler();
@@ -184,19 +190,14 @@ int main(void) {
     HAL_Delay(100);
     HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
 
+    axis_init();
+    axis_calibrate_electrical_offset();
+
+    AS5048A_Sample_t sample;
     while (1) {
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-
-        // AS5048A_Sample_t sample;
-        // const HAL_StatusTypeDef status =
-        //     as5048a_sample(AS5048A_INSTANCE_1, &sample);
-        //
-        // if (status == HAL_OK && sample.valid) {
-        //     printf("angle: %.2f deg  agc: %u\r\n", sample.angle.degrees,
-        //            sample.diagnostics.agc);
-        // }
 
         HAL_Delay(10U);
     }
