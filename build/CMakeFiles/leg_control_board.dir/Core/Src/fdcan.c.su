@@ -1,3 +1,0 @@
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/fdcan.c:30:6:MX_FDCAN1_Init	8	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/fdcan.c:68:6:HAL_FDCAN_MspInit	104	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/fdcan.c:109:6:HAL_FDCAN_MspDeInit	8	static

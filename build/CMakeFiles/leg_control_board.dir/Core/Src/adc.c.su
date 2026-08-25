@@ -1,5 +1,0 @@
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/adc.c:36:6:MX_ADC1_Init	112	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/adc.c:140:6:MX_ADC2_Init	104	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/adc.c:231:6:HAL_ADC_MspInit	128	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/adc.c:332:6:HAL_ADC_MspDeInit	8	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/adc.c:409:6:HAL_ADCEx_InjectedConvCpltCallback	8	static

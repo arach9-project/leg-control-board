@@ -1,4 +1,0 @@
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/cmake/stm32cubemx/../../Drivers/CMSIS/Include/core_cm4.h:2059:26:ITM_SendChar	0	static,ignoring_inline_asm
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/swo.c:7:5:_write	16	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/swo.c:14:6:to_binary_str	0	static
-/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/swo.c:37:6:SWO_Init	8	static
