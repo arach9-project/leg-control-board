@@ -7,3 +7,6 @@
 [submodule "firmware/Components/DRV8316"]
 	path = firmware/Components/DRV8316
 	url = git@github.com:sylas-project/drv8316.git
+[submodule "sim"]
+	path = sim
+	url = git@github.com:arach9-project/bldc-sim.git

@@ -1,0 +1,166 @@
+#ifndef DRV8316_TYPES_H
+#define DRV8316_TYPES_H
+
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef enum {
+    DRV8316_REG_LOCK_UNLOCK = 0x03,
+    DRV8316_REG_LOCK_LOCK   = 0x06
+} DRV8316_RegisterLock_t;
+
+typedef enum {
+    DRV8316_SDO_MODE_OPEN_DRAIN = 0,
+    DRV8316_SDO_MODE_PUSH_PULL  = 1
+} DRV8316_SDO_Mode_t;
+
+typedef enum {
+    DRV8316_SLEW_RATE_25V_US  = 0,
+    DRV8316_SLEW_RATE_50V_US  = 1,
+    DRV8316_SLEW_RATE_125V_US = 2,
+    DRV8316_SLEW_RATE_200V_US = 3
+} DRV8316_SlewRate_t;
+
+typedef enum {
+    DRV8316_PWM_MODE_6X    = 0,
+    DRV8316_PWM_MODE_6X_CL = 1,
+    DRV8316_PWM_MODE_3X    = 2,
+    DRV8316_PWM_MODE_3X_CL = 3
+} DRV8316_PWM_Mode_t;
+
+typedef enum {
+    DRV8316_OTW_REPORT_DISABLED = 0,
+    DRV8316_OTW_REPORT_ENABLED  = 1
+} DRV8316_OTW_Report_t;
+
+typedef enum {
+    DRV8316_OVP_DISABLED = 0,
+    DRV8316_OVP_ENABLED  = 1
+} DRV8316_OVP_Enable_t;
+
+typedef enum {
+    DRV8316_OVP_LEVEL_34V = 0,
+    DRV8316_OVP_LEVEL_22V = 1
+} DRV8316_OVP_Level_t;
+
+typedef enum {
+    DRV8316_PWM_100_DUTY_20KHZ = 0,
+    DRV8316_PWM_100_DUTY_40KHZ = 1
+} DRV8316_PWM100DutyFrequency_t;
+
+typedef enum {
+    DRV8316_OCP_MODE_LATCHED    = 0,
+    DRV8316_OCP_MODE_AUTO_RETRY = 1,
+    DRV8316_OCP_MODE_REPORT_ONLY = 2,
+    DRV8316_OCP_MODE_DISABLED   = 3
+} DRV8316_OCP_Mode_t;
+
+typedef enum {
+    DRV8316_OCP_LEVEL_16A = 0,
+    DRV8316_OCP_LEVEL_24A = 1
+} DRV8316_OCP_Level_t;
+
+typedef enum {
+    DRV8316_OCP_RETRY_5MS   = 0,
+    DRV8316_OCP_RETRY_500MS = 1
+} DRV8316_OCP_RetryTime_t;
+
+typedef enum {
+    DRV8316_OCP_DEGLITCH_0_2US  = 0,
+    DRV8316_OCP_DEGLITCH_0_6US  = 1,
+    DRV8316_OCP_DEGLITCH_1_25US = 2,
+    DRV8316_OCP_DEGLITCH_1_6US  = 3
+} DRV8316_OCP_DeglitchTime_t;
+
+typedef enum {
+    DRV8316_OCP_CBC_DISABLED = 0,
+    DRV8316_OCP_CBC_ENABLED  = 1
+} DRV8316_OCP_CBC_t;
+
+typedef enum {
+    DRV8316_DRIVER_ACTIVE = 0,
+    DRV8316_DRIVER_OFF    = 1
+} DRV8316_DriverState_t;
+
+typedef enum {
+    DRV8316_CSA_GAIN_0_15V_A = 0,
+    DRV8316_CSA_GAIN_0_30V_A = 1,
+    DRV8316_CSA_GAIN_0_60V_A = 2,
+    DRV8316_CSA_GAIN_1_20V_A = 3
+} DRV8316_CSA_Gain_t;
+
+typedef enum {
+    DRV8316_ASR_DISABLED = 0,
+    DRV8316_ASR_ENABLED  = 1
+} DRV8316_ASR_Enable_t;
+
+typedef enum {
+    DRV8316_AAR_DISABLED = 0,
+    DRV8316_AAR_ENABLED  = 1
+} DRV8316_AAR_Enable_t;
+
+typedef enum {
+    DRV8316_ILIM_RECIRCULATION_BRAKE = 0,
+    DRV8316_ILIM_RECIRCULATION_COAST = 1
+} DRV8316_ILIM_Recirculation_t;
+
+typedef enum {
+    DRV8316_BUCK_ENABLED  = 0,
+    DRV8316_BUCK_DISABLED = 1
+} DRV8316_BuckDisable_t;
+
+typedef enum {
+    DRV8316_BUCK_VOLTAGE_3_3V = 0,
+    DRV8316_BUCK_VOLTAGE_5_0V = 1,
+    DRV8316_BUCK_VOLTAGE_4_0V = 2,
+    DRV8316_BUCK_VOLTAGE_5_7V = 3
+} DRV8316_BuckVoltage_t;
+
+typedef enum {
+    DRV8316_BUCK_CURRENT_LIMIT_600MA = 0,
+    DRV8316_BUCK_CURRENT_LIMIT_150MA = 1
+} DRV8316_BuckCurrentLimit_t;
+
+typedef enum {
+    DRV8316_BUCK_POWER_SEQUENCE_ENABLED  = 0,
+    DRV8316_BUCK_POWER_SEQUENCE_DISABLED = 1
+} DRV8316_BuckPowerSequence_t;
+
+typedef enum {
+    DRV8316_DELAY_TARGET_0_0US = 0x00,
+    DRV8316_DELAY_TARGET_0_4US = 0x01,
+    DRV8316_DELAY_TARGET_0_6US = 0x02,
+    DRV8316_DELAY_TARGET_0_8US = 0x03,
+    DRV8316_DELAY_TARGET_1_0US = 0x04,
+    DRV8316_DELAY_TARGET_1_2US = 0x05,
+    DRV8316_DELAY_TARGET_1_4US = 0x06,
+    DRV8316_DELAY_TARGET_1_6US = 0x07,
+    DRV8316_DELAY_TARGET_1_8US = 0x08,
+    DRV8316_DELAY_TARGET_2_0US = 0x09,
+    DRV8316_DELAY_TARGET_2_2US = 0x0A,
+    DRV8316_DELAY_TARGET_2_4US = 0x0B,
+    DRV8316_DELAY_TARGET_2_6US = 0x0C,
+    DRV8316_DELAY_TARGET_2_8US = 0x0D,
+    DRV8316_DELAY_TARGET_3_0US = 0x0E,
+    DRV8316_DELAY_TARGET_3_2US = 0x0F
+} DRV8316_DelayTarget_t;
+
+typedef enum {
+    DRV8316_DELAY_COMPENSATION_DISABLED = 0,
+    DRV8316_DELAY_COMPENSATION_ENABLED  = 1
+} DRV8316_DelayCompensation_t;
+
+typedef struct {
+    uint8_t ic_status;
+    uint8_t status_1;
+    uint8_t status_2;
+} DRV8316_Diagnostics_t;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* DRV8316_TYPES_H */

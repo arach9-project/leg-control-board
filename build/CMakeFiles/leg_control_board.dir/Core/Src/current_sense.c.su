@@ -1,0 +1,10 @@
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:79:13:drv8316_current_correction	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:59:17:read_raw_u	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:66:17:read_raw_v	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:91:13:accumulate_calibration_sample	48	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:129:13:update_phase_currents	32	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:177:6:CurrentSense_StartCalibration	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:163:6:CurrentSense_Init	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:193:6:CurrentSense_IsReady	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:197:19:CurrentSense_ProcessAdcISR	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/current_sense.c:213:19:CurrentSense_GetCurrents	0	static

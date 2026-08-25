@@ -1,0 +1,3 @@
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/cordic.c:30:6:MX_CORDIC_Init	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/cordic.c:51:6:HAL_CORDIC_MspInit	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/cordic.c:67:6:HAL_CORDIC_MspDeInit	0	static

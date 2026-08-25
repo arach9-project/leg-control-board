@@ -1,0 +1,8 @@
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:173:6:MX_TIM6_Init	24	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:283:6:HAL_TIM_Base_MspInit	48	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:343:6:HAL_TIM_MspPostInit	40	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:36:6:MX_TIM1_Init	120	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:116:6:MX_TIM2_Init	64	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:203:6:MX_TIM8_Init	120	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:411:6:HAL_TIM_Base_MspDeInit	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Core/Src/tim.c:468:6:HAL_TIM_PeriodElapsedCallback	8	static

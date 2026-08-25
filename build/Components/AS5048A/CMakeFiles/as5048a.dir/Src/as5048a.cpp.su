@@ -1,0 +1,19 @@
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:3:1:As5048a::As5048a(const Config&)	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:21:6:static void As5048a::enableCycleCounter()	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:32:6:static void As5048a::delayMicroseconds(uint32_t)	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:41:9:static uint8_t As5048a::countSetBits(uint16_t)	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:52:6:static bool As5048a::requiresParityBit(uint16_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:56:6:static bool As5048a::isValueInRange(uint16_t, uint16_t)	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:61:19:HAL_StatusTypeDef As5048a::transferFrame(uint16_t, uint16_t&)	32	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:6:19:HAL_StatusTypeDef As5048a::initialize()	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:110:19:HAL_StatusTypeDef As5048a::readRegister(uint16_t, uint16_t&)	32	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:149:19:HAL_StatusTypeDef As5048a::writeRegister(uint16_t, uint16_t, uint16_t*)	32	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:200:19:HAL_StatusTypeDef As5048a::getField(uint16_t, uint16_t, uint8_t, uint16_t&)	24	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:220:19:HAL_StatusTypeDef As5048a::setField(uint16_t, uint16_t, uint8_t, uint16_t)	32	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:250:19:HAL_StatusTypeDef As5048a::sample(AS5048A_Sample_t&)	24	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:308:19:HAL_StatusTypeDef As5048a::beginContinuousAngleRead()	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:328:19:HAL_StatusTypeDef As5048a::readNextAngle(AS5048A_Angle_t&)	24	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:371:19:HAL_StatusTypeDef As5048a::readZeroPosition(uint16_t&)	24	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:392:19:HAL_StatusTypeDef As5048a::writeZeroPosition(uint16_t)	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:409:19:HAL_StatusTypeDef As5048a::setCurrentPositionAsZero()	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Components/AS5048A/Src/as5048a.cpp:432:19:HAL_StatusTypeDef As5048a::clearCommunicationErrors(uint16_t&)	8	static

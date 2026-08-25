@@ -1,0 +1,60 @@
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:43:10:Drv8316* {anonymous}::driverFor(Drv8316_Instance_t)	0	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:595:1:void __static_initialization_and_destruction_0()	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:57:30:HAL_StatusTypeDef drv8316_init()	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:74:1:HAL_StatusTypeDef drv8316_init_instance(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:80:1:HAL_StatusTypeDef drv8316_clear_faults(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:86:1:HAL_StatusTypeDef drv8316_refresh_diagnostics(Drv8316_Instance_t, DRV8316_Diagnostics_t*)	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:104:30:HAL_StatusTypeDef drv8316_set_pwm(Drv8316_Instance_t, uint16_t, uint16_t, uint16_t)	16	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:114:1:HAL_StatusTypeDef drv8316_set_pwm_mode(Drv8316_Instance_t, DRV8316_PWM_Mode_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:121:1:HAL_StatusTypeDef drv8316_set_current_sense_gain(Drv8316_Instance_t, DRV8316_CSA_Gain_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:127:30:HAL_StatusTypeDef drv8316_wake(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:135:30:HAL_StatusTypeDef drv8316_sleep(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:144:1:HAL_StatusTypeDef drv8316_get_pwm_mode(Drv8316_Instance_t, DRV8316_PWM_Mode_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:155:1:HAL_StatusTypeDef drv8316_set_slew_rate(Drv8316_Instance_t, DRV8316_SlewRate_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:162:1:HAL_StatusTypeDef drv8316_get_slew_rate(Drv8316_Instance_t, DRV8316_SlewRate_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:173:1:HAL_StatusTypeDef drv8316_set_sdo_mode(Drv8316_Instance_t, DRV8316_SDO_Mode_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:180:1:HAL_StatusTypeDef drv8316_get_sdo_mode(Drv8316_Instance_t, DRV8316_SDO_Mode_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:191:1:HAL_StatusTypeDef drv8316_get_current_sense_gain(Drv8316_Instance_t, DRV8316_CSA_Gain_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:202:1:HAL_StatusTypeDef drv8316_set_asr(Drv8316_Instance_t, DRV8316_ASR_Enable_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:209:1:HAL_StatusTypeDef drv8316_get_asr(Drv8316_Instance_t, DRV8316_ASR_Enable_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:220:1:HAL_StatusTypeDef drv8316_set_aar(Drv8316_Instance_t, DRV8316_AAR_Enable_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:227:1:HAL_StatusTypeDef drv8316_get_aar(Drv8316_Instance_t, DRV8316_AAR_Enable_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:238:1:HAL_StatusTypeDef drv8316_set_ilim_recirculation(Drv8316_Instance_t, DRV8316_ILIM_Recirculation_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:245:1:HAL_StatusTypeDef drv8316_get_ilim_recirculation(Drv8316_Instance_t, DRV8316_ILIM_Recirculation_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:257:1:HAL_StatusTypeDef drv8316_set_delay_compensation(Drv8316_Instance_t, DRV8316_DelayCompensation_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:265:1:HAL_StatusTypeDef drv8316_get_delay_compensation(Drv8316_Instance_t, DRV8316_DelayCompensation_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:277:1:HAL_StatusTypeDef drv8316_set_delay_target(Drv8316_Instance_t, DRV8316_DelayTarget_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:284:1:HAL_StatusTypeDef drv8316_get_delay_target(Drv8316_Instance_t, DRV8316_DelayTarget_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:295:1:HAL_StatusTypeDef drv8316_set_driver_state(Drv8316_Instance_t, DRV8316_DriverState_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:302:1:HAL_StatusTypeDef drv8316_get_driver_state(Drv8316_Instance_t, DRV8316_DriverState_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:313:1:HAL_StatusTypeDef drv8316_set_ocp_mode(Drv8316_Instance_t, DRV8316_OCP_Mode_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:320:1:HAL_StatusTypeDef drv8316_get_ocp_mode(Drv8316_Instance_t, DRV8316_OCP_Mode_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:331:1:HAL_StatusTypeDef drv8316_set_ocp_level(Drv8316_Instance_t, DRV8316_OCP_Level_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:338:1:HAL_StatusTypeDef drv8316_get_ocp_level(Drv8316_Instance_t, DRV8316_OCP_Level_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:349:1:HAL_StatusTypeDef drv8316_set_ocp_retry_time(Drv8316_Instance_t, DRV8316_OCP_RetryTime_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:357:1:HAL_StatusTypeDef drv8316_get_ocp_retry_time(Drv8316_Instance_t, DRV8316_OCP_RetryTime_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:369:1:HAL_StatusTypeDef drv8316_set_ocp_deglitch_time(Drv8316_Instance_t, DRV8316_OCP_DeglitchTime_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:377:1:HAL_StatusTypeDef drv8316_get_ocp_deglitch_time(Drv8316_Instance_t, DRV8316_OCP_DeglitchTime_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:389:1:HAL_StatusTypeDef drv8316_set_ocp_cycle_by_cycle(Drv8316_Instance_t, DRV8316_OCP_CBC_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:397:1:HAL_StatusTypeDef drv8316_get_ocp_cycle_by_cycle(Drv8316_Instance_t, DRV8316_OCP_CBC_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:409:1:HAL_StatusTypeDef drv8316_set_overtemperature_reporting(Drv8316_Instance_t, DRV8316_OTW_Report_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:417:1:HAL_StatusTypeDef drv8316_get_overtemperature_reporting(Drv8316_Instance_t, DRV8316_OTW_Report_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:429:1:HAL_StatusTypeDef drv8316_set_overvoltage_protection(Drv8316_Instance_t, DRV8316_OVP_Enable_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:437:1:HAL_StatusTypeDef drv8316_get_overvoltage_protection(Drv8316_Instance_t, DRV8316_OVP_Enable_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:449:1:HAL_StatusTypeDef drv8316_set_overvoltage_level(Drv8316_Instance_t, DRV8316_OVP_Level_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:456:1:HAL_StatusTypeDef drv8316_get_overvoltage_level(Drv8316_Instance_t, DRV8316_OVP_Level_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:468:1:HAL_StatusTypeDef drv8316_set_pwm100_frequency(Drv8316_Instance_t, DRV8316_PWM100DutyFrequency_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:476:1:HAL_StatusTypeDef drv8316_get_pwm100_frequency(Drv8316_Instance_t, DRV8316_PWM100DutyFrequency_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:488:1:HAL_StatusTypeDef drv8316_set_buck_state(Drv8316_Instance_t, DRV8316_BuckDisable_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:495:1:HAL_StatusTypeDef drv8316_get_buck_state(Drv8316_Instance_t, DRV8316_BuckDisable_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:506:1:HAL_StatusTypeDef drv8316_set_buck_voltage(Drv8316_Instance_t, DRV8316_BuckVoltage_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:513:1:HAL_StatusTypeDef drv8316_get_buck_voltage(Drv8316_Instance_t, DRV8316_BuckVoltage_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:524:1:HAL_StatusTypeDef drv8316_set_buck_current_limit(Drv8316_Instance_t, DRV8316_BuckCurrentLimit_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:531:1:HAL_StatusTypeDef drv8316_get_buck_current_limit(Drv8316_Instance_t, DRV8316_BuckCurrentLimit_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:543:1:HAL_StatusTypeDef drv8316_set_buck_power_sequencing(Drv8316_Instance_t, DRV8316_BuckPowerSequence_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:551:1:HAL_StatusTypeDef drv8316_get_buck_power_sequencing(Drv8316_Instance_t, DRV8316_BuckPowerSequence_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:563:1:HAL_StatusTypeDef drv8316_lock_registers(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:569:1:HAL_StatusTypeDef drv8316_unlock_registers(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:575:1:HAL_StatusTypeDef drv8316_get_register_lock(Drv8316_Instance_t, DRV8316_RegisterLock_t*)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:587:1:uint8_t drv8316_is_fault_asserted(Drv8316_Instance_t)	8	static
+/Users/mustafayousif/Code/arach9/leg-control-board/firmware/Platform/Src/drv8316_adapter.cpp:595:1:cpp)	8	static

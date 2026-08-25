@@ -1,6 +1,0 @@
-CompileFlags:
-  CompilationDatabase: build/
-  Compiler: /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/arm-none-eabi-gcc
-
-Diagnostics:
-  UnusedIncludes: None

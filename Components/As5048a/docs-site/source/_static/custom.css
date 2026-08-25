@@ -1,0 +1,4 @@
+:root { --color-brand-primary: #8b2d55; --color-brand-content: #8b2d55; }
+.sidebar-brand img { max-height: 2.25rem; width: auto; }
+.content img { border-radius: .5rem; }
+
