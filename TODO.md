@@ -12,6 +12,8 @@
 - [x] Enable using DRV8316 Driver Enable / Sleep Pin (DRVOFF or NSLEEP)
 - [x] Move motor (turn on DRVOFF, turn on nSleep)
 - [x] Implement open loop
+- [ ] Sensorless FOC
+- [ ] Open Loop FOC
 
 ## CAN communication
 
@@ -50,3 +52,23 @@ Commands and responses
 - A radial background for the radar that shows the sectors of a BLDC would be better.
 - A better mount, to hold motor to table and angle indicator needed.
 - Reorganization of repo required, react style main project code, with folder for CAD, add stm32 cube monitor files
+
+# Cycloidal Drive
+
+The cycloidal drive is a drive consisting of two curtate epitrochoid disks, of radius 18 diameter of 36mm. Inner pin radius is 10mm  and diameter of 20mm.
+
+- [ ] Make disk thinner
+- [ ] Make motor mount thinner
+- [ ] Make thicker seperator for axis, add padding for bearing
+- [ ] Split disk into two layers, join with screw, encloses bearing
+- [x] Split casing into bottom and top
+- [x] make mounts for bushings
+- [ ] Make axle that fits bearings
+- [ ] Make disks fit bearing
+- [ ] Make tight fitting cycloidal disks
+- [ ] Remake Cycloidal gear case around motor
+- [ ] Organize folder in github as part of cad for motor. Move all parts into Assembly, remove part files, make asset folder and put battery, bushings, bearings, motor in it
+
+Make mount for BLDC
+Add holes for wires on AS5048a Stand
+Widen holes for bottom plate mount
