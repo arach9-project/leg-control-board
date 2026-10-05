@@ -1,4 +1,8 @@
+#ifndef FOC_PI_CONTROLLER
+#define FOC_PI_CONTROLLER
+
 #include "arm_math.h"
+#include <stdint.h>
 
 class PIController {
 private:
@@ -15,3 +19,4 @@ public:
   float output();
   void reset();
 };
+#endif

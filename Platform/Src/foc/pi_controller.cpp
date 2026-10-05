@@ -1,6 +1,4 @@
-
-
-#include "foc9/pi-controller.hpp"
+#include "foc/pi_controller.hpp"
 
 PIController::PIController(float vbus, float Kp_0, float Ki_0) {
   Kp = Kp_0;
@@ -35,4 +33,6 @@ void PIController::update(float target, float measured, float dt) {
   }
 }
 
-float PIController::output() { return _output; }
+float PIController::output() {
+  return _output;
+}
