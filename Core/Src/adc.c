@@ -24,10 +24,10 @@
 
 #include "as5048a_adapter.h"
 #include "current_sense.h"
-#include "foc/types.hpp"
-#include "foc_adapter.h"
+#include "drv8316_adapter.h"
+#include "foc9/types.hpp"
+#include "foc9_adapter.h"
 #include "main.h"
-#include "stdio.h"
 #include "stm32g4xx_hal_gpio.h"
 /* USER CODE END 0 */
 
@@ -383,8 +383,40 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle) {
 
 /* USER CODE BEGIN 1 */
 
+static float dt = 0.0f;
+
+static float calculate_loop_period(void) {
+  const uint32_t timer_clock = HAL_RCC_GetPCLK2Freq();
+  const uint32_t psc = TIM1->PSC;
+  const uint32_t arr = TIM1->ARR;
+
+  const float pwm_frequency = (float)timer_clock / (2.0f * (float)(psc + 1U) * (float)arr);
+
+  return 1.0f / pwm_frequency;
+}
+
+#define MIN_DUTY 0.02f
+#define MAX_DUTY 0.98f
+
 AS5048A_Angle_t angle;
 PhaseVector_t currents;
+FocOutput output = {0};
+PhaseIntVector_t ccr = {0, 0, 0};
+
+static inline float clampf(float value, float minimum, float maximum) {
+  return (value < minimum) ? minimum : (value > maximum) ? maximum : value;
+}
+
+static inline void duty_to_ccr(const PhaseVector_t* duty, PhaseIntVector_t* out, float arr,
+                               float min_duty, float max_duty) {
+  float du = clampf(duty->u, min_duty, max_duty);
+  float dv = clampf(duty->v, min_duty, max_duty);
+  float dw = clampf(duty->w, min_duty, max_duty);
+
+  out->u = (uint16_t)(du * arr + 0.5f);
+  out->v = (uint16_t)(dv * arr + 0.5f);
+  out->w = (uint16_t)(dw * arr + 0.5f);
+}
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
 
   if (hadc == NULL) {
@@ -402,17 +434,22 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
 
   CurrentSense_ProcessAdcISR();
   if (CurrentSense_IsReady()) {
-    if (CurrentSense_GetCurrents(0, currents) != HAL_OK) {
+    if (CurrentSense_GetCurrents(0, &currents) != HAL_OK) {
       return;
     }
     if (as5048a_read_next_angle(AS5048A_INSTANCE_1, &angle) != HAL_OK)
       return;
 
-    if (axis_current_loop_step() != HAL_OK)
+    if (axis_step(AXIS_INSTANCE_1, angle.radians, dt, &output) != HAL_OK) {
       Error_Handler();
-  }
+    }
 
-  if (axis_pwm_step() != HAL_OK)
-    Error_Handler(); // commits commanded_duty to timer/DRV
+    // ignore
+    duty_to_ccr(&output.duty, &ccr, (float)TIM1->ARR, MIN_DUTY, MAX_DUTY);
+
+    if (drv8316_set_pwm(DRV8316_INSTANCE_1, ccr.u, ccr.v, ccr.w) != HAL_OK) {
+      return;
+    }
+  }
 }
 /* USER CODE END 1 */

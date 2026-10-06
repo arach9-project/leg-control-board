@@ -28,13 +28,13 @@ struct FocInput {
   float vbus;
 };
 
-struct FocOutput {
+typedef struct {
   PhaseVector_t duty;
-};
+} FocOutput;
 
-struct PhaseIntVector_t {
+typedef struct {
   uint16_t u;
   uint16_t v;
   uint16_t w;
-};
+} PhaseIntVector_t;
 #endif

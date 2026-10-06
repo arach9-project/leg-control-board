@@ -1,16 +1,18 @@
+file(GLOB CPP_SOURCES 
+  Src/*.cpp
+  Src/foc/*.cpp
+)
 
-file(GLOB PLATFORM_SOURCES
+file(GLOB C_SOURCES
     CONFIGURE_DEPENDS
     Src/*.c
-    Src/*.cpp
-
     Src/foc/*.c
-    Src/foc/*.cpp
 )
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        ${PLATFORM_SOURCES}
+    ${CPP_SOURCES}
+    ${C_SOURCES}
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -22,18 +24,13 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Inc
 )
 
-# file(GLOB CPP_SOURCES "Src/*.cpp")
-# file(GLOB C_SOURCES "Src/*.c")
-#
-# add_library(foc9 STATIC ${CPP_SOURCES} ${C_SOURCES})
-#
-# # Add C++17 Standard
-# target_compile_features(foc9 PUBLIC cxx_std_17)
-# set_target_properties(foc9 PROPERTIES 
-#     CXX_STANDARD 17
-#     CXX_STANDARD_REQUIRED ON
-#     CXX_EXTENSIONS OFF
-# )
+# Add C++17 Standard
+target_compile_features(foc9 PUBLIC cxx_std_17)
+set_target_properties(foc9 PROPERTIES 
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
 #
 # target_include_directories(foc9
 #     PUBLIC

@@ -1,4 +1,5 @@
-#include "foc/pi_controller.hpp"
+#include "foc9/pi_controller.hpp"
+#include "math.h"
 
 PIController::PIController(float vbus, float Kp_0, float Ki_0) {
   Kp = Kp_0;

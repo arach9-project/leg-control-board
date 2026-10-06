@@ -1,19 +1,12 @@
-#include "arm_math.h"
+#include "foc9/constants.h"
+#include "foc9/types.hpp"
+#include "foc9/utils.hpp"
 #include "math.c"
-// #include <algorithm>
-#include "foc/constants.h"
-#include "foc/types.hpp"
 #include <stdint.h>
-
-#define TWO_PI 6.28318530718f
-
-template <typename T> constexpr const T& clamp(const T& val, const T& low, const T& high) {
-  return (val < low) ? low : (high < val) ? high : val;
-}
 
 void forward_clarke_transform(const PhaseVector_t& phase_currents, AlphaBetaFrame_t& I_ab) {
   I_ab.alpha = phase_currents.u;                                    // I_alpha = I_a
-  I_ab.beta = one_by_sqrt3 * (phase_currents.v - phase_currents.w); // I_beta = 1/sqrt(3)(I_b - I_c)
+  I_ab.beta = ONE_BY_SQRT3 * (phase_currents.v - phase_currents.w); // I_beta = 1/sqrt(3)(I_b - I_c)
 }
 
 void forward_park_transform(const AlphaBetaFrame_t& I_ab, const float32_t& theta_el,

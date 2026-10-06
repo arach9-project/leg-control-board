@@ -66,6 +66,7 @@ set_target_properties(leg_control_board PROPERTIES
 add_subdirectory(cmake/stm32cubemx)
 add_subdirectory(Components/DRV8316)
 add_subdirectory(Components/AS5048A)
+add_subdirectory(Foc9)
 add_subdirectory(Platform)
 
 # Link directories setup
