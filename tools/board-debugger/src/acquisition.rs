@@ -1,72 +1,195 @@
 use std::{
-    sync::{
-        Arc,
-        atomic::{AtomicBool, Ordering},
-        mpsc::{self, Receiver},
-    },
-    thread,
-    time::Instant,
+    sync::mpsc::{self, Receiver, Sender},
+    thread::{self, JoinHandle},
+    time::{Duration, Instant},
 };
 
 use probe_rs::{MemoryInterface, Session, SessionConfig};
 
-use crate::{config::AcquisitionConfig, types::Sample};
+use crate::{
+    config::AppConfig,
+    types::{Sample, WatchedVariable},
+};
+#[derive(Debug, Clone, Copy)]
+pub enum MemoryType {
+    U8,
+    U16,
+    U32,
+    I32,
+    F32,
+}
+#[derive(Debug, Clone, Copy)]
+pub enum MemoryValue {
+    U8(u8),
+    U16(u16),
+    U32(u32),
+    I32(i32),
+    F32(f32),
+}
+
+pub enum AcquisitionCommand {
+    Start,
+    Stop,
+    SetVariables(Vec<WatchedVariable>),
+    WriteMemory { address: u64, value: MemoryValue },
+    Shutdown,
+}
+pub enum WriteResult {
+    Success { address: u64 },
+    Failure { address: u64, error: String },
+}
 
 pub struct AcquisitionHandle {
     pub receiver: Receiver<Sample>,
-    stop_flag: Arc<AtomicBool>,
+    pub write_receiver: Receiver<WriteResult>,
+    pub command_tx: Sender<AcquisitionCommand>,
+    worker: Option<JoinHandle<()>>,
 }
 
 impl AcquisitionHandle {
+    pub fn start(&self) {
+        let _ = self.command_tx.send(AcquisitionCommand::Start);
+    }
+
     pub fn stop(&self) {
-        self.stop_flag.store(true, Ordering::Relaxed);
+        let _ = self.command_tx.send(AcquisitionCommand::Stop);
+    }
+
+    pub fn shutdown(&mut self) {
+        let _ = self.command_tx.send(AcquisitionCommand::Shutdown);
+
+        if let Some(worker) = self.worker.take() {
+            if let Err(error) = worker.join() {
+                eprintln!("Acquisition thread panicked: {error:?}");
+            }
+        }
+    }
+}
+impl AcquisitionHandle {
+    pub fn set_variables(&self, variables: Vec<WatchedVariable>) {
+        let _ = self
+            .command_tx
+            .send(AcquisitionCommand::SetVariables(variables));
+    }
+
+    pub fn write(
+        &self,
+        address: u64,
+        value: MemoryValue,
+    ) -> Result<(), mpsc::SendError<AcquisitionCommand>> {
+        self.command_tx
+            .send(AcquisitionCommand::WriteMemory { address, value })
     }
 }
 
-pub fn start(config: AcquisitionConfig) -> AcquisitionHandle {
-    let (tx, rx) = mpsc::channel();
+pub fn new(config: AppConfig) -> AcquisitionHandle {
+    let (sample_tx, sample_rx) = mpsc::channel();
+    let (command_tx, command_rx) = mpsc::channel();
+    let (write_tx, write_rx) = mpsc::channel();
 
-    let stop_flag = Arc::new(AtomicBool::new(false));
-    let worker_stop_flag = Arc::clone(&stop_flag);
-
-    thread::spawn(move || {
-        let mut session = match Session::auto_attach((), SessionConfig::default()) {
+    let worker = thread::spawn(move || {
+        let mut session = match Session::auto_attach(config.chip.as_str(), SessionConfig::default())
+        {
             Ok(session) => session,
 
             Err(error) => {
-                eprintln!("Failed to attach probe: {error}");
+                eprintln!("Failed to attach: {error}");
+                eprintln!("Full error: {error:?}");
                 return;
             }
         };
 
+        let mut running = false;
+        let mut watched_variables = Vec::new();
         let start_time = Instant::now();
 
-        while !worker_stop_flag.load(Ordering::Relaxed) {
+        loop {
+            while let Ok(command) = command_rx.try_recv() {
+                match command {
+                    AcquisitionCommand::Start => {
+                        running = true;
+                    }
+
+                    AcquisitionCommand::Stop => {
+                        running = false;
+                    }
+
+                    AcquisitionCommand::Shutdown => {
+                        return;
+                    }
+
+                    AcquisitionCommand::SetVariables(variables) => {
+                        println!("Watch list updated: {} variables", variables.len());
+
+                        for variable in &variables {
+                            println!("  {} @ 0x{:08X}", variable.name, variable.address);
+                        }
+
+                        watched_variables = variables;
+                    }
+                    AcquisitionCommand::WriteMemory { address, value } => {
+                        let result = match session.core(0) {
+                            Ok(mut core) => match write_memory(&mut core, address, value) {
+                                Ok(()) => WriteResult::Success { address },
+
+                                Err(error) => WriteResult::Failure {
+                                    address,
+                                    error: error.to_string(),
+                                },
+                            },
+
+                            Err(error) => WriteResult::Failure {
+                                address,
+                                error: error.to_string(),
+                            },
+                        };
+
+                        if let WriteResult::Failure { address, error } = &result {
+                            eprintln!("Memory write failed at 0x{address:08X}: {error}");
+                        }
+
+                        let _ = write_tx.send(result);
+                    }
+                }
+            }
+
+            if !running {
+                thread::sleep(Duration::from_millis(10));
+                continue;
+            }
+
             let mut core = match session.core(0) {
                 Ok(core) => core,
 
                 Err(error) => {
-                    eprintln!("Failed to access core: {error}");
-                    break;
+                    eprintln!("Core error: {error}");
+                    thread::sleep(Duration::from_millis(10));
+                    continue;
                 }
             };
 
-            let raw = match core.read_word_32(config.variable_address) {
-                Ok(value) => value,
+            for variable in &watched_variables {
+                let value = match read_memory(&mut core, variable.address, variable.data_type) {
+                    Ok(value) => value,
 
-                Err(error) => {
-                    eprintln!("Failed to read memory: {error}");
-                    break;
+                    Err(error) => {
+                        eprintln!(
+                            "Failed {} at 0x{:08X}: {error}",
+                            variable.name, variable.address,
+                        );
+                        continue;
+                    }
+                };
+
+                let sample = Sample {
+                    symbol: variable.name.clone(),
+                    value,
+                    time: start_time.elapsed().as_secs_f64(),
+                };
+
+                if sample_tx.send(sample).is_err() {
+                    return;
                 }
-            };
-
-            let sample = Sample {
-                time: start_time.elapsed().as_secs_f64(),
-                value: f32::from_bits(raw),
-            };
-
-            if tx.send(sample).is_err() {
-                break;
             }
 
             thread::sleep(config.sample_period);
@@ -74,7 +197,57 @@ pub fn start(config: AcquisitionConfig) -> AcquisitionHandle {
     });
 
     AcquisitionHandle {
-        receiver: rx,
-        stop_flag,
+        receiver: sample_rx,
+        command_tx,
+        worker: Some(worker),
+        write_receiver: write_rx,
     }
+}
+fn read_memory(
+    core: &mut probe_rs::Core<'_>,
+    address: u64,
+    data_type: MemoryType,
+) -> Result<f32, probe_rs::Error> {
+    let value = match data_type {
+        MemoryType::U8 => core.read_word_8(address)? as f32,
+
+        MemoryType::U16 => core.read_word_16(address)? as f32,
+
+        MemoryType::U32 => core.read_word_32(address)? as f32,
+
+        MemoryType::I32 => core.read_word_32(address)? as i32 as f32,
+
+        MemoryType::F32 => f32::from_bits(core.read_word_32(address)?),
+    };
+
+    Ok(value)
+}
+fn write_memory(
+    core: &mut probe_rs::Core<'_>,
+    address: u64,
+    value: MemoryValue,
+) -> Result<(), probe_rs::Error> {
+    match value {
+        MemoryValue::U8(value) => {
+            core.write_word_8(address, value)?;
+        }
+
+        MemoryValue::U16(value) => {
+            core.write_word_16(address, value)?;
+        }
+
+        MemoryValue::U32(value) => {
+            core.write_word_32(address, value)?;
+        }
+
+        MemoryValue::I32(value) => {
+            core.write_word_32(address, value as u32)?;
+        }
+
+        MemoryValue::F32(value) => {
+            core.write_word_32(address, value.to_bits())?;
+        }
+    }
+
+    Ok(())
 }

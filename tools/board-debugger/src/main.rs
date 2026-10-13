@@ -1,9 +1,12 @@
-use crate::app::DebuggerApp;
+use crate::{app::DebuggerApp, config::AppConfig, symbols::SymbolTable};
 
 mod acquisition;
 mod app;
 mod config;
+mod dwarf;
+mod symbols;
 mod types;
+mod ui;
 
 fn main() -> eframe::Result {
     let options = eframe::NativeOptions {
@@ -14,9 +17,10 @@ fn main() -> eframe::Result {
         ..Default::default()
     };
 
+    let config = AppConfig::default();
     eframe::run_native(
         "Board Debugger",
         options,
-        Box::new(|_| Ok(Box::new(DebuggerApp::default()))),
+        Box::new(|_| Ok(Box::new(DebuggerApp::new(config)))),
     )
 }

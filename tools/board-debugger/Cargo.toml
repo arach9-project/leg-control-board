@@ -4,7 +4,11 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-eframe = "0.36.2"
-egui_plot = "0.37.0"
-probe-rs = "0.32.0"
-anyhow = "1"
+anyhow.workspace = true
+object.workspace = true
+probe-rs.workspace = true
+eframe.workspace = true
+gimli.workspace = true
+egui_plot.workspace = true
+
+# shared = { path = "../../crates/shared" }

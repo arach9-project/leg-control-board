@@ -1,18 +1,88 @@
-use std::time::Duration;
+use std::{path::PathBuf, time::Duration};
+
+use crate::types::WatchedVariable;
 
 #[derive(Debug, Clone)]
-pub struct AcquisitionConfig {
+pub struct AppConfig {
     pub sample_period: Duration,
     pub max_samples: usize,
     pub variable_address: u64,
+    pub chip: String,
+    pub firmware_path: PathBuf,
+    pub watched_variables: Vec<String>,
 }
 
-impl Default for AcquisitionConfig {
+impl Default for AppConfig {
     fn default() -> Self {
+        let repo_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .and_then(|p| p.parent())
+            .unwrap()
+            .to_path_buf();
+
+        let firmware_path = repo_root.join("build/leg_control_board.elf");
         Self {
             sample_period: Duration::from_millis(10),
             max_samples: 1000,
             variable_address: 0x2000_0000,
+            chip: "STM32G431CBTx".to_owned(),
+            firmware_path,
+            watched_variables: vec![
+                "currents.u".to_owned(),
+                "currents.v".to_owned(),
+                "currents.w".to_owned(),
+                "axis1.output_.duty.u".to_owned(),
+                "axis1.output_.duty.v".to_owned(),
+                "axis1.output_.duty.w".to_owned(),
+                "axis1.control.theta_target".to_owned(),
+                "axis1.control.id_ref".to_owned(),
+                "axis1.control.iq_ref".to_owned(),
+                "axis1.control.open_loop_speed".to_owned(),
+                "axis1.control.position_kp".to_owned(),
+                "axis1.control.position_kd".to_owned(),
+                "axis1.control.axis_mode".to_owned(),
+                "axis1.config.kIqLimit".to_owned(),
+                "axis1.config.kIdLimit".to_owned(),
+                "axis1.config.kPositionLoopDT".to_owned(),
+                "axis1.config.kPositionDeadband".to_owned(),
+                "axis1.config.kVelocityDeadband".to_owned(),
+                "axis1.config.kVelocityAlpha".to_owned(),
+                "axis1.config.pole_pairs".to_owned(),
+                "axis1.config.kPositionKp".to_owned(),
+                "axis1.config.kPositionKd".to_owned(),
+                "axis1.config.vbus".to_owned(),
+                "axis1.config.kCalibrationVoltage".to_owned(),
+                "axis1.config.kThetaAlign".to_owned(),
+                "axis1.config.kRampCycles".to_owned(),
+                "axis1.config.kSettleCycles".to_owned(),
+                "axis1.config.kSampleCycles".to_owned(),
+                "axis1.d_axis_loop_.Kp".to_owned(),
+                "axis1.d_axis_loop_.Ki".to_owned(),
+                "axis1.d_axis_loop_.integrator".to_owned(),
+                "axis1.d_axis_loop_.out_max".to_owned(),
+                "axis1.d_axis_loop_.out_min".to_owned(),
+                "axis1.d_axis_loop_._output".to_owned(),
+                "axis1.q_axis_loop_.Kp".to_owned(),
+                "axis1.q_axis_loop_.Ki".to_owned(),
+                "axis1.q_axis_loop_.integrator".to_owned(),
+                "axis1.q_axis_loop_.out_max".to_owned(),
+                "axis1.q_axis_loop_.out_min".to_owned(),
+                "axis1.q_axis_loop_._output".to_owned(),
+                "axis1.prev_theta_mech_".to_owned(),
+                "axis1.electrical_offset_".to_owned(),
+                "axis1.encoder_direction_".to_owned(),
+                "axis1.omega_raw_".to_owned(),
+                "axis1.omega_mech_".to_owned(),
+                "axis1.open_loop_theta_el_".to_owned(),
+                "axis1.current_dq_.d".to_owned(),
+                "axis1.current_dq_.q".to_owned(),
+                "axis1.voltage_dq_.d".to_owned(),
+                "axis1.voltage_dq_.q".to_owned(),
+                "axis1.theta_mech_".to_owned(),
+                "axis1.theta_el_".to_owned(),
+                "axis1.iq_error_".to_owned(),
+                "axis1.id_error_".to_owned(),
+            ],
         }
     }
 }
