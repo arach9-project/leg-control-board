@@ -37,7 +37,7 @@ HAL_StatusTypeDef Drv8316::initialize() {
   if (status != HAL_OK) {
     return status;
   }
-  // sleep();
+  sleep();
 
   return HAL_OK;
 }

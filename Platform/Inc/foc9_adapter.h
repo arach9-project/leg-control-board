@@ -1,6 +1,7 @@
 #ifndef FOC9_ADAPTER_HPP
 #define FOC9_ADAPTER_HPP
 
+#include "as5048a/types.h"
 #include "foc9/types.hpp"
 #include "stm32g4xx_hal.h"
 
@@ -17,10 +18,11 @@ typedef enum { AXIS_INSTANCE_1 = 0, AXIS_INSTANCE_2 = 1, AXIS_INSTANCE_3 = 2 } A
 HAL_StatusTypeDef axis_init(void);
 
 /* Narrow C facade. Add wrappers only when C code actually needs them. */
-HAL_StatusTypeDef axis_init_instance(Axis_Instance_t instance);
+HAL_StatusTypeDef axis_init_instance(const Axis_Instance_t instance);
 
-HAL_StatusTypeDef axis_step(const Axis_Instance_t instance, float theta, float dt,
-                            FocOutput* output);
+HAL_StatusTypeDef axis_step(const Axis_Instance_t instance, PhaseVector_t currents, float theta,
+                            float dt, FocOutput* output);
+AS5048A_Angle_t* angleFor(const Axis_Instance_t instance);
 
 #ifdef __cplusplus
 }

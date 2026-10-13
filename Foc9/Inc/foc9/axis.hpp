@@ -5,10 +5,6 @@
 #include <foc9/types.hpp>
 #include <stdint.h>
 
-// TODO: set this in axis
-
-// encapsulate this in axis, pole pair count and electircal offset
-
 struct Axis_Config_t {
   float kIqLimit;
   float kIdLimit;
@@ -16,18 +12,23 @@ struct Axis_Config_t {
   float kPositionDeadband;
   float kVelocityDeadband;
   float kVelocityAlpha;
+
   uint8_t pole_pairs;
+
   float kPositionKp;
   float kPositionKd;
+
   float vbus;
+
   float kCalibrationVoltage;
   float kThetaAlign;
+
   uint32_t kRampCycles;
   uint32_t kSettleCycles;
   uint32_t kSampleCycles;
 };
 
-enum class CalibrationState {
+enum class CalibrationState : uint8_t {
   Idle,
   RampAlignment,
   Settle,
@@ -43,61 +44,116 @@ enum class AxisMode : uint8_t {
   Position,
 };
 
+//
+// Debugger / external control interface
+//
+struct AxisControl {
+  float theta_target;
+  float id_ref;
+  float iq_ref;
+  float open_loop_speed;
+
+  float position_kp;
+  float position_kd;
+
+  AxisMode axis_mode;
+};
+
+//
+// Read-only debugger telemetry
+//
+struct AxisTelemetry {
+  uint8_t axis_calibrated;
+
+  float theta_mech;
+  float omega_raw;
+  float omega_mech;
+
+  float electrical_offset;
+  float open_loop_theta_el;
+
+  DirectQuadratureFrame_t current_dq;
+  DirectQuadratureFrame_t voltage_dq;
+
+  CalibrationState calibration_state;
+};
+
 class Axis {
+public:
+  // Shared with debugger / SWD.
+  AxisControl control;
+
 private:
-  Axis_Config_t cfg;
-  PIController d_axis_loop_, q_axis_loop_;
-  volatile AxisMode axis_mode = AxisMode::Disabled;
+  Axis_Config_t config;
+  PIController d_axis_loop_;
+  PIController q_axis_loop_;
 
-  uint8_t axis_calibrated = false;
-  float theta_target, id_ref, iq_ref, omega_raw, omega_mech;
-  float prev_theta_mech;
+  float id_error_{0.0f};
+  float iq_error_{0.0f};
 
-  float encoder_direction = 1.0f;
-  volatile float electrical_offset = 0;
-  FocOutput _output;
+  AxisMode previous_mode_{AxisMode::Disabled};
 
-  CalibrationState calibration_state = CalibrationState::Idle;
+  //
+  // Internal computational state.
+  // These are deliberately NOT volatile.
+  //
+  float prev_theta_mech_ = 0.0f;
 
-  uint32_t calibration_counter = 0;
+  float electrical_offset_ = 0.0f;
+  float encoder_direction_ = 1.0f;
+  float theta_mech_{0.0f};
+  float theta_el_{0.0f};
 
-  float calibration_sum_sin = 0.0f;
-  float calibration_sum_cos = 0.0f;
-  float open_loop_speed = 10.0f;
-  PhaseVector_t I;
-  DirectQuadratureFrame_t I_dq = {0, 0};
-  DirectQuadratureFrame_t V_dq = {0, 0};
-  PhaseVector_t duty = {0, 0, 0};
+  float omega_raw_ = 0.0f;
+  float omega_mech_ = 0.0f;
+
+  float open_loop_theta_el_ = 0.0f;
+
+  // PhaseVector_t current_ = {0.0f, 0.0f, 0.0f};
+
+  DirectQuadratureFrame_t current_dq_ = {
+      .d = 0.0f,
+      .q = 0.0f,
+  };
+
+  DirectQuadratureFrame_t voltage_dq_ = {
+      .d = 0.0f,
+      .q = 0.0f,
+  };
+
+  FocOutput output_{};
+
+  CalibrationState calibration_state_ = CalibrationState::Idle;
+
+  uint32_t calibration_counter_ = 0;
+
+  float calibration_sum_sin_ = 0.0f;
+  float calibration_sum_cos_ = 0.0f;
+
+  AxisTelemetry telemetry();
+
+  void update_velocity(float theta_mech, float dt);
 
 public:
-  Axis(Axis_Config_t cfg);
+  explicit Axis(Axis_Config_t cfg);
 
   void init();
+
   void test_angle(float theta);
+
   void start_electrical_offset_calibration();
   void calibration_step(float theta_mech);
-  void position_loop_step(float theta_mech, float dt);
+
+  void position_loop_step();
   void enter_position_mode(float theta_mech);
-  void current_loop_step(float theta_el, float dt);
-  float open_loop_theta_el = 0.0f;
+
+  void current_loop_step(PhaseVector_t currents, float theta_el, float dt);
+
   void open_loop_step(float mechanical_speed_rad_s, float dt);
-  const FocOutput step(float theta, float dt);
+
+  FocOutput step(PhaseVector_t currents, float theta, float dt);
 
   void reset();
 };
 
-// TODO:
-// - [x] Simplify FOC code and remove adapter convention, make foc math one file
-// - [ ] Move period calc to adc.c
-//- [ ] Check for AS5600 health and if not healthy magnet then dont set theta_el
-//- [ ] only command drv in one loop
-//- [ ] Command target position from cubemonitor
-//- [ ] Enable and Disable FOC loop from cubemonitor
-// TODO: Each axis has a contorl loop
-// TODO: Add state machine that i can use to debug the foc loop, either error or
-// the current step
-// TODO: implement sensorless FOC
-// TODO: Function to calibrate motor and get electrical offset, set motor to 0
-// rad, read encoder value, calculate offset
-
-#endif // !FOC9_AXIS_HPP
+#endif

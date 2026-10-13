@@ -3,7 +3,7 @@ use std::collections::{HashMap, VecDeque};
 
 use crate::{
     types::{Chart, PlotVariable, Sample},
-    ui::components::{RotaryDial, StateMachine},
+    ui::components::RotaryDial,
 };
 pub struct AxisPanel {
     pub charts: Vec<Chart>,
@@ -15,6 +15,8 @@ pub enum AxisAction {
     SetMode(u32),
     SetTarget(f32),
     SetIq(f32),
+    SetId(f32),
+    SetEncoderDirection(f32),
 }
 
 const STATES: &[&str] = &["DISABLED", "CALIBRATION", "OPENLOOP", "CURRENT", "POSITION"];
@@ -66,7 +68,7 @@ impl AxisPanel {
             color,
         };
 
-        let prefix = |symbol: &str| &format!("{prefix}.{symbol}");
+        let prefixed = |symbol: &str| format!("{prefix}.{symbol}");
 
         vec![
             Chart::new(
@@ -82,41 +84,41 @@ impl AxisPanel {
                 format!("{prefix}_phase_duty"),
                 "PWM Duty Cycles (UVW)",
                 vec![
-                    variable(&prefix("output_.duty.u"), "U", Color32::BLUE),
-                    variable(&prefix("output_.duty.v"), "V", Color32::GREEN),
-                    variable(&prefix("output_.duty.w"), "W", Color32::RED),
+                    variable(&prefixed("output_.duty.u"), "U", Color32::BLUE),
+                    variable(&prefixed("output_.duty.v"), "V", Color32::GREEN),
+                    variable(&prefixed("output_.duty.w"), "W", Color32::RED),
                 ],
             ),
             Chart::new(
                 format!("{prefix}_dq_currents"),
                 "DQ Currents",
                 vec![
-                    variable(&prefix("current_dq_.d"), "Id", Color32::BLUE),
-                    variable(&prefix("current_dq_.q"), "Iq", Color32::RED),
+                    variable(&prefixed("current_dq_.d"), "Id", Color32::BLUE),
+                    variable(&prefixed("current_dq_.q"), "Iq", Color32::RED),
                 ],
             ),
             Chart::new(
                 format!("{prefix}_dq_voltages"),
                 "DQ Voltages",
                 vec![
-                    variable(&prefix("voltage_dq_.d"), "Vd", Color32::BLUE),
-                    variable(&prefix("voltage_dq_.q"), "Vq", Color32::RED),
+                    variable(&prefixed("voltage_dq_.d"), "Vd", Color32::BLUE),
+                    variable(&prefixed("voltage_dq_.q"), "Vq", Color32::RED),
                 ],
             ),
             Chart::new(
                 format!("{prefix}_errors"),
                 "Errors",
                 vec![
-                    variable(&prefix("id_error_"), "id_error", Color32::BLUE),
-                    variable(&prefix("iq_error_"), "iq_error", Color32::RED),
+                    variable(&prefixed("id_error_"), "id_error", Color32::BLUE),
+                    variable(&prefixed("iq_error_"), "iq_error", Color32::RED),
                 ],
             ),
             Chart::new(
                 format!("{prefix}_velocity"),
                 "Velocity",
                 vec![
-                    variable(&prefix("omega_mech_"), "velocity", Color32::BLUE),
-                    variable(&prefix("omega_raw_"), "raw", Color32::RED),
+                    variable(&prefixed("omega_mech_"), "velocity", Color32::BLUE),
+                    variable(&prefixed("omega_raw_"), "raw", Color32::RED),
                 ],
             ),
         ]
@@ -217,27 +219,83 @@ impl AxisPanel {
                     .spacing([16.0, 8.0])
                     .show(ui, |ui| {
                         for (label, symbol) in [
-                            ("Iq", "current_dq_.q"),
-                            ("Id", "current_dq_.d"),
-                            ("Vq", "voltage_dq_.q"),
-                            ("Vd", "voltage_dq_.d"),
-                            ("Velocity", "omega_mech_"),
+                            ("Iq", prefix("current_dq_.q")),
+                            ("Id", prefix("current_dq_.d")),
+                            ("Vq", prefix("voltage_dq_.q")),
+                            ("Vd", prefix("voltage_dq_.d")),
+                            ("encoder_direction", prefix("encoder_direction_")),
+                            ("Velocity", prefix("omega_mech_")),
                         ] {
                             ui.label(label);
 
-                            ui.monospace(format!("{:.3}", get(symbol, 0.0),));
+                            ui.monospace(format!("{:.3}", get(&symbol, 0.0),));
 
                             ui.end_row();
                         }
                     });
 
                 ui.add_space(16.0);
+                ui.label("Control Inputs");
+
+                egui::Grid::new(format!("{axis_prefix}_inputs"))
+                    .num_columns(2)
+                    .spacing([16.0, 8.0])
+                    .show(ui, |ui| {
+                        for (label, symbol, range) in [
+                            ("Iq Reference", prefix("control.iq_ref"), -0.5..=0.5),
+                            ("Id Reference", prefix("control.id_ref"), -0.2..=0.2),
+                        ] {
+                            let mut value = get(&symbol, 0.0);
+
+                            ui.label(label);
+
+                            let response = ui.add(
+                                egui::DragValue::new(&mut value)
+                                    .speed(0.01)
+                                    .range(range)
+                                    .fixed_decimals(3),
+                            );
+
+                            if response.changed() {
+                                action = Some(match label {
+                                    "Iq Reference" => AxisAction::SetIq(value),
+                                    "Id Reference" => AxisAction::SetId(value),
+                                    _ => unreachable!(),
+                                });
+                            }
+
+                            ui.end_row();
+                        }
+                    });
+                let direction = get(&prefix("encoder_direction_"), 1.0);
+
+                ui.label("Encoder Direction");
+
+                ui.horizontal(|ui| {
+                    if ui.selectable_label(direction > 0.0, "Normal").clicked() {
+                        action = Some(AxisAction::SetEncoderDirection(1.0));
+                    }
+
+                    if ui.selectable_label(direction < 0.0, "Reversed").clicked() {
+                        action = Some(AxisAction::SetEncoderDirection(-1.0));
+                    }
+                });
+
+                ui.end_row();
 
                 // Firmware state visualization
                 if let Some(mode) = mode {
                     let current_state = axis_mode_name(mode);
 
-                    StateMachine::new(current_state, STATES, TRANSITIONS).show(ui);
+                    let active_color = Color32::from_rgb(55, 155, 95);
+                    let inactive_color = ui.visuals().faint_bg_color;
+                    ui.horizontal(|ui| {
+                        ui.strong("Axis State");
+
+                        ui.separator();
+
+                        ui.colored_label(active_color, current_state);
+                    });
 
                     ui.weak(format!("Firmware mode: {}", mode as i32,));
                 } else {

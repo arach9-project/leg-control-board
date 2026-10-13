@@ -28,6 +28,7 @@
 #include "foc9/types.hpp"
 #include "foc9_adapter.h"
 #include "main.h"
+#include "stdio.h"
 #include "stm32g4xx_hal_gpio.h"
 /* USER CODE END 0 */
 
@@ -52,7 +53,7 @@ void MX_ADC1_Init(void) {
   /** Common config
    */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.GainCompensation = 0;
@@ -147,7 +148,7 @@ void MX_ADC2_Init(void) {
   /** Common config
    */
   hadc2.Instance = ADC2;
-  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc2.Init.GainCompensation = 0;
@@ -383,9 +384,9 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle) {
 
 /* USER CODE BEGIN 1 */
 
-static float dt = 0.0f;
+float dt = 0.0f;
 
-static float calculate_loop_period(void) {
+float calculate_loop_period(void) {
   const uint32_t timer_clock = HAL_RCC_GetPCLK2Freq();
   const uint32_t psc = TIM1->PSC;
   const uint32_t arr = TIM1->ARR;
@@ -398,17 +399,18 @@ static float calculate_loop_period(void) {
 #define MIN_DUTY 0.02f
 #define MAX_DUTY 0.98f
 
-AS5048A_Angle_t angle;
-PhaseVector_t currents;
+static volatile PhaseVector_t currents;
 FocOutput output = {0};
-PhaseIntVector_t ccr = {0, 0, 0};
+volatile PhaseIntVector_t ccr = {0, 0, 0};
+AS5048A_Sample_t sample = {0};
+static bool primed = false;
 
 static inline float clampf(float value, float minimum, float maximum) {
   return (value < minimum) ? minimum : (value > maximum) ? maximum : value;
 }
 
-static inline void duty_to_ccr(const PhaseVector_t* duty, PhaseIntVector_t* out, float arr,
-                               float min_duty, float max_duty) {
+static void duty_to_ccr(const PhaseVector_t* duty, volatile PhaseIntVector_t* out, float arr,
+                        float min_duty, float max_duty) {
   float du = clampf(duty->u, min_duty, max_duty);
   float dv = clampf(duty->v, min_duty, max_duty);
   float dw = clampf(duty->w, min_duty, max_duty);
@@ -417,6 +419,7 @@ static inline void duty_to_ccr(const PhaseVector_t* duty, PhaseIntVector_t* out,
   out->v = (uint16_t)(dv * arr + 0.5f);
   out->w = (uint16_t)(dw * arr + 0.5f);
 }
+
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
 
   if (hadc == NULL) {
@@ -432,24 +435,32 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
     return;
   }
 
+  // printf("%.2f\r\n", 1.0f);
+  //
+
   CurrentSense_ProcessAdcISR();
-  if (CurrentSense_IsReady()) {
-    if (CurrentSense_GetCurrents(0, &currents) != HAL_OK) {
-      return;
-    }
-    if (as5048a_read_next_angle(AS5048A_INSTANCE_1, &angle) != HAL_OK)
+  if (!CurrentSense_IsReady()) {
+    return;
+  }
+
+  if (CurrentSense_GetCurrents(0, &currents) != HAL_OK) {
+    return;
+  }
+
+  as5048a_is_continuous_angle_read_primed(AS5048A_INSTANCE_1, &primed);
+  if (primed)
+    if (as5048a_read_next_angle(AS5048A_INSTANCE_1, angleFor(AXIS_INSTANCE_1)) != HAL_OK)
       return;
 
-    if (axis_step(AXIS_INSTANCE_1, angle.radians, dt, &output) != HAL_OK) {
-      Error_Handler();
-    }
+  if (axis_step(AXIS_INSTANCE_1, currents, angleFor(AXIS_INSTANCE_1)->radians, dt, &output) !=
+      HAL_OK) {
+    return;
+  }
 
-    // ignore
-    duty_to_ccr(&output.duty, &ccr, (float)TIM1->ARR, MIN_DUTY, MAX_DUTY);
+  duty_to_ccr(&output.duty, &ccr, (float)TIM1->ARR, MIN_DUTY, MAX_DUTY);
 
-    if (drv8316_set_pwm(DRV8316_INSTANCE_1, ccr.u, ccr.v, ccr.w) != HAL_OK) {
-      return;
-    }
+  if (drv8316_set_pwm(DRV8316_INSTANCE_1, ccr.u, ccr.v, ccr.w) != HAL_OK) {
+    return;
   }
 }
 /* USER CODE END 1 */

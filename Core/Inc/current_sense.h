@@ -13,31 +13,34 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 
-#define MOTOR_COUNT 3U
+// TODO: Change this when you add more motors
+#define MOTOR_COUNT 1U
 #define CALIBRATION_SAMPLES 1000U
 
 typedef struct {
-    float u;
-    float v;
+  float u;
+  float v;
 } CurrentOffset_t;
 
 typedef enum {
-    CURRENT_SENSE_NOT_CALIBRATED = 0,
-    CURRENT_SENSE_CALIBRATING,
-    CURRENT_SENSE_READY,
-    CURRENT_SENSE_ERROR
+  CURRENT_SENSE_IDLE = 0,
+  CURRENT_SENSE_CALIBRATING,
+  CURRENT_SENSE_READY,
+  CURRENT_SENSE_FAILED,
 } CurrentSenseState_t;
 
-void CurrentSense_Init(void);
+extern volatile CurrentSenseState_t current_sense_state;
 
+void CurrentSense_Init(void);
 void CurrentSense_StartCalibration(void);
 
 bool CurrentSense_IsReady(void);
 
 HAL_StatusTypeDef CurrentSense_ProcessAdcISR(void);
+HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index, PhaseVector_t* currents);
 
-HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index,
-                                           PhaseVector_t *currents);
+// Call from the main loop, never from an ISR.
+void CurrentSense_PrintStatus(void);
 
 #ifdef __cplusplus
 }

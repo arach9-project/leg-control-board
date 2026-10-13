@@ -64,6 +64,10 @@ Axis axis1{axis1_cfg};
 Axis axis2{axis2_cfg};
 Axis axis3{axis3_cfg};
 
+AS5048A_Angle_t axis1_angle = {0, 0, 0};
+AS5048A_Angle_t axis2_angle = {0, 0, 0};
+AS5048A_Angle_t axis3_angle = {0, 0, 0};
+
 namespace {
 Axis* axisFor(const Axis_Instance_t instance) noexcept {
   switch (instance) {
@@ -77,13 +81,8 @@ Axis* axisFor(const Axis_Instance_t instance) noexcept {
     return nullptr;
   }
 }
-} // namespace
 
-extern "C" HAL_StatusTypeDef axis_init(void) {
-  printf("axis Init\r\n");
-  axis1.init();
-  return HAL_OK;
-}
+} // namespace
 
 extern "C" HAL_StatusTypeDef axis_init_instance(const Axis_Instance_t instance) {
   Axis* const axis = axisFor(instance);
@@ -91,9 +90,22 @@ extern "C" HAL_StatusTypeDef axis_init_instance(const Axis_Instance_t instance) 
   return HAL_OK;
 }
 
-extern "C" HAL_StatusTypeDef axis_step(const Axis_Instance_t instance, float theta, float dt,
-                                       FocOutput* output) {
+extern "C" HAL_StatusTypeDef axis_step(const Axis_Instance_t instance, PhaseVector_t currents,
+                                       float theta, float dt, FocOutput* output) {
   Axis* const axis = axisFor(instance);
-  *output = axis->step(theta, dt);
+  *output = axis->step(currents, theta, dt);
   return HAL_OK;
+}
+
+extern "C" AS5048A_Angle_t* angleFor(const Axis_Instance_t instance) noexcept {
+  switch (instance) {
+  case AXIS_INSTANCE_1:
+    return &axis1_angle;
+  case AXIS_INSTANCE_2:
+    return &axis2_angle;
+  case AXIS_INSTANCE_3:
+    return &axis3_angle;
+  default:
+    return nullptr;
+  }
 }

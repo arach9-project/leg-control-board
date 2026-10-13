@@ -32,8 +32,6 @@ default:
 build *args:
     ./scripts/build.sh {{args}}
 
-debug:
-    ./scripts/build.sh --debug
 
 release:
     ./scripts/build.sh --release
@@ -58,94 +56,177 @@ verbose:
 
 
 # -----------------------------------------------------------------------------
+# Probe-rs configuration
+# -----------------------------------------------------------------------------
+
+probe_chip := "STM32G431CBUx"
+probe_gdb_port := "1337"
+
+
+# -----------------------------------------------------------------------------
+# Probe
+# -----------------------------------------------------------------------------
+
+# List connected debug probes
+probe-list:
+    probe-rs list
+
+# List supported STM32G431 variants
+probe-chips:
+    probe-rs chip list | grep STM32G431
+
+# Reset microcontroller
+reset:
+    probe-rs reset --chip {{probe_chip}}
+
+
+# -----------------------------------------------------------------------------
 # Monitor
 # -----------------------------------------------------------------------------
 
+# Attach to running firmware without flashing or resetting
+# SWO monitor
 monitor:
-    ./scripts/monitor.sh
+  ./scripts/monitor.sh
+  # probe-rs itm \
+  #     --chip {{probe_chip}} \
+  #     swo 30000 170000000 2000000
 
 
 # -----------------------------------------------------------------------------
 # Flash
 # -----------------------------------------------------------------------------
 
+# Flash firmware and reset
 flash:
     #!/usr/bin/env bash
     set -euo pipefail
 
-    elf="$(find build -maxdepth 1 -name '*.elf' -print -quit)"
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
 
     if [[ -z "$elf" ]]; then
-        echo "No ELF found in build"
+        echo "No ELF found in {{build_dir}}"
         exit 1
     fi
 
     echo "Flashing $elf"
 
-    {{cube_programmer}}/STM32_Programmer_CLI \
-        -c port=SWD \
-        -w "$elf" \
-        -rst
+    probe-rs download \
+        --chip {{probe_chip}} \
+        "$elf"
+
+    probe-rs reset --chip {{probe_chip}}
 
 
 # Build and flash
 bf: build flash
 
-# Build, flash, then monitor
+# Build and flash
 run: build flash monitor
 
+
+
+
+
+# -----------------------------------------------------------------------------
+# Debugger
+# -----------------------------------------------------------------------------
+
+# Interactive probe-rs debugger
+debug:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
+
+    if [[ -z "$elf" ]]; then
+        echo "No ELF found in {{build_dir}}"
+        exit 1
+    fi
+
+    probe-rs debug \
+        --chip {{probe_chip}} \
+        "$elf"
+
+
+# Build and launch interactive debugger
+debug-build: build
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
+
+    test -n "$elf" || {
+        echo "No ELF found in {{build_dir}}"
+        exit 1
+    }
+
+    probe-rs debug \
+        --chip {{probe_chip}} \
+        --launch \
+        "$elf"
 
 
 # -----------------------------------------------------------------------------
 # GDB
 # -----------------------------------------------------------------------------
 
+# Start probe-rs GDB server
+gdb-server:
+    probe-rs gdb \
+        --chip {{probe_chip}} \
+        --gdb-connection-string "127.0.0.1:{{probe_gdb_port}}"
 
+
+# Connect GDB to an existing probe-rs GDB server
 gdb:
-    elf="$$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"; \
-    test -n "$$elf" || { echo "No ELF found in {{build_dir}}"; exit 1; }; \
-    {{gdb}} "$$elf"
+    #!/usr/bin/env bash
+    set -euo pipefail
 
-gdb-connect:
-    elf="$$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"; \
-    test -n "$$elf" || { echo "No ELF found in {{build_dir}}"; exit 1; }; \
-    {{gdb}} \
-        "$$elf" \
-        -ex "target extended-remote localhost:61234"
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
 
+    test -n "$elf" || {
+        echo "No ELF found"
+        exit 1
+    }
+
+    {{gdb}} "$elf" \
+        -ex "target extended-remote localhost:{{probe_gdb_port}}"
+
+
+# Connect GDB and break at main
 gdb-main:
-    elf="$$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"; \
-    test -n "$$elf" || { echo "No ELF found in {{build_dir}}"; exit 1; }; \
-    {{gdb}} \
-        "$$elf" \
-        -ex "target extended-remote localhost:61234" \
-        -ex "monitor reset" \
-        -ex "break main" \
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
+
+    test -n "$elf" || {
+        echo "No ELF found"
+        exit 1
+    }
+
+    {{gdb}} "$elf" \
+        -ex "target extended-remote localhost:{{probe_gdb_port}}" \
+        -ex "monitor reset halt" \
+        -ex "tbreak main" \
         -ex "continue"
 
-gdb-server:
-    {{gdb_server}} \
-        --swd \
-        -cp {{cube_programmer}}
 
-
+# Connect GDB and break at Error_Handler
 gdb-error:
     #!/usr/bin/env bash
     set -euo pipefail
 
-    elf="$(find build -maxdepth 1 -name '*.elf' -print -quit)"
+    elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
 
-    if [[ -z "$elf" ]]; then
-        echo "No ELF found in build"
+    test -n "$elf" || {
+        echo "No ELF found"
         exit 1
-    fi
+    }
 
-    echo "Using ELF: $elf"
-
-    {{gdb}} \
-        "$elf" \
-        -ex "target extended-remote localhost:61234" \
-        -ex "monitor reset" \
+    {{gdb}} "$elf" \
+        -ex "target extended-remote localhost:{{probe_gdb_port}}" \
         -ex "break Error_Handler" \
         -ex "continue"
 
@@ -166,3 +247,6 @@ symbols pattern:
     elf="$(find {{build_dir}} -maxdepth 1 -name '*.elf' -print -quit)"
     test -n "$elf" || { echo "No ELF found in {{build_dir}}"; exit 1; }
     {{gcc_bin}}/arm-none-eabi-nm -C "$elf" | grep -i "{{pattern}}"
+
+debugger:
+  cargo run -p board-debugger

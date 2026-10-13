@@ -4,12 +4,13 @@
 #include "math.c"
 #include <stdint.h>
 
-void forward_clarke_transform(const PhaseVector_t& phase_currents, AlphaBetaFrame_t& I_ab) {
+void forward_clarke_transform(volatile const PhaseVector_t& phase_currents,
+                              AlphaBetaFrame_t& I_ab) {
   I_ab.alpha = phase_currents.u;                                    // I_alpha = I_a
   I_ab.beta = ONE_BY_SQRT3 * (phase_currents.v - phase_currents.w); // I_beta = 1/sqrt(3)(I_b - I_c)
 }
 
-void forward_park_transform(const AlphaBetaFrame_t& I_ab, const float32_t& theta_el,
+void forward_park_transform(volatile const AlphaBetaFrame_t& I_ab, const float32_t& theta_el,
                             DirectQuadratureFrame_t& I_dq) {
   float c_I = our_arm_cos_f32(theta_el);
   float s_I = our_arm_sin_f32(theta_el);
@@ -19,7 +20,7 @@ void forward_park_transform(const AlphaBetaFrame_t& I_ab, const float32_t& theta
       -I_ab.alpha * s_I + I_ab.beta * c_I; // I_q = -I_alpha * sin(theta_e) + I_beta * cos(theta_e)
 }
 
-void inverse_park_transform(const DirectQuadratureFrame_t& V_dq, const float32_t& theta_el,
+void inverse_park_transform(volatile const DirectQuadratureFrame_t& V_dq, const float32_t& theta_el,
                             AlphaBetaFrame_t& V_ab) {
   float c_I = our_arm_cos_f32(theta_el);
   float s_I = our_arm_sin_f32(theta_el);

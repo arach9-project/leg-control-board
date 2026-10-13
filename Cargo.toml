@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = ["tools/board-debugger", "crates/shared"]
+
+[workspace.dependencies]
+anyhow = "1"
+object = "0.37"
+probe-rs = "0.32.0"
+eframe = "0.36.2"
+egui_plot = "0.37.0"
+gimli = "0.32"

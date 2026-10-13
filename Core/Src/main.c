@@ -30,6 +30,7 @@
 #include "as5048a_adapter.h"
 #include "current_sense.h"
 #include "drv8316_adapter.h"
+#include "foc9_adapter.h"
 #include "swo.h"
 #include <limits.h>
 #include <stdbool.h>
@@ -67,6 +68,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static AS5048A_Sample_t sample;
 
 /* USER CODE END 0 */
 
@@ -130,6 +132,10 @@ int main(void) {
     Error_Handler();
   };
 
+  if (drv8316_set_current_sense_gain(DRV8316_INSTANCE_1, DRV8316_CSA_GAIN_0_15V_A) != HAL_OK) {
+    Error_Handler();
+  };
+
   if (drv8316_init_instance(DRV8316_INSTANCE_2) != HAL_OK) {
     Error_Handler();
   }
@@ -146,7 +152,7 @@ int main(void) {
     Error_Handler();
   };
 
-  if (as5048a_init() != HAL_OK) {
+  if (as5048a_init_instance(AS5048A_INSTANCE_1) != HAL_OK) {
     Error_Handler();
   }
 
@@ -154,14 +160,12 @@ int main(void) {
     Error_Handler();
   }
 
-  /*
-   * Wake DRV8316 before current calibration.
-   * CSA offsets depend on the driver being active.
-   */
+  CurrentSense_Init();
 
-  /*
-   * Allow CSA bias/reference to settle.
-   */
+  if (drv8316_wake(DRV8316_INSTANCE_1) != HAL_OK) {
+    Error_Handler();
+  };
+
   HAL_Delay(10);
 
   uint32_t arr = __HAL_TIM_GET_AUTORELOAD(&htim1);
@@ -183,7 +187,7 @@ int main(void) {
     Error_Handler();
   };
 
-  if (HAL_ADCEx_InjectedStart(&hadc2)) {
+  if (HAL_ADCEx_InjectedStart(&hadc2) != HAL_OK) {
     Error_Handler();
   };
 
@@ -194,12 +198,6 @@ int main(void) {
   if (HAL_TIM_Base_Start_IT(&htim6) != HAL_OK) {
     Error_Handler();
   }
-
-  CurrentSense_Init();
-
-  if (CurrentSense_ProcessAdcISR() != HAL_OK) {
-    Error_Handler();
-  };
 
   /* USER CODE END 2 */
 
@@ -215,10 +213,7 @@ int main(void) {
   HAL_GPIO_WritePin(USR_LED_GPIO_Port, USR_LED_Pin, 0);
 
   // WARN: Fix this
-  // axis_init();
-  // current_loop_on = false;
-  // axis_calibrated = true;
-  // theta_target = 0;
+  axis_init_instance(AXIS_INSTANCE_1);
 
   volatile uint8_t drv8316_1_enable_cmd = 0;
   volatile uint8_t drv8316_2_enable_cmd = 0;
@@ -228,11 +223,16 @@ int main(void) {
   uint8_t prev_drv2_cmd = 0;
   uint8_t prev_drv3_cmd = 0;
 
-  static uint8_t previous_drv_state = 0;
+  // dt = calculate_loop_period();
+  dt = 0.000531375f; // ~1.882 kHz
+
   while (1) {
+
+    CurrentSense_PrintStatus();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
     if (drv8316_1_enable_cmd != prev_drv1_cmd) {
       if (drv8316_1_enable_cmd) {
         drv8316_wake(DRV8316_INSTANCE_1);
@@ -263,11 +263,6 @@ int main(void) {
       prev_drv3_cmd = drv8316_3_enable_cmd;
     }
 
-    if (!CurrentSense_IsReady()) {
-      CurrentSense_ProcessAdcISR();
-      continue;
-    }
-
     // if (!axis_calibrated)
     //   axis_calibrate_electrical_offset();
 
@@ -278,7 +273,7 @@ int main(void) {
     //   motor_headless_rotating = false;
     // }
 
-    HAL_Delay(10U);
+    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
@@ -293,7 +288,7 @@ void SystemClock_Config(void) {
 
   /** Configure the main internal regulator output voltage
    */
-  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
 
   /** Initializes the RCC Oscillators according to the specified parameters
    * in the RCC_OscInitTypeDef structure.
@@ -301,13 +296,7 @@ void SystemClock_Config(void) {
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
-  RCC_OscInitStruct.PLL.PLLN = 85;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
-  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
     Error_Handler();
   }
@@ -316,12 +305,12 @@ void SystemClock_Config(void) {
    */
   RCC_ClkInitStruct.ClockType =
       RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
     Error_Handler();
   }
 }
@@ -358,7 +347,6 @@ void assert_failed(uint8_t* file, uint32_t line) {
   /* User can add his own implementation to report the file name and line
      number, ex: printf("Wrong parameters value: file %s on line %d\r\n",
      file, line) */
-  printf("Test\r\n");
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

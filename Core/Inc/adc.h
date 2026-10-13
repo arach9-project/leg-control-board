@@ -29,11 +29,12 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-#include "foc9/types.hpp"
 
 // extern volatile CurrentOffsets_t motor_offsets[3];
 
-extern volatile uint8_t calibration_done;
+extern float dt;
+
+float calculate_loop_period(void);
 
 /* USER CODE END Includes */
 

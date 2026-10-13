@@ -3,15 +3,14 @@ use std::{
     time::Duration,
 };
 
-use eframe::egui::{self, Color32};
+use eframe::egui::{self};
 
 use crate::{
     acquisition::MemoryType,
-    types::{Chart, PlotVariable, WatchedVariable},
+    types::WatchedVariable,
     ui::{
         self,
         axis::{AxisAction, AxisPanel},
-        components::{RotaryDial, StateMachine},
         toolbar::ToolbarAction,
     },
 };
@@ -294,6 +293,15 @@ impl eframe::App for DebuggerApp {
                             AxisAction::SetIq(iq) => self.write_symbol(
                                 &format!("axis{axis}.control.iq_ref"),
                                 acquisition::MemoryValue::F32(iq),
+                            ),
+                            AxisAction::SetId(id) => self.write_symbol(
+                                &format!("axis{axis}.control.id_ref"),
+                                acquisition::MemoryValue::F32(id),
+                            ),
+
+                            AxisAction::SetEncoderDirection(direction) => self.write_symbol(
+                                &format!("axis{axis}.encoder_direction_"),
+                                acquisition::MemoryValue::F32(direction),
                             ),
                         };
 
