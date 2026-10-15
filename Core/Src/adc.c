@@ -43,7 +43,6 @@ void MX_ADC1_Init(void) {
   /* USER CODE END ADC1_Init 0 */
 
   ADC_MultiModeTypeDef multimode = {0};
-  ADC_ChannelConfTypeDef sConfig = {0};
   ADC_InjectionConfTypeDef sConfigInjected = {0};
 
   /* USER CODE BEGIN ADC1_Init 1 */
@@ -53,7 +52,7 @@ void MX_ADC1_Init(void) {
   /** Common config
    */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.GainCompensation = 0;
@@ -63,8 +62,6 @@ void MX_ADC1_Init(void) {
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.OversamplingMode = DISABLE;
@@ -81,23 +78,11 @@ void MX_ADC1_Init(void) {
     Error_Handler();
   }
 
-  /** Configure Regular Channel
-   */
-  sConfig.Channel = ADC_CHANNEL_4;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
-  sConfig.SingleDiff = ADC_SINGLE_ENDED;
-  sConfig.OffsetNumber = ADC_OFFSET_NONE;
-  sConfig.Offset = 0;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
-    Error_Handler();
-  }
-
   /** Configure Injected Channel
    */
   sConfigInjected.InjectedChannel = ADC_CHANNEL_4;
   sConfigInjected.InjectedRank = ADC_INJECTED_RANK_1;
-  sConfigInjected.InjectedSamplingTime = ADC_SAMPLETIME_24CYCLES_5;
+  sConfigInjected.InjectedSamplingTime = ADC_SAMPLETIME_6CYCLES_5;
   sConfigInjected.InjectedSingleDiff = ADC_SINGLE_ENDED;
   sConfigInjected.InjectedOffsetNumber = ADC_OFFSET_NONE;
   sConfigInjected.InjectedOffset = 0;
@@ -148,7 +133,7 @@ void MX_ADC2_Init(void) {
   /** Common config
    */
   hadc2.Instance = ADC2;
-  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc2.Init.GainCompensation = 0;
@@ -383,8 +368,11 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle) {
 }
 
 /* USER CODE BEGIN 1 */
+// const float timer_clk = (float)HAL_RCC_GetPCLK2Freq();  // timer clock when APB2 divider is 1
+// const float arr = (float)__HAL_TIM_GET_AUTORELOAD(&htim1);
+// const float dt = (2.0f * arr) / timer_clk;
 
-float dt = 0.0f;
+float dt = 0.0000625f;
 
 float calculate_loop_period(void) {
   const uint32_t timer_clock = HAL_RCC_GetPCLK2Freq();
@@ -399,9 +387,11 @@ float calculate_loop_period(void) {
 #define MIN_DUTY 0.02f
 #define MAX_DUTY 0.98f
 
-static volatile PhaseVector_t currents;
+static volatile PhaseVector_t axis1_currents;
+static volatile PhaseVector_t axis2_currents;
 FocOutput output = {0};
-volatile PhaseIntVector_t ccr = {0, 0, 0};
+volatile PhaseIntVector_t axis1_ccr = {0, 0, 0};
+volatile PhaseIntVector_t axis2_ccr = {0, 0, 0};
 AS5048A_Sample_t sample = {0};
 static bool primed = false;
 
@@ -443,7 +433,11 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
     return;
   }
 
-  if (CurrentSense_GetCurrents(0, &currents) != HAL_OK) {
+  if (CurrentSense_GetCurrents(AXIS_INSTANCE_1, &axis1_currents) != HAL_OK) {
+    return;
+  }
+
+  if (CurrentSense_GetCurrents(AXIS_INSTANCE_2, &axis2_currents) != HAL_OK) {
     return;
   }
 
@@ -452,15 +446,24 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc) {
     if (as5048a_read_next_angle(AS5048A_INSTANCE_1, angleFor(AXIS_INSTANCE_1)) != HAL_OK)
       return;
 
-  if (axis_step(AXIS_INSTANCE_1, currents, angleFor(AXIS_INSTANCE_1)->radians, dt, &output) !=
+  if (axis_step(AXIS_INSTANCE_1, axis1_currents, angleFor(AXIS_INSTANCE_1)->radians, dt, &output) !=
       HAL_OK) {
     return;
   }
 
-  duty_to_ccr(&output.duty, &ccr, (float)TIM1->ARR, MIN_DUTY, MAX_DUTY);
-
-  if (drv8316_set_pwm(DRV8316_INSTANCE_1, ccr.u, ccr.v, ccr.w) != HAL_OK) {
+  if (axis_step(AXIS_INSTANCE_1, axis2_currents, angleFor(AXIS_INSTANCE_2)->radians, dt, &output) !=
+      HAL_OK) {
     return;
+  }
+
+  duty_to_ccr(&output.duty, &axis1_ccr, (float)TIM1->ARR, MIN_DUTY, MAX_DUTY);
+
+  if (drv8316_set_pwm(DRV8316_INSTANCE_1, axis1_ccr.u, axis1_ccr.v, axis1_ccr.w) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (drv8316_set_pwm(DRV8316_INSTANCE_2, axis2_ccr.u, axis2_ccr.v, axis2_ccr.w) != HAL_OK) {
+    Error_Handler();
   }
 }
 /* USER CODE END 1 */

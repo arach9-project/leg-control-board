@@ -1,4 +1,6 @@
 #include "drv8316/drv8316.hpp"
+#include "drv8316/drv8316_types.h"
+#include "stdio.h"
 
 Drv8316::Drv8316(const Config& config) noexcept : config_{config} {}
 
@@ -10,7 +12,6 @@ HAL_StatusTypeDef Drv8316::initialize() {
   enableCycleCounter();
 
   HAL_GPIO_WritePin(config_.chipSelect.port, config_.chipSelect.number, GPIO_PIN_SET);
-  wake();
   HAL_Delay(2U);
 
   HAL_StatusTypeDef status = unlockRegisters();
@@ -32,12 +33,6 @@ HAL_StatusTypeDef Drv8316::initialize() {
   if (status != HAL_OK) {
     return status;
   }
-
-  status = setCurrentSenseGain(DRV8316_CSA_GAIN_0_15V_A);
-  if (status != HAL_OK) {
-    return status;
-  }
-  sleep();
 
   return HAL_OK;
 }

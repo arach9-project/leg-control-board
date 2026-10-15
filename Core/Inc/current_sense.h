@@ -14,7 +14,7 @@ extern "C" {
 #include <stdint.h>
 
 // TODO: Change this when you add more motors
-#define MOTOR_COUNT 1U
+#define MOTOR_COUNT 2U
 #define CALIBRATION_SAMPLES 1000U
 
 typedef struct {
@@ -37,7 +37,7 @@ void CurrentSense_StartCalibration(void);
 bool CurrentSense_IsReady(void);
 
 HAL_StatusTypeDef CurrentSense_ProcessAdcISR(void);
-HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index, PhaseVector_t* currents);
+HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index, volatile PhaseVector_t* currents);
 
 // Call from the main loop, never from an ISR.
 void CurrentSense_PrintStatus(void);

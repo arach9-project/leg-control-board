@@ -17,6 +17,9 @@ typedef enum {
   DRV8316_INSTANCE_3 = 2
 } Drv8316_Instance_t;
 
+extern volatile uint8_t drv8316_1_enable_cmd;
+extern volatile uint8_t drv8316_2_enable_cmd;
+extern volatile uint8_t drv8316_3_enable_cmd;
 /* Initializes all board-level Drv8316 objects. */
 HAL_StatusTypeDef drv8316_init(void);
 

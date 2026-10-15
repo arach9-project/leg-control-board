@@ -104,6 +104,7 @@ private:
   float theta_mech_{0.0f};
   float theta_el_{0.0f};
 
+  bool velocity_initialized_{false};
   float omega_raw_ = 0.0f;
   float omega_mech_ = 0.0f;
 

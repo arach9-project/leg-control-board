@@ -89,7 +89,7 @@ fn show_variable(
                 app.watched_variables.push(WatchedVariable {
                     name: full_name.clone(),
                     address: variable.address,
-                    data_type: memory_type_for_symbol(&full_name),
+                    data_type: MemoryType::from_symbol(&full_name),
                 });
             } else {
                 app.watched_variables
@@ -126,10 +126,15 @@ fn matches_search(variable: &DebugVariable, full_name: &str, search: &str) -> bo
         matches_search(child, &child_name, search)
     })
 }
-pub fn memory_type_for_symbol(name: &str) -> MemoryType {
-    if name.ends_with(".control.axis_mode") || name.ends_with(".config.pole_pairs") {
-        MemoryType::U32
-    } else {
-        MemoryType::F32
-    }
-}
+// pub fn memory_type_for_symbol(name: &str) -> MemoryType {
+//     if name.starts_with("ccr.") {
+//         MemoryType::U16
+//     } else if name.ends_with(".control.axis_mode")
+//         || name.ends_with(".config.pole_pairs")
+//         || name == "current_sense_state"
+//     {
+//         MemoryType::U32
+//     } else {
+//         MemoryType::F32
+//     }
+// }

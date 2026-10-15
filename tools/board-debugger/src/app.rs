@@ -104,18 +104,10 @@ impl DebuggerApp {
             .filter_map(|name| {
                 let variable = symbol_table.as_ref()?.find(name)?;
 
-                let data_type = if name.ends_with(".control.axis_mode")
-                    || name.ends_with(".config.pole_pairs")
-                {
-                    MemoryType::U32
-                } else {
-                    MemoryType::F32
-                };
-
                 Some(WatchedVariable {
                     name: name.clone(),
                     address: variable.address,
-                    data_type,
+                    data_type: MemoryType::from_symbol(&name),
                 })
             })
             .collect::<Vec<_>>();
@@ -302,6 +294,11 @@ impl eframe::App for DebuggerApp {
                             AxisAction::SetEncoderDirection(direction) => self.write_symbol(
                                 &format!("axis{axis}.encoder_direction_"),
                                 acquisition::MemoryValue::F32(direction),
+                            ),
+
+                            AxisAction::SetDrvEnabled(enabled) => self.write_symbol(
+                                &format!("drv8316_{axis}_enable_cmd"),
+                                acquisition::MemoryValue::U8(enabled as u8),
                             ),
                         };
 

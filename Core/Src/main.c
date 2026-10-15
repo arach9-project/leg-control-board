@@ -128,29 +128,13 @@ int main(void) {
     Error_Handler();
   }
 
-  if (drv8316_set_pwm_mode(DRV8316_INSTANCE_1, DRV8316_PWM_MODE_3X) != HAL_OK) {
-    Error_Handler();
-  };
-
-  if (drv8316_set_current_sense_gain(DRV8316_INSTANCE_1, DRV8316_CSA_GAIN_0_15V_A) != HAL_OK) {
-    Error_Handler();
-  };
-
   if (drv8316_init_instance(DRV8316_INSTANCE_2) != HAL_OK) {
     Error_Handler();
   }
 
-  if (drv8316_set_pwm_mode(DRV8316_INSTANCE_2, DRV8316_PWM_MODE_3X) != HAL_OK) {
-    Error_Handler();
-  };
-
   if (drv8316_init_instance(DRV8316_INSTANCE_3) != HAL_OK) {
     Error_Handler();
   }
-
-  if (drv8316_set_pwm_mode(DRV8316_INSTANCE_3, DRV8316_PWM_MODE_3X) != HAL_OK) {
-    Error_Handler();
-  };
 
   if (as5048a_init_instance(AS5048A_INSTANCE_1) != HAL_OK) {
     Error_Handler();
@@ -165,6 +149,10 @@ int main(void) {
   if (drv8316_wake(DRV8316_INSTANCE_1) != HAL_OK) {
     Error_Handler();
   };
+
+  // if (drv8316_wake(DRV8316_INSTANCE_3) != HAL_OK) {
+  //   Error_Handler();
+  // };
 
   HAL_Delay(10);
 
@@ -214,17 +202,13 @@ int main(void) {
 
   // WARN: Fix this
   axis_init_instance(AXIS_INSTANCE_1);
-
-  volatile uint8_t drv8316_1_enable_cmd = 0;
-  volatile uint8_t drv8316_2_enable_cmd = 0;
-  volatile uint8_t drv8316_3_enable_cmd = 0;
+  axis_init_instance(AXIS_INSTANCE_2);
 
   uint8_t prev_drv1_cmd = 0;
   uint8_t prev_drv2_cmd = 0;
   uint8_t prev_drv3_cmd = 0;
 
   // dt = calculate_loop_period();
-  dt = 0.000531375f; // ~1.882 kHz
 
   while (1) {
 

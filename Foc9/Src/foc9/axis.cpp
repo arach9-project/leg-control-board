@@ -6,8 +6,8 @@
 #include "foc9/utils.hpp"
 
 Axis::Axis(Axis_Config_t config)
-    : config(config), d_axis_loop_(PIController(config.vbus, 0.5f, 0.0f)),
-      q_axis_loop_(PIController(config.vbus, 0.5f, 0.0f)) {
+    : config(config), d_axis_loop_(PIController(config.vbus, 0.5f, 0.5f)),
+      q_axis_loop_(PIController(config.vbus, 0.5f, 0.5f)) {
 
   //
   // Control defaults
@@ -15,7 +15,7 @@ Axis::Axis(Axis_Config_t config)
   control.theta_target = 0.0f;
   control.id_ref = 0.0f;
   control.iq_ref = 0.0f;
-  control.open_loop_speed = 10.0f;
+  control.open_loop_speed = 0.5f;
 
   control.position_kp = config.kPositionKp;
   control.position_kd = config.kPositionKd;
@@ -210,7 +210,15 @@ void Axis::current_loop_step(PhaseVector_t currents, float theta_el, float dt) {
   backward(voltage_dq_, theta_el, output_.duty, config.vbus);
 }
 void Axis::update_velocity(float theta_mech, float dt) {
-  if (dt <= 0.0f) {
+  if (dt <= 0.0f || !isfinite(dt)) {
+    return;
+  }
+
+  if (!velocity_initialized_) {
+    prev_theta_mech_ = theta_mech;
+    omega_raw_ = 0.0f;
+    omega_mech_ = 0.0f;
+    velocity_initialized_ = true;
     return;
   }
 
@@ -223,6 +231,8 @@ void Axis::update_velocity(float theta_mech, float dt) {
   if (fabsf(omega_mech_) < config.kVelocityDeadband) {
     omega_mech_ = 0.0f;
   }
+
+  prev_theta_mech_ = theta_mech;
 }
 
 void Axis::open_loop_step(float mechanical_speed_rad_s, float dt) {
@@ -282,7 +292,6 @@ FocOutput Axis::step(PhaseVector_t currents, float theta, float dt) {
     output_.duty.w = 0.5f;
     break;
   }
-  prev_theta_mech_ = theta_mech_;
 
   return output_;
 }

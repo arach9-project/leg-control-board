@@ -45,6 +45,20 @@ pub struct AcquisitionHandle {
     pub command_tx: Sender<AcquisitionCommand>,
     worker: Option<JoinHandle<()>>,
 }
+impl MemoryType {
+    pub fn from_symbol(name: &str) -> Self {
+        if name == "ccr.u" || name == "ccr.v" || name == "ccr.w" {
+            Self::U16
+        } else if name.ends_with(".control.axis_mode")
+            || name.ends_with(".config.pole_pairs")
+            || name == "current_sense_state"
+        {
+            Self::U32
+        } else {
+            Self::F32
+        }
+    }
+}
 
 impl AcquisitionHandle {
     pub fn start(&self) {
@@ -119,11 +133,11 @@ pub fn new(config: AppConfig) -> AcquisitionHandle {
                     }
 
                     AcquisitionCommand::SetVariables(variables) => {
-                        println!("Watch list updated: {} variables", variables.len());
-
-                        for variable in &variables {
-                            println!("  {} @ 0x{:08X}", variable.name, variable.address);
-                        }
+                        // println!("Watch list updated: {} variables", variables.len());
+                        //
+                        // for variable in &variables {
+                        //     println!("  {} @ 0x{:08X}", variable.name, variable.address);
+                        // }
 
                         watched_variables = variables;
                     }
@@ -209,9 +223,21 @@ fn read_memory(
     data_type: MemoryType,
 ) -> Result<f32, probe_rs::Error> {
     let value = match data_type {
-        MemoryType::U8 => core.read_word_8(address)? as f32,
+        MemoryType::U8 => {
+            let aligned = address & !3;
+            let word = core.read_word_32(aligned)?;
+            let shift = ((address & 3) * 8) as u32;
 
-        MemoryType::U16 => core.read_word_16(address)? as f32,
+            ((word >> shift) & 0xFF) as f32
+        }
+
+        MemoryType::U16 => {
+            let aligned = address & !3;
+            let word = core.read_word_32(aligned)?;
+            let shift = ((address & 3) * 8) as u32;
+
+            ((word >> shift) & 0xFFFF) as f32
+        }
 
         MemoryType::U32 => core.read_word_32(address)? as f32,
 

@@ -334,7 +334,7 @@ HAL_StatusTypeDef CurrentSense_ProcessAdcISR(void) {
   }
 }
 
-HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index, PhaseVector_t* currents) {
+HAL_StatusTypeDef CurrentSense_GetCurrents(uint32_t motor_index, volatile PhaseVector_t* currents) {
   if (currents == NULL || motor_index >= MOTOR_COUNT) {
     return HAL_ERROR;
   }

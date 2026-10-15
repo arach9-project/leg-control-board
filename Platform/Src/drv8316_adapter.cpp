@@ -1,5 +1,6 @@
 #include "drv8316_adapter.h"
 #include "drv8316/drv8316.hpp"
+#include "drv8316/drv8316_types.h"
 #include "drv8316_adapter.hpp"
 
 #include "main.h"
@@ -39,6 +40,10 @@ Drv8316 drv1{drv1_cfg};
 Drv8316 drv2{drv2_cfg};
 Drv8316 drv3{drv3_cfg};
 
+volatile uint8_t drv8316_1_enable_cmd = false;
+volatile uint8_t drv8316_2_enable_cmd = false;
+volatile uint8_t drv8316_3_enable_cmd = false;
+
 namespace {
 Drv8316* driverFor(const Drv8316_Instance_t instance) noexcept {
   switch (instance) {
@@ -54,25 +59,39 @@ Drv8316* driverFor(const Drv8316_Instance_t instance) noexcept {
 }
 } // namespace
 
-extern "C" HAL_StatusTypeDef drv8316_init(void) {
-  printf("DRV8316 Init\r\n");
-  HAL_StatusTypeDef status = drv1.initialize();
-  if (status != HAL_OK) {
-    return status;
-  }
-  return HAL_OK;
-
-  // status = drv2.initialize();
-  // if (status != HAL_OK) {
-  //     return status;
-  // }
-  //
-  // return drv3.initialize();
-}
-
 extern "C" HAL_StatusTypeDef drv8316_init_instance(const Drv8316_Instance_t instance) {
   Drv8316* const driver = driverFor(instance);
-  return (driver != nullptr) ? driver->initialize() : HAL_ERROR;
+
+  driver->wake();
+
+  if (driver->initialize() != HAL_OK) {
+    return HAL_ERROR;
+  }
+  if (driver->setBuckState(DRV8316_BUCK_ENABLED) != HAL_OK) {
+    return HAL_ERROR;
+  }
+
+  if (driver->setBuckVoltage(DRV8316_BUCK_VOLTAGE_3_3V)) {
+    return HAL_ERROR;
+  }
+
+  if (driver->setBuckCurrentLimit(DRV8316_BUCK_CURRENT_LIMIT_150MA)) {
+    return HAL_ERROR;
+  }
+
+  if (driver->setCurrentSenseGain(DRV8316_CSA_GAIN_0_15V_A)) {
+    return HAL_ERROR;
+  }
+
+  if (driver->setPwmMode(DRV8316_PWM_MODE_3X) != HAL_OK) {
+    return HAL_ERROR;
+  };
+
+  if (driver->setCurrentSenseGain(DRV8316_CSA_GAIN_0_15V_A) != HAL_OK) {
+    return HAL_ERROR;
+  };
+
+  return HAL_OK;
 }
 
 extern "C" HAL_StatusTypeDef drv8316_clear_faults(const Drv8316_Instance_t instance) {
@@ -102,7 +121,11 @@ extern "C" HAL_StatusTypeDef drv8316_set_pwm(const Drv8316_Instance_t instance,
                                              const uint16_t phase_a, const uint16_t phase_b,
                                              const uint16_t phase_c) {
   Drv8316* const driver = driverFor(instance);
-  return (driver != nullptr) ? driver->setPwm(phase_a, phase_b, phase_c) : HAL_ERROR;
+
+  if (driver->setPwm(phase_a, phase_b, phase_c) != HAL_OK) {
+    return HAL_ERROR;
+  }
+  return HAL_OK;
 }
 
 extern "C" HAL_StatusTypeDef drv8316_set_pwm_mode(const Drv8316_Instance_t instance,

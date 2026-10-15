@@ -17,24 +17,8 @@ pub enum AxisAction {
     SetIq(f32),
     SetId(f32),
     SetEncoderDirection(f32),
+    SetDrvEnabled(bool),
 }
-
-const STATES: &[&str] = &["DISABLED", "CALIBRATION", "OPENLOOP", "CURRENT", "POSITION"];
-
-const TRANSITIONS: &[(&str, &str)] = &[
-    ("DISABLED", "CALIBRATION"),
-    ("DISABLED", "OPENLOOP"),
-    ("DISABLED", "CURRENT"),
-    ("DISABLED", "POSITION"),
-    ("CALIBRATION", "DISABLED"),
-    ("OPENLOOP", "DISABLED"),
-    ("CURRENT", "DISABLED"),
-    ("POSITION", "DISABLED"),
-    ("CALIBRATION", "OPENLOOP"),
-    ("OPENLOOP", "CURRENT"),
-    ("CURRENT", "POSITION"),
-    ("POSITION", "CURRENT"),
-];
 
 fn axis_mode_name(value: f32) -> &'static str {
     if !value.is_finite() || value.fract() != 0.0 {
@@ -75,9 +59,9 @@ impl AxisPanel {
                 format!("{prefix}_phase_currents"),
                 "Phase Currents (UVW)",
                 vec![
-                    variable("currents.u", "U", Color32::BLUE),
-                    variable("currents.v", "V", Color32::GREEN),
-                    variable("currents.w", "W", Color32::RED),
+                    variable(&format!("axis{axis}_currents.u"), "U", Color32::BLUE),
+                    variable(&format!("axis{axis}_currents.v"), "V", Color32::GREEN),
+                    variable(&format!("axis{axis}_currents.w"), "W", Color32::RED),
                 ],
             ),
             Chart::new(
@@ -119,6 +103,15 @@ impl AxisPanel {
                 vec![
                     variable(&prefixed("omega_mech_"), "velocity", Color32::BLUE),
                     variable(&prefixed("omega_raw_"), "raw", Color32::RED),
+                ],
+            ),
+            Chart::new(
+                format!("{prefix}_ccr"),
+                "CCR",
+                vec![
+                    variable(&format!("axis{axis}_ccr.u"), "U", Color32::BLUE),
+                    variable(&format!("axis{axis}_ccr.v"), "V", Color32::GREEN),
+                    variable(&format!("axis{axis}_ccr.w"), "W", Color32::RED),
                 ],
             ),
         ]
@@ -280,6 +273,22 @@ impl AxisPanel {
                         action = Some(AxisAction::SetEncoderDirection(-1.0));
                     }
                 });
+
+                let drv_enabled = get("drv8316_on", 0.0) != 0.0;
+
+                ui.label("DRV8316");
+
+                ui.horizontal(|ui| {
+                    if ui.selectable_label(drv_enabled, "ON").clicked() {
+                        action = Some(AxisAction::SetDrvEnabled(true));
+                    }
+
+                    if ui.selectable_label(!drv_enabled, "OFF").clicked() {
+                        action = Some(AxisAction::SetDrvEnabled(false));
+                    }
+                });
+
+                ui.end_row();
 
                 ui.end_row();
 
