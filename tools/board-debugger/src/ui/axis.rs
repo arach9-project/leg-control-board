@@ -2,8 +2,8 @@ use eframe::egui::{self, Color32};
 use std::collections::{HashMap, VecDeque};
 
 use crate::{
-    types::{Chart, PlotVariable, Sample},
-    ui::components::RotaryDial,
+    types::{AxisMode, Chart, PlotOptions, PlotVariable, Sample},
+    ui::components::{RotaryDial, rotary_dial::DirectQuadrature},
 };
 pub struct AxisPanel {
     pub charts: Vec<Chart>,
@@ -18,6 +18,10 @@ pub enum AxisAction {
     SetId(f32),
     SetEncoderDirection(f32),
     SetDrvEnabled(bool),
+    SetDKp(f32),
+    SetDKi(f32),
+    SetQKp(f32),
+    SetQKi(f32),
 }
 
 fn axis_mode_name(value: f32) -> &'static str {
@@ -63,47 +67,25 @@ impl AxisPanel {
                     variable(&format!("axis{axis}_currents.v"), "V", Color32::GREEN),
                     variable(&format!("axis{axis}_currents.w"), "W", Color32::RED),
                 ],
-            ),
-            Chart::new(
-                format!("{prefix}_phase_duty"),
-                "PWM Duty Cycles (UVW)",
-                vec![
-                    variable(&prefixed("output_.duty.u"), "U", Color32::BLUE),
-                    variable(&prefixed("output_.duty.v"), "V", Color32::GREEN),
-                    variable(&prefixed("output_.duty.w"), "W", Color32::RED),
-                ],
-            ),
-            Chart::new(
-                format!("{prefix}_dq_currents"),
-                "DQ Currents",
-                vec![
-                    variable(&prefixed("current_dq_.d"), "Id", Color32::BLUE),
-                    variable(&prefixed("current_dq_.q"), "Iq", Color32::RED),
-                ],
-            ),
-            Chart::new(
-                format!("{prefix}_dq_voltages"),
-                "DQ Voltages",
-                vec![
-                    variable(&prefixed("voltage_dq_.d"), "Vd", Color32::BLUE),
-                    variable(&prefixed("voltage_dq_.q"), "Vq", Color32::RED),
-                ],
-            ),
-            Chart::new(
-                format!("{prefix}_errors"),
-                "Errors",
-                vec![
-                    variable(&prefixed("id_error_"), "id_error", Color32::BLUE),
-                    variable(&prefixed("iq_error_"), "iq_error", Color32::RED),
-                ],
+                PlotOptions {
+                    y_min: Some(-2f64),
+                    y_max: Some(2f64),
+                    track_data: true,
+                },
             ),
             Chart::new(
                 format!("{prefix}_velocity"),
                 "Velocity",
-                vec![
-                    variable(&prefixed("omega_mech_"), "velocity", Color32::BLUE),
-                    variable(&prefixed("omega_raw_"), "raw", Color32::RED),
-                ],
+                vec![variable(
+                    &prefixed("omega_mech_"),
+                    "velocity",
+                    Color32::BLUE,
+                )],
+                PlotOptions {
+                    y_min: Some(-10f64),
+                    y_max: Some(10f64),
+                    track_data: true,
+                },
             ),
             Chart::new(
                 format!("{prefix}_ccr"),
@@ -113,7 +95,22 @@ impl AxisPanel {
                     variable(&format!("axis{axis}_ccr.v"), "V", Color32::GREEN),
                     variable(&format!("axis{axis}_ccr.w"), "W", Color32::RED),
                 ],
+                PlotOptions {
+                    y_min: Some(0f64),
+                    y_max: Some(500f64),
+                    track_data: true,
+                },
             ),
+            Chart {
+                id: format!("{prefix}_errors"),
+                title: "Errors".to_owned(),
+                variables: vec![
+                    variable(&prefixed("id_error_"), "id_error", Color32::BLUE),
+                    variable(&prefixed("iq_error_"), "iq_error", Color32::RED),
+                ],
+                options: PlotOptions::default(),
+                visible_modes: Some(vec![AxisMode::Current, AxisMode::Position]),
+            },
         ]
     }
 }
@@ -145,17 +142,23 @@ impl AxisPanel {
 
         let theta_mech = get(&prefix("theta_mech_"), 0.0);
         let theta_el = get(&prefix("theta_el_"), 0.0);
+        let open_loop_theta_el = get(&prefix("open_loop_theta_el_"), 0.0);
+        let current_dq_d = get(&prefix("current_dq_.d"), 0.0);
+        let current_dq_q = get(&prefix("current_dq_.q"), 0.0);
+
+        let voltage_dq_d = get(&prefix("voltage_dq_.d"), 0.0);
+        let voltage_dq_q = get(&prefix("voltage_dq_.q"), 0.0);
 
         let pole_pairs = get(&prefix("config.pole_pairs"), 7.0).clamp(1.0, 64.0) as usize;
 
         let electrical_offset = get(&prefix("electrical_offset_"), 0.0);
-        let encoder_direction = get(&prefix("encoder_direction_"), 1.0);
 
         // Axis mode
-        let mode = symbol_values
+        let mode: Option<AxisMode> = symbol_values
             .get(&prefix("control.axis_mode"))
             .copied()
-            .filter(|value| value.is_finite());
+            .filter(|v| v.is_finite() && v.fract() == 0.0 && *v >= 0.0 && *v <= 4.0)
+            .and_then(|v| AxisMode::try_from(v as u32).ok());
 
         ui.heading(format!("Axis {axis}"));
 
@@ -170,10 +173,28 @@ impl AxisPanel {
             ui.vertical(|ui| {
                 ui.strong("Rotor Position");
 
-                let response =
-                    RotaryDial::new(&mut self.theta_target, theta_mech, theta_el, pole_pairs)
-                        .size(240.0)
-                        .show(ui);
+                let current_dq = DirectQuadrature {
+                    d: current_dq_d,
+                    q: current_dq_q,
+                };
+
+                let voltage_dq = DirectQuadrature {
+                    d: voltage_dq_d,
+                    q: voltage_dq_q,
+                };
+
+                let response = RotaryDial::new(
+                    &mut self.theta_target,
+                    theta_mech,
+                    theta_el,
+                    open_loop_theta_el,
+                    current_dq,
+                    voltage_dq,
+                    pole_pairs,
+                    mode.unwrap_or(AxisMode::Disabled),
+                )
+                .size(240.0)
+                .show(ui);
 
                 ui.add_space(8.0);
 
@@ -211,14 +232,7 @@ impl AxisPanel {
                     .num_columns(2)
                     .spacing([16.0, 8.0])
                     .show(ui, |ui| {
-                        for (label, symbol) in [
-                            ("Iq", prefix("current_dq_.q")),
-                            ("Id", prefix("current_dq_.d")),
-                            ("Vq", prefix("voltage_dq_.q")),
-                            ("Vd", prefix("voltage_dq_.d")),
-                            ("encoder_direction", prefix("encoder_direction_")),
-                            ("Velocity", prefix("omega_mech_")),
-                        ] {
+                        for (label, symbol) in [("Velocity", prefix("omega_mech_"))] {
                             ui.label(label);
 
                             ui.monospace(format!("{:.3}", get(&symbol, 0.0),));
@@ -235,8 +249,12 @@ impl AxisPanel {
                     .spacing([16.0, 8.0])
                     .show(ui, |ui| {
                         for (label, symbol, range) in [
-                            ("Iq Reference", prefix("control.iq_ref"), -0.5..=0.5),
-                            ("Id Reference", prefix("control.id_ref"), -0.2..=0.2),
+                            ("Iq Reference", prefix("control.iq_ref"), -10.0..=10.0),
+                            ("Id Reference", prefix("control.id_ref"), -10.0..=10.0),
+                            ("d_axis_kP", prefix("d_axis_loop_.Kp"), -10.0..=10.0),
+                            ("d_axis_kI", prefix("d_axis_loop_.Ki"), -10.0..=10.0),
+                            ("q_axis_kP", prefix("q_axis_loop_.Kp"), -10.0..=10.0),
+                            ("q_axis_kI", prefix("q_axis_loop_.Ki"), -10.0..=10.0),
                         ] {
                             let mut value = get(&symbol, 0.0);
 
@@ -253,6 +271,10 @@ impl AxisPanel {
                                 action = Some(match label {
                                     "Iq Reference" => AxisAction::SetIq(value),
                                     "Id Reference" => AxisAction::SetId(value),
+                                    "d_axis_kP" => AxisAction::SetDKp(value),
+                                    "d_axis_kI" => AxisAction::SetDKi(value),
+                                    "q_axis_kP" => AxisAction::SetQKp(value),
+                                    "q_axis_kI" => AxisAction::SetQKi(value),
                                     _ => unreachable!(),
                                 });
                             }
@@ -291,49 +313,20 @@ impl AxisPanel {
                 ui.end_row();
 
                 ui.end_row();
-
-                // Firmware state visualization
-                if let Some(mode) = mode {
-                    let current_state = axis_mode_name(mode);
-
-                    let active_color = Color32::from_rgb(55, 155, 95);
-                    let inactive_color = ui.visuals().faint_bg_color;
-                    ui.horizontal(|ui| {
-                        ui.strong("Axis State");
-
-                        ui.separator();
-
-                        ui.colored_label(active_color, current_state);
-                    });
-
-                    ui.weak(format!("Firmware mode: {}", mode as i32,));
-                } else {
-                    ui.strong("Axis State");
-                    ui.weak("Waiting for state data...");
-                }
             });
         });
 
-        ui.add_space(16.0);
+        ui.add_space(4.0);
 
         // ─────────────────────────────────────
         // Mode selection
         // ─────────────────────────────────────
-
-        ui.strong("Control Mode");
-
         ui.horizontal_wrapped(|ui| {
-            for (label, value) in [
-                ("Disabled", 0_u32),
-                ("Calibration", 1),
-                ("Open Loop", 2),
-                ("Current", 3),
-                ("Position", 4),
-            ] {
-                let selected = mode.is_some_and(|current| current == value as f32);
+            for axis_mode in AxisMode::ALL {
+                let selected = mode == Some(axis_mode);
 
-                if ui.selectable_label(selected, label).clicked() {
-                    action = Some(AxisAction::SetMode(value));
+                if ui.selectable_label(selected, axis_mode.label()).clicked() {
+                    action = Some(AxisAction::SetMode(axis_mode.value()));
                 }
             }
         });
@@ -362,6 +355,13 @@ impl AxisPanel {
                     .spacing([spacing, spacing])
                     .show(ui, |ui| {
                         for (index, chart) in self.charts.iter_mut().enumerate() {
+                            let visible = chart
+                                .visible_modes
+                                .as_ref()
+                                .is_none_or(|modes| mode.is_some_and(|mode| modes.contains(&mode)));
+                            if !visible {
+                                continue;
+                            }
                             ui.vertical(|ui| {
                                 egui::CollapsingHeader::new(chart.title.clone())
                                     .id_salt(&chart.id)

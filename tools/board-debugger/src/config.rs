@@ -85,9 +85,9 @@ impl Default for AppConfig {
                 "axis1.theta_el_".to_owned(),
                 "axis1.iq_error_".to_owned(),
                 "axis1.id_error_".to_owned(),
-                "ccr.u".to_owned(),
-                "ccr.v".to_owned(),
-                "ccr.w".to_owned(),
+                "axis1_ccr.u".to_owned(),
+                "axis1_ccr.v".to_owned(),
+                "axis1_ccr.w".to_owned(),
                 "axis2.output_.duty.u".to_owned(),
                 "axis2.output_.duty.v".to_owned(),
                 "axis2.output_.duty.w".to_owned(),
@@ -139,6 +139,9 @@ impl Default for AppConfig {
                 "axis2.theta_el_".to_owned(),
                 "axis2.iq_error_".to_owned(),
                 "axis2.id_error_".to_owned(),
+                "axis2_ccr.u".to_owned(),
+                "axis2_ccr.v".to_owned(),
+                "axis2_ccr.w".to_owned(),
             ],
         }
     }

@@ -14,7 +14,7 @@ extern "C" {
 #include <stdint.h>
 
 // TODO: Change this when you add more motors
-#define MOTOR_COUNT 2U
+#define MOTOR_COUNT 3U
 #define CALIBRATION_SAMPLES 1000U
 
 typedef struct {

@@ -1,23 +1,50 @@
 use std::f32::consts::{PI, TAU};
 
-use eframe::egui::{self, Color32, Pos2, Response, Sense, Shape, Stroke, Ui, Vec2};
+use eframe::{
+    egui::{self, Color32, Pos2, Response, Sense, Shape, Stroke, Ui, Vec2},
+    wgpu::naga::MathFunction::Atan2,
+};
+
+use crate::types::AxisMode;
+
+pub struct DirectQuadrature {
+    pub d: f32,
+    pub q: f32,
+}
 
 pub struct RotaryDial<'a> {
     pub target: &'a mut f32,
     pub mechanical: f32,
     pub electrical: f32,
+    pub open_loop_electrical: f32,
     pub pole_pairs: usize,
+    pub current_dq: DirectQuadrature,
+    pub voltage_dq: DirectQuadrature,
     pub size: f32,
+    mode: AxisMode,
 }
 
 impl<'a> RotaryDial<'a> {
-    pub fn new(target: &'a mut f32, mechanical: f32, electrical: f32, pole_pairs: usize) -> Self {
+    pub fn new(
+        target: &'a mut f32,
+        mechanical: f32,
+        electrical: f32,
+        open_loop_electrical: f32,
+        current_dq: DirectQuadrature,
+        voltage_dq: DirectQuadrature,
+        pole_pairs: usize,
+        mode: AxisMode,
+    ) -> Self {
         Self {
             target,
             mechanical,
             electrical,
+            current_dq,
+            voltage_dq,
             pole_pairs: pole_pairs.max(1),
             size: 240.0,
+            open_loop_electrical,
+            mode,
         }
     }
 
@@ -91,6 +118,43 @@ impl<'a> RotaryDial<'a> {
             electrical_color,
             3.0,
         );
+
+        // Current DQ
+        if self.mode == AxisMode::Current {
+            indicator(
+                &painter,
+                center,
+                (self.current_dq.d.powi(2) + self.current_dq.q.powi(2)).sqrt(),
+                // radius * 0.9,
+                self.current_dq.q.atan2(self.current_dq.d),
+                Color32::GREEN,
+                3.0,
+            );
+        }
+
+        // voltage DQ
+        if self.mode == AxisMode::Current {
+            indicator(
+                &painter,
+                center,
+                (self.voltage_dq.d.powi(2) + self.voltage_dq.q.powi(2)).sqrt(),
+                // radius * 0.9,
+                self.voltage_dq.q.atan2(self.voltage_dq.d),
+                Color32::PURPLE,
+                3.0,
+            );
+        }
+
+        if self.mode == AxisMode::OpenLoop {
+            indicator(
+                &painter,
+                center,
+                radius * 0.72,
+                self.open_loop_electrical,
+                Color32::PURPLE,
+                3.0,
+            );
+        }
 
         // Target indicator extends beyond the rotor.
         indicator(

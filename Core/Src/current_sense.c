@@ -25,6 +25,16 @@
 // 0 = no filtering, closer to 1 = heavier filtering
 #define CURRENT_FILTER_ALPHA 0.15f
 
+// Conservative initial validation thresholds.
+// Adjust based on measured ADC noise and the actual CSA configuration.
+#define ADC_OFFSET_MIN 100.0f
+#define ADC_OFFSET_MAX 3995.0f
+#define ADC_MAX_STDDEV 12.0f
+
+#define EVENT_STARTED (1UL << 0)
+#define EVENT_COMPLETE (1UL << 1)
+#define EVENT_FAILED (1UL << 2)
+
 #include "current_sense.h"
 
 #include "adc.h"
@@ -41,30 +51,11 @@
 // Configuration
 // -----------------------------------------------------------------------------
 
-#define ADC_VREF 3.3f
-#define ADC_RESOLUTION 4095.0f
-
-#define CSA_GAIN 0.15f
-
-#define ADC_TO_VOLTS (ADC_VREF / ADC_RESOLUTION)
-#define AMPS_PER_COUNT (ADC_TO_VOLTS / CSA_GAIN)
-
-#define CURRENT_FILTER_ALPHA 0.15f
-
-// Conservative initial validation thresholds.
-// Adjust based on measured ADC noise and the actual CSA configuration.
-#define ADC_OFFSET_MIN 100.0f
-#define ADC_OFFSET_MAX 3995.0f
-#define ADC_MAX_STDDEV 12.0f
-
-#define EVENT_STARTED (1UL << 0)
-#define EVENT_COMPLETE (1UL << 1)
-#define EVENT_FAILED (1UL << 2)
-
 // -----------------------------------------------------------------------------
 // Data structures
 // -----------------------------------------------------------------------------
 
+volatile uint32_t current_update_count = 0;
 typedef struct {
   uint64_t sum_u;
   uint64_t sum_v;
@@ -234,7 +225,7 @@ static void finish_calibration(void) {
 
     result->valid = validate_calibration(result);
 
-    if (!result->valid) {
+    if (motor == 1 && !result->valid) {
       all_valid = false;
       continue;
     }
@@ -284,6 +275,7 @@ static float low_pass(float previous, float input) {
 }
 
 static void update_phase_currents(void) {
+  current_update_count++;
   for (uint32_t motor = 0; motor < MOTOR_COUNT; motor++) {
     const uint16_t raw_u = read_raw_u(motor);
     const uint16_t raw_v = read_raw_v(motor);

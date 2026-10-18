@@ -300,6 +300,25 @@ impl eframe::App for DebuggerApp {
                                 &format!("drv8316_{axis}_enable_cmd"),
                                 acquisition::MemoryValue::U8(enabled as u8),
                             ),
+                            AxisAction::SetDKp(value) => self.write_symbol(
+                                &format!("axis{axis}.d_axis_loop_.Kp"),
+                                acquisition::MemoryValue::F32(value),
+                            ),
+
+                            AxisAction::SetDKi(value) => self.write_symbol(
+                                &format!("axis{axis}.d_axis_loop_.Ki"),
+                                acquisition::MemoryValue::F32(value),
+                            ),
+
+                            AxisAction::SetQKp(value) => self.write_symbol(
+                                &format!("axis{axis}.q_axis_loop_.Kp"),
+                                acquisition::MemoryValue::F32(value),
+                            ),
+
+                            AxisAction::SetQKi(value) => self.write_symbol(
+                                &format!("axis{axis}.q_axis_loop_.Ki"),
+                                acquisition::MemoryValue::F32(value),
+                            ),
                         };
 
                         if let Err(error) = result {

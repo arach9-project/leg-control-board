@@ -37,6 +37,9 @@ HAL_StatusTypeDef drv8316_wake(Drv8316_Instance_t instance);
 HAL_StatusTypeDef drv8316_sleep(Drv8316_Instance_t instance);
 HAL_StatusTypeDef drv8316_is_awake(const Drv8316_Instance_t instance, bool* const awake);
 
+HAL_StatusTypeDef drv8316_set_driver_state(const Drv8316_Instance_t instance,
+                                           const DRV8316_DriverState_t state);
+
 #ifdef __cplusplus
 }
 #endif

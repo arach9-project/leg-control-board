@@ -115,6 +115,7 @@ int main(void) {
   MX_TIM8_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(M0_nSLEEP_GPIO_Port, M0_nSLEEP_Pin, GPIO_PIN_RESET);
 
   if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK) {
     Error_Handler();
@@ -132,29 +133,76 @@ int main(void) {
     Error_Handler();
   }
 
-  if (drv8316_init_instance(DRV8316_INSTANCE_3) != HAL_OK) {
+  // if (drv8316_init_instance(DRV8316_INSTANCE_3) != HAL_OK) {
+  //   Error_Handler();
+  // }
+
+  // if (as5048a_init_instance(AS5048A_INSTANCE_1) != HAL_OK) {
+  //   Error_Handler();
+  // }
+
+  if (as5048a_init_instance(AS5048A_INSTANCE_2) != HAL_OK) {
     Error_Handler();
   }
 
-  if (as5048a_init_instance(AS5048A_INSTANCE_1) != HAL_OK) {
+  // if (as5048a_init_instance(AS5048A_INSTANCE_3) != HAL_OK) {
+  //   Error_Handler();
+  // }
+
+  if (as5048a_begin_continuous_angle_read(AS5048A_INSTANCE_2) != HAL_OK) {
     Error_Handler();
   }
-
-  if (as5048a_begin_continuous_angle_read(AS5048A_INSTANCE_1) != HAL_OK) {
-    Error_Handler();
-  }
-
-  CurrentSense_Init();
 
   if (drv8316_wake(DRV8316_INSTANCE_1) != HAL_OK) {
     Error_Handler();
   };
 
-  // if (drv8316_wake(DRV8316_INSTANCE_3) != HAL_OK) {
-  //   Error_Handler();
-  // };
+  if (drv8316_wake(DRV8316_INSTANCE_2) != HAL_OK) {
+    Error_Handler();
+  };
+
+  CurrentSense_Init();
 
   HAL_Delay(10);
+
+  // 3. Start timer channels
+  if (HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3) != HAL_OK) {
+    Error_Handler();
+  }
+
+  // 1. Arm ADC2 (slave)
+  if (HAL_ADCEx_InjectedStart(&hadc2) != HAL_OK) {
+    Error_Handler();
+  }
+
+  // 2. Arm ADC1 (master, interrupt enabled)
+  if (HAL_ADCEx_InjectedStart_IT(&hadc1) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) {
+    Error_Handler();
+  }
+
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4) != HAL_OK) {
+    Error_Handler();
+  }
 
   uint32_t arr = __HAL_TIM_GET_AUTORELOAD(&htim1);
   uint32_t neutral = arr / 2U;
@@ -162,30 +210,6 @@ int main(void) {
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, neutral);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, neutral);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, neutral);
-
-  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) {
-    Error_Handler();
-  };
-
-  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2) != HAL_OK) {
-    Error_Handler();
-  };
-
-  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3) != HAL_OK) {
-    Error_Handler();
-  };
-
-  if (HAL_ADCEx_InjectedStart(&hadc2) != HAL_OK) {
-    Error_Handler();
-  };
-
-  if (HAL_ADCEx_InjectedStart_IT(&hadc1)) {
-    Error_Handler();
-  };
-
-  if (HAL_TIM_Base_Start_IT(&htim6) != HAL_OK) {
-    Error_Handler();
-  }
 
   /* USER CODE END 2 */
 
@@ -208,14 +232,17 @@ int main(void) {
   uint8_t prev_drv2_cmd = 0;
   uint8_t prev_drv3_cmd = 0;
 
-  // dt = calculate_loop_period();
-
   while (1) {
 
     CurrentSense_PrintStatus();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    uint32_t cnt1 = TIM1->CNT;
+    uint32_t cnt2 = TIM2->CNT;
+
+    printf("TIM1: %lu | TIM2: %lu | DIR1: %d | DIR2: %d\r\n", cnt1, cnt2,
+           (TIM1->CR1 & TIM_CR1_DIR) != 0, (TIM2->CR1 & TIM_CR1_DIR) != 0);
 
     if (drv8316_1_enable_cmd != prev_drv1_cmd) {
       if (drv8316_1_enable_cmd) {

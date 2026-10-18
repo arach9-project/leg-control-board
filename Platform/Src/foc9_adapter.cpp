@@ -12,53 +12,70 @@
  * The examples assume three separate PWM timers and a shared SPI bus.
  */
 
-Axis_Config_t axis1_cfg{.kIqLimit = 0.5f,
-                        .kIdLimit = 0.2f,
-                        .kPositionLoopDt = 0.001f,
-                        .kPositionDeadband = 0.005f,
-                        .kVelocityDeadband = 0.05f,
-                        .kVelocityAlpha = 1.0f,
-                        .pole_pairs = 7,
-                        .kPositionKp = 2.0f,
-                        .kPositionKd = 0.03f,
-                        .vbus = 12.0f,
-                        .kCalibrationVoltage = 1.0f,
-                        .kThetaAlign = 0.0f,
-                        .kRampCycles = 2000,
-                        .kSettleCycles = 16000,
-                        .kSampleCycles = 100};
+#define kIq_LIMIT 2.0f
+#define kId_LIMIT 2.0f
 
-Axis_Config_t axis2_cfg{.kIqLimit = 0.5f,
-                        .kIdLimit = 0.2f,
-                        .kPositionLoopDt = 0.001f,
-                        .kPositionDeadband = 0.005f,
-                        .kVelocityDeadband = 0.05f,
-                        .kVelocityAlpha = 1.0f,
-                        .pole_pairs = 7,
-                        .kPositionKp = 2.0f,
-                        .kPositionKd = 0.03f,
-                        .vbus = 12.0f,
-                        .kCalibrationVoltage = 1.0f,
-                        .kThetaAlign = 0.0f,
-                        .kRampCycles = 2000,
-                        .kSettleCycles = 16000,
-                        .kSampleCycles = 100};
+Axis_Config_t axis1_cfg{
+    .kIqLimit = kIq_LIMIT,
+    .kIdLimit = kId_LIMIT,
+    .kPositionLoopDt = 0.001f,
+    .kPositionDeadband = 0.005f,
+    .kVelocityDeadband = 0.05f,
+    .kVelocityAlpha = 1.0f,
+    .kCurrentKp = 0.5f,
+    .kCurrentKi = 0.0f,
+    .pole_pairs = 7,
+    .kPositionKp = 2.0f,
+    .kPositionKd = 0.03f,
+    .vbus = 12.0f,
+    .kCalibrationVoltage = 1.0f,
+    .kThetaAlign = 0.0f,
+    .kRampCycles = 2000,
+    .kSettleCycles = 16000,
+    .kSampleCycles = 100,
+};
 
-Axis_Config_t axis3_cfg{.kIqLimit = 0.5f,
-                        .kIdLimit = 0.2f,
-                        .kPositionLoopDt = 0.001f,
-                        .kPositionDeadband = 0.005f,
-                        .kVelocityDeadband = 0.05f,
-                        .kVelocityAlpha = 1.0f,
-                        .pole_pairs = 7,
-                        .kPositionKp = 2.0f,
-                        .kPositionKd = 0.03f,
-                        .vbus = 12.0f,
-                        .kCalibrationVoltage = 1.0f,
-                        .kThetaAlign = 0.0f,
-                        .kRampCycles = 2000,
-                        .kSettleCycles = 16000,
-                        .kSampleCycles = 100};
+Axis_Config_t axis2_cfg{
+    .kIqLimit = kIq_LIMIT,
+    .kIdLimit = kId_LIMIT,
+    .kPositionLoopDt = 0.001f,
+    .kPositionDeadband = 0.005f,
+    .kVelocityDeadband = 0.05f,
+    .kVelocityAlpha = 1.0f,
+    .kCurrentKp = 0.5f,
+    .kCurrentKi = 0.0f,
+    .pole_pairs = 7,
+    .kPositionKp = 2.0f,
+    .kPositionKd = 0.03f,
+    .vbus = 12.0f,
+    .kCalibrationVoltage = 1.0f,
+    .kThetaAlign = 0.0f,
+    .kRampCycles = 2000,
+    .kSettleCycles = 16000,
+    .kSampleCycles = 100,
+
+};
+
+Axis_Config_t axis3_cfg{
+    .kIqLimit = kIq_LIMIT,
+    .kIdLimit = kId_LIMIT,
+    .kPositionLoopDt = 0.001f,
+    .kPositionDeadband = 0.005f,
+    .kVelocityDeadband = 0.05f,
+    .kVelocityAlpha = 1.0f,
+    .kCurrentKp = 0.5f,
+    .kCurrentKi = 0.0f,
+    .pole_pairs = 7,
+    .kPositionKp = 2.0f,
+    .kPositionKd = 0.03f,
+    .vbus = 12.0f,
+    .kCalibrationVoltage = 1.0f,
+    .kThetaAlign = 0.0f,
+    .kRampCycles = 2000,
+    .kSettleCycles = 16000,
+    .kSampleCycles = 100,
+
+};
 
 Axis axis1{axis1_cfg};
 Axis axis2{axis2_cfg};

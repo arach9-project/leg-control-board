@@ -5,9 +5,11 @@
 #include "foc9/types.hpp"
 #include "foc9/utils.hpp"
 
+constexpr float voltage = 3.0f;
+
 Axis::Axis(Axis_Config_t config)
-    : config(config), d_axis_loop_(PIController(config.vbus, 0.5f, 0.5f)),
-      q_axis_loop_(PIController(config.vbus, 0.5f, 0.5f)) {
+    : config(config), d_axis_loop_(PIController(config.vbus, config.kCurrentKp, config.kCurrentKi)),
+      q_axis_loop_(PIController(config.vbus, config.kCurrentKp, config.kCurrentKi)) {
 
   //
   // Control defaults
@@ -15,7 +17,7 @@ Axis::Axis(Axis_Config_t config)
   control.theta_target = 0.0f;
   control.id_ref = 0.0f;
   control.iq_ref = 0.0f;
-  control.open_loop_speed = 0.5f;
+  control.open_loop_speed = 0.75f;
 
   control.position_kp = config.kPositionKp;
   control.position_kd = config.kPositionKd;
@@ -210,7 +212,7 @@ void Axis::current_loop_step(PhaseVector_t currents, float theta_el, float dt) {
   backward(voltage_dq_, theta_el, output_.duty, config.vbus);
 }
 void Axis::update_velocity(float theta_mech, float dt) {
-  if (dt <= 0.0f || !isfinite(dt)) {
+  if (!isfinite(theta_mech) || !isfinite(dt) || dt <= 0.0f) {
     return;
   }
 
@@ -218,26 +220,33 @@ void Axis::update_velocity(float theta_mech, float dt) {
     prev_theta_mech_ = theta_mech;
     omega_raw_ = 0.0f;
     omega_mech_ = 0.0f;
+    velocity_elapsed_ = 0.0f;
     velocity_initialized_ = true;
+    return;
+  }
+
+  velocity_elapsed_ += dt;
+
+  constexpr float velocity_period = 0.001f; // 1 kHz
+
+  if (velocity_elapsed_ < velocity_period) {
     return;
   }
 
   const float delta_theta = wrap_minus_pi_pi(theta_mech - prev_theta_mech_);
 
-  omega_raw_ = delta_theta / dt;
+  omega_raw_ = delta_theta / velocity_elapsed_;
 
-  omega_mech_ += config.kVelocityAlpha * (omega_raw_ - omega_mech_);
+  constexpr float tau = 0.02f; // 20 ms filter
+  const float alpha = velocity_elapsed_ / (tau + velocity_elapsed_);
 
-  if (fabsf(omega_mech_) < config.kVelocityDeadband) {
-    omega_mech_ = 0.0f;
-  }
+  omega_mech_ += alpha * (omega_raw_ - omega_mech_);
 
   prev_theta_mech_ = theta_mech;
+  velocity_elapsed_ = 0.0f;
 }
 
 void Axis::open_loop_step(float mechanical_speed_rad_s, float dt) {
-
-  constexpr float voltage = 1.5f;
 
   const float electrical_speed_rad_s =
       mechanical_speed_rad_s * static_cast<float>(config.pole_pairs);

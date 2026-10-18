@@ -45,9 +45,28 @@ pub struct AcquisitionHandle {
     pub command_tx: Sender<AcquisitionCommand>,
     worker: Option<JoinHandle<()>>,
 }
+
 impl MemoryType {
     pub fn from_symbol(name: &str) -> Self {
-        if name == "ccr.u" || name == "ccr.v" || name == "ccr.w" {
+        if name == "current_update_count" {
+            Self::U32
+        } else if name.ends_with("_raw_u")
+            || name.ends_with("_raw_v")
+            || name.starts_with("debug_adc")
+        {
+            Self::U16
+        } else if name.starts_with("debug_unfiltered_")
+            || name.contains("motor_currents")
+            || name.contains("filtered_currents")
+            || name.contains("_currents.")
+            || name.contains("current_offsets")
+        {
+            Self::F32
+        } else if name.split_once("_ccr.").is_some_and(|(prefix, phase)| {
+            prefix.starts_with("axis")
+                && prefix[4..].parse::<usize>().is_ok()
+                && matches!(phase, "u" | "v" | "w")
+        }) {
             Self::U16
         } else if name.ends_with(".control.axis_mode")
             || name.ends_with(".config.pole_pairs")

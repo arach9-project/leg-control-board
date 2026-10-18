@@ -13,6 +13,9 @@ struct Axis_Config_t {
   float kVelocityDeadband;
   float kVelocityAlpha;
 
+  float kCurrentKp;
+  float kCurrentKi;
+
   uint8_t pole_pairs;
 
   float kPositionKp;
@@ -105,6 +108,8 @@ private:
   float theta_el_{0.0f};
 
   bool velocity_initialized_{false};
+  float velocity_elapsed_{0.0f};
+
   float omega_raw_ = 0.0f;
   float omega_mech_ = 0.0f;
 

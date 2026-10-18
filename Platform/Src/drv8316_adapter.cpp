@@ -1,4 +1,5 @@
 #include "drv8316_adapter.h"
+#include "current_sense.h"
 #include "drv8316/drv8316.hpp"
 #include "drv8316/drv8316_types.h"
 #include "drv8316_adapter.hpp"
@@ -71,15 +72,7 @@ extern "C" HAL_StatusTypeDef drv8316_init_instance(const Drv8316_Instance_t inst
     return HAL_ERROR;
   }
 
-  if (driver->setBuckVoltage(DRV8316_BUCK_VOLTAGE_3_3V)) {
-    return HAL_ERROR;
-  }
-
-  if (driver->setBuckCurrentLimit(DRV8316_BUCK_CURRENT_LIMIT_150MA)) {
-    return HAL_ERROR;
-  }
-
-  if (driver->setCurrentSenseGain(DRV8316_CSA_GAIN_0_15V_A)) {
+  if (driver->setBuckVoltage(DRV8316_BUCK_VOLTAGE_3_3V) != HAL_OK) {
     return HAL_ERROR;
   }
 
@@ -87,7 +80,7 @@ extern "C" HAL_StatusTypeDef drv8316_init_instance(const Drv8316_Instance_t inst
     return HAL_ERROR;
   };
 
-  if (driver->setCurrentSenseGain(DRV8316_CSA_GAIN_0_15V_A) != HAL_OK) {
+  if (driver->setCurrentSenseGain(DRV8316_CSA_GAIN_0_60V_A) != HAL_OK) {
     return HAL_ERROR;
   };
 
