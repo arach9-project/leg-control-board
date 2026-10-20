@@ -319,6 +319,11 @@ impl eframe::App for DebuggerApp {
                                 &format!("axis{axis}.q_axis_loop_.Ki"),
                                 acquisition::MemoryValue::F32(value),
                             ),
+
+                            AxisAction::SetOpenLoopSpeed(value) => self.write_symbol(
+                                &format!("axis{axis}.control.open_loop_speed"),
+                                acquisition::MemoryValue::F32(value),
+                            ),
                         };
 
                         if let Err(error) = result {

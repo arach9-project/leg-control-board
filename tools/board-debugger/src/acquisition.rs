@@ -50,6 +50,8 @@ impl MemoryType {
     pub fn from_symbol(name: &str) -> Self {
         if name == "current_update_count" {
             Self::U32
+        } else if name.starts_with("drv8316_") && name.ends_with("_enable_cmd") {
+            Self::U8
         } else if name.ends_with("_raw_u")
             || name.ends_with("_raw_v")
             || name.starts_with("debug_adc")

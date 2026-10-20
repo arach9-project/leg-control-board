@@ -12,12 +12,17 @@
  * The examples assume three separate PWM timers and a shared SPI bus.
  */
 
-#define kIq_LIMIT 2.0f
-#define kId_LIMIT 2.0f
+#define IQ_LIMIT 2.0f
+#define ID_LIMIT 2.0f
+#define CALIBRATION_VOLTAGE 2.0f
+#define VBUS 12.0f
+#define RAMP_CYCLES 1000
+#define SETTLE_CYCLES 2000
+#define SAMPLE_CYCLES 100
 
 Axis_Config_t axis1_cfg{
-    .kIqLimit = kIq_LIMIT,
-    .kIdLimit = kId_LIMIT,
+    .kIqLimit = IQ_LIMIT,
+    .kIdLimit = ID_LIMIT,
     .kPositionLoopDt = 0.001f,
     .kPositionDeadband = 0.005f,
     .kVelocityDeadband = 0.05f,
@@ -27,17 +32,17 @@ Axis_Config_t axis1_cfg{
     .pole_pairs = 7,
     .kPositionKp = 2.0f,
     .kPositionKd = 0.03f,
-    .vbus = 12.0f,
-    .kCalibrationVoltage = 1.0f,
+    .vbus = VBUS,
+    .kCalibrationVoltage = CALIBRATION_VOLTAGE,
     .kThetaAlign = 0.0f,
-    .kRampCycles = 2000,
-    .kSettleCycles = 16000,
-    .kSampleCycles = 100,
+    .kRampCycles = RAMP_CYCLES,
+    .kSettleCycles = SETTLE_CYCLES,
+    .kSampleCycles = SAMPLE_CYCLES,
 };
 
 Axis_Config_t axis2_cfg{
-    .kIqLimit = kIq_LIMIT,
-    .kIdLimit = kId_LIMIT,
+    .kIqLimit = IQ_LIMIT,
+    .kIdLimit = ID_LIMIT,
     .kPositionLoopDt = 0.001f,
     .kPositionDeadband = 0.005f,
     .kVelocityDeadband = 0.05f,
@@ -47,18 +52,18 @@ Axis_Config_t axis2_cfg{
     .pole_pairs = 7,
     .kPositionKp = 2.0f,
     .kPositionKd = 0.03f,
-    .vbus = 12.0f,
-    .kCalibrationVoltage = 1.0f,
+    .vbus = VBUS,
+    .kCalibrationVoltage = CALIBRATION_VOLTAGE,
     .kThetaAlign = 0.0f,
-    .kRampCycles = 2000,
-    .kSettleCycles = 16000,
-    .kSampleCycles = 100,
+    .kRampCycles = RAMP_CYCLES,
+    .kSettleCycles = SETTLE_CYCLES,
+    .kSampleCycles = SAMPLE_CYCLES,
 
 };
 
 Axis_Config_t axis3_cfg{
-    .kIqLimit = kIq_LIMIT,
-    .kIdLimit = kId_LIMIT,
+    .kIqLimit = IQ_LIMIT,
+    .kIdLimit = ID_LIMIT,
     .kPositionLoopDt = 0.001f,
     .kPositionDeadband = 0.005f,
     .kVelocityDeadband = 0.05f,
@@ -68,12 +73,12 @@ Axis_Config_t axis3_cfg{
     .pole_pairs = 7,
     .kPositionKp = 2.0f,
     .kPositionKd = 0.03f,
-    .vbus = 12.0f,
-    .kCalibrationVoltage = 1.0f,
+    .vbus = VBUS,
+    .kCalibrationVoltage = CALIBRATION_VOLTAGE,
     .kThetaAlign = 0.0f,
-    .kRampCycles = 2000,
-    .kSettleCycles = 16000,
-    .kSampleCycles = 100,
+    .kRampCycles = RAMP_CYCLES,
+    .kSettleCycles = SETTLE_CYCLES,
+    .kSampleCycles = SAMPLE_CYCLES,
 
 };
 

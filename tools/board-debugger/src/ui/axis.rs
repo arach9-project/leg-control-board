@@ -22,6 +22,7 @@ pub enum AxisAction {
     SetDKi(f32),
     SetQKp(f32),
     SetQKi(f32),
+    SetOpenLoopSpeed(f32),
 }
 
 fn axis_mode_name(value: f32) -> &'static str {
@@ -82,8 +83,8 @@ impl AxisPanel {
                     Color32::BLUE,
                 )],
                 PlotOptions {
-                    y_min: Some(-10f64),
-                    y_max: Some(10f64),
+                    y_min: Some(-300f64),
+                    y_max: Some(300f64),
                     track_data: true,
                 },
             ),
@@ -228,60 +229,6 @@ impl AxisPanel {
             ui.vertical(|ui| {
                 ui.strong("Axis Telemetry");
 
-                egui::Grid::new(format!("{axis_prefix}_telemetry"))
-                    .num_columns(2)
-                    .spacing([16.0, 8.0])
-                    .show(ui, |ui| {
-                        for (label, symbol) in [("Velocity", prefix("omega_mech_"))] {
-                            ui.label(label);
-
-                            ui.monospace(format!("{:.3}", get(&symbol, 0.0),));
-
-                            ui.end_row();
-                        }
-                    });
-
-                ui.add_space(16.0);
-                ui.label("Control Inputs");
-
-                egui::Grid::new(format!("{axis_prefix}_inputs"))
-                    .num_columns(2)
-                    .spacing([16.0, 8.0])
-                    .show(ui, |ui| {
-                        for (label, symbol, range) in [
-                            ("Iq Reference", prefix("control.iq_ref"), -10.0..=10.0),
-                            ("Id Reference", prefix("control.id_ref"), -10.0..=10.0),
-                            ("d_axis_kP", prefix("d_axis_loop_.Kp"), -10.0..=10.0),
-                            ("d_axis_kI", prefix("d_axis_loop_.Ki"), -10.0..=10.0),
-                            ("q_axis_kP", prefix("q_axis_loop_.Kp"), -10.0..=10.0),
-                            ("q_axis_kI", prefix("q_axis_loop_.Ki"), -10.0..=10.0),
-                        ] {
-                            let mut value = get(&symbol, 0.0);
-
-                            ui.label(label);
-
-                            let response = ui.add(
-                                egui::DragValue::new(&mut value)
-                                    .speed(0.01)
-                                    .range(range)
-                                    .fixed_decimals(3),
-                            );
-
-                            if response.changed() {
-                                action = Some(match label {
-                                    "Iq Reference" => AxisAction::SetIq(value),
-                                    "Id Reference" => AxisAction::SetId(value),
-                                    "d_axis_kP" => AxisAction::SetDKp(value),
-                                    "d_axis_kI" => AxisAction::SetDKi(value),
-                                    "q_axis_kP" => AxisAction::SetQKp(value),
-                                    "q_axis_kI" => AxisAction::SetQKi(value),
-                                    _ => unreachable!(),
-                                });
-                            }
-
-                            ui.end_row();
-                        }
-                    });
                 let direction = get(&prefix("encoder_direction_"), 1.0);
 
                 ui.label("Encoder Direction");
@@ -296,7 +243,7 @@ impl AxisPanel {
                     }
                 });
 
-                let drv_enabled = get("drv8316_on", 0.0) != 0.0;
+                let drv_enabled = get(&format!("drv8316_{axis}_enable_cmd"), 0.0) != 0.0;
 
                 ui.label("DRV8316");
 
@@ -310,7 +257,134 @@ impl AxisPanel {
                     }
                 });
 
-                ui.end_row();
+                egui::Grid::new(format!("{axis_prefix}_telemetry"))
+                    .num_columns(2)
+                    .spacing([16.0, 8.0])
+                    .show(ui, |ui| {
+                        for (label, symbol) in [("Velocity", prefix("omega_mech_"))] {
+                            ui.label(label);
+
+                            ui.monospace(format!("{:.3}", get(&symbol, 0.0),));
+
+                            ui.end_row();
+                        }
+                    });
+
+                ui.add_space(16.0);
+
+                let fields = [
+                    ("d_axis.kP", prefix("d_axis_loop_.Kp"), -10.0..=10.0),
+                    ("d_axis.kI", prefix("d_axis_loop_.Ki"), -10.0..=10.0),
+                    ("q_axis.kP", prefix("q_axis_loop_.Kp"), -10.0..=10.0),
+                    ("q_axis.kI", prefix("q_axis_loop_.Ki"), -10.0..=10.0),
+                ];
+
+                if matches!(
+                    mode,
+                    Some(AxisMode::OpenLoop | AxisMode::Current | AxisMode::Position)
+                ) {
+                    egui::Grid::new(format!("{axis_prefix}_k_inputs"))
+                        .num_columns(4)
+                        .spacing([16.0, 8.0])
+                        .show(ui, |ui| {
+                            for pair in fields.chunks(2) {
+                                for (label, symbol, range) in pair {
+                                    let mut value = get(symbol, 0.0);
+
+                                    ui.label(*label);
+
+                                    let response = ui.add(
+                                        egui::DragValue::new(&mut value)
+                                            .speed(0.01)
+                                            .range(range.clone())
+                                            .fixed_decimals(2),
+                                    );
+
+                                    if response.changed() {
+                                        action = Some(match *label {
+                                            "d_axis.kP" => AxisAction::SetDKp(value),
+                                            "d_axis.kI" => AxisAction::SetDKi(value),
+                                            "q_axis.kP" => AxisAction::SetQKp(value),
+                                            "q_axis.kI" => AxisAction::SetQKi(value),
+                                            _ => unreachable!(),
+                                        });
+                                    }
+                                }
+
+                                ui.end_row();
+                            }
+                        });
+                }
+
+                let current_controls = [
+                    ("iq_ref", prefix("control.iq_ref"), -10.0..=10.0),
+                    ("id_ref", prefix("control.id_ref"), -10.0..=10.0),
+                ];
+
+                if matches!(mode, Some(AxisMode::Current | AxisMode::Position)) {
+                    egui::Grid::new(format!("{axis_prefix}_current_inputs"))
+                        .num_columns(4)
+                        .spacing([16.0, 8.0])
+                        .show(ui, |ui| {
+                            for pair in current_controls.chunks(2) {
+                                for (label, symbol, range) in pair {
+                                    let mut value = get(symbol, 0.0);
+
+                                    ui.label(*label);
+
+                                    let response = ui.add(
+                                        egui::DragValue::new(&mut value)
+                                            .speed(0.01)
+                                            .range(range.clone())
+                                            .fixed_decimals(2),
+                                    );
+
+                                    if response.changed() {
+                                        action = Some(match *label {
+                                            "iq_ref" => AxisAction::SetIq(value),
+                                            "id_ref" => AxisAction::SetId(value),
+                                            _ => unreachable!(),
+                                        });
+                                    }
+                                }
+
+                                ui.end_row();
+                            }
+                        });
+                }
+
+                if matches!(mode, Some(AxisMode::OpenLoop)) {
+                    egui::Grid::new(format!("{axis_prefix}_open_loop"))
+                        .num_columns(2)
+                        .spacing([16.0, 8.0])
+                        .show(ui, |ui| {
+                            for (label, symbol, range) in [(
+                                "open_loop_speed",
+                                prefix("control.open_loop_speed"),
+                                -50.0..=50.0,
+                            )] {
+                                let mut value = get(&symbol, 0.0);
+
+                                ui.label(label);
+
+                                let response = ui.add(
+                                    egui::DragValue::new(&mut value)
+                                        .speed(0.01)
+                                        .range(range)
+                                        .fixed_decimals(3),
+                                );
+
+                                if response.changed() {
+                                    action = Some(match label {
+                                        "open_loop_speed" => AxisAction::SetOpenLoopSpeed(value),
+                                        _ => unreachable!(),
+                                    });
+                                }
+
+                                ui.end_row();
+                            }
+                        });
+                }
 
                 ui.end_row();
             });

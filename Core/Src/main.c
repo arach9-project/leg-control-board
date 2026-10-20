@@ -238,11 +238,6 @@ int main(void) {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    uint32_t cnt1 = TIM1->CNT;
-    uint32_t cnt2 = TIM2->CNT;
-
-    printf("TIM1: %lu | TIM2: %lu | DIR1: %d | DIR2: %d\r\n", cnt1, cnt2,
-           (TIM1->CR1 & TIM_CR1_DIR) != 0, (TIM2->CR1 & TIM_CR1_DIR) != 0);
 
     if (drv8316_1_enable_cmd != prev_drv1_cmd) {
       if (drv8316_1_enable_cmd) {

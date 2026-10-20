@@ -142,6 +142,9 @@ impl Default for AppConfig {
                 "axis2_ccr.u".to_owned(),
                 "axis2_ccr.v".to_owned(),
                 "axis2_ccr.w".to_owned(),
+                "drv8316_1_enable_cmd".to_owned(),
+                "drv8316_2_enable_cmd".to_owned(),
+                "drv8316_3_enable_cmd".to_owned(),
             ],
         }
     }

@@ -121,28 +121,15 @@ impl<'a> RotaryDial<'a> {
 
         // Current DQ
         if self.mode == AxisMode::Current {
-            indicator(
-                &painter,
-                center,
-                (self.current_dq.d.powi(2) + self.current_dq.q.powi(2)).sqrt(),
-                // radius * 0.9,
-                self.current_dq.q.atan2(self.current_dq.d),
-                Color32::GREEN,
-                3.0,
-            );
-        }
-
-        // voltage DQ
-        if self.mode == AxisMode::Current {
-            indicator(
-                &painter,
-                center,
-                (self.voltage_dq.d.powi(2) + self.voltage_dq.q.powi(2)).sqrt(),
-                // radius * 0.9,
-                self.voltage_dq.q.atan2(self.voltage_dq.d),
-                Color32::PURPLE,
-                3.0,
-            );
+            // indicator(
+            //     &painter,
+            //     center,
+            //     // (self.current_dq.d.powi(2) + self.current_dq.q.powi(2)).sqrt(),
+            //     radius * 0.9,
+            //     self.current_dq.q.atan2(self.current_dq.d),
+            //     Color32::GREEN,
+            //     3.0,
+            // );
         }
 
         if self.mode == AxisMode::OpenLoop {
