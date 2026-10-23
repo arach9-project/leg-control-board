@@ -4,10 +4,11 @@ set shell := ["bash", "-cu"]
 # Paths
 # -----------------------------------------------------------------------------
 
-stm32clt_root := "/opt/ST/STM32CubeCLT_1.22.0"
+stm32clt_root := "~/st/stm32cubeclt_1.22.0"
 cube_programmer := stm32clt_root + "/STM32CubeProgrammer/bin"
 
 gcc_bin := stm32clt_root + "/GNU-tools-for-STM32/bin"
+clang_bin := stm32clt_root + "/st-arm-clang/bin"
 
 openocd := "openocd"
 
@@ -16,6 +17,8 @@ gdb := stm32clt_root + "/GNU-tools-for-STM32/bin/arm-none-eabi-gdb"
 
 build_dir := "build"
 
+# Environment shared with build scripts
+export STM32CLT_ROOT := replace(stm32clt_root, "~", home_directory())
 
 # -----------------------------------------------------------------------------
 # Default
@@ -24,32 +27,53 @@ build_dir := "build"
 default:
     @just --list
 
-
 # -----------------------------------------------------------------------------
 # Build
 # -----------------------------------------------------------------------------
 
+# Build firmware with GCC (default)
 build *args:
-    ./scripts/build.sh {{args}}
+    ./scripts/build.sh gcc {{args}}
 
+# Build firmware with GCC
+gcc *args:
+    ./scripts/build.sh gcc {{args}}
 
-release:
-    ./scripts/build.sh --release
+# Build firmware with ST LLVM Clang
+clang *args:
+    ./scripts/build.sh clang {{args}}
 
-relwithdebinfo:
-    ./scripts/build.sh --relwithdebinfo
+# Build optimized firmware
+release *args:
+    ./scripts/build.sh gcc --release {{args}}
 
+# Build with debug symbols and optimization
+relwithdebinfo *args:
+    ./scripts/build.sh gcc --relwithdebinfo {{args}}
+
+# -----------------------------------------------------------------------------
+# Maintenance
+# -----------------------------------------------------------------------------
+
+# Delete build artifacts and clangd cache
 clean:
-    ./scripts/build.sh --clean
+    rm -rf {{build_dir}}
+    rm -f compile_commands.json
+    rm -rf .cache/clangd
 
-reconfigure:
-    ./scripts/build.sh --reconfigure
+# Clean and rebuild using GCC
+reconfigure *args:
+    just clean
+    just gcc {{args}}
 
-gcc:
-    ./scripts/build.sh --toolchain gcc
+# Clean and rebuild using Clang
+reconfigure-clang *args:
+    just clean
+    just clang {{args}}
 
-clang:
-    ./scripts/build.sh --toolchain clang
+
+
+
 
 verbose:
     ./scripts/build.sh --verbose

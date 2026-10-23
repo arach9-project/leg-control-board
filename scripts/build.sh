@@ -1,33 +1,19 @@
+
 #!/usr/bin/env bash
 
 set -Eeuo pipefail
 
 # ==============================================================================
-# STM32 CMake build script
+# STM32 firmware build
 #
 # Usage:
-#   ./scripts/compile.sh
-#   ./scripts/compile.sh --toolchain gcc
-#   ./scripts/compile.sh --toolchain clang
-#   ./scripts/compile.sh --clean
-#   ./scripts/compile.sh --reconfigure
-#   ./scripts/compile.sh --release
-#   ./scripts/compile.sh --jobs 8
-#   ./scripts/compile.sh --verbose
-#
-# Options:
-#   -c, --clean              Delete build directory and exit
-#   -r, --reconfigure        Delete build directory before building
-#   --toolchain gcc|clang    Select compiler toolchain (default: gcc)
-#   -d, --debug              Debug configuration (default)
-#       --release            Release configuration
-#       --relwithdebinfo     RelWithDebInfo configuration
-#   -j, --jobs N             Number of parallel build jobs
-#   -v, --verbose            Print full compiler/linker commands
-#   -h, --help               Show this help message
+#   ./scripts/build.sh gcc
+#   ./scripts/build.sh clang
+#   ./scripts/build.sh gcc --release
+#   ./scripts/build.sh clang --jobs 8 --verbose
 #
 # Environment:
-#   STM32CLT_ROOT            Override STM32CubeCLT installation path
+#   STM32CLT_ROOT    Required STM32CubeCLT installation path
 # ==============================================================================
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -36,19 +22,7 @@ ROOT_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 BUILD_DIR="${ROOT_DIR}/build"
 COMPILE_COMMANDS="${ROOT_DIR}/compile_commands.json"
 
-GCC_TOOLCHAIN_FILE="${ROOT_DIR}/cmake/gcc-arm-none-eabi.cmake"
-CLANG_TOOLCHAIN_FILE="${ROOT_DIR}/cmake/starm-clang.cmake"
-
-STM32CLT_ROOT="${STM32CLT_ROOT:-/opt/ST/STM32CubeCLT_1.22.0}"
-
-GCC_BIN="${STM32CLT_ROOT}/GNU-tools-for-STM32/bin"
-CLANG_BIN="${STM32CLT_ROOT}/st-arm-clang/bin"
-
-TOOLCHAIN="gcc"
 BUILD_TYPE="Debug"
-
-CLEAN_ONLY=false
-RECONFIGURE=false
 VERBOSE=false
 
 if command -v sysctl >/dev/null 2>&1; then
@@ -67,25 +41,16 @@ print_success() {
   printf '\033[1;32m==>\033[0m %s\n' "$1"
 }
 
-print_error() {
-  printf '\033[1;31mError:\033[0m %s\n' "$1" >&2
-}
-
 die() {
-  print_error "$1"
+  printf '\033[1;31mError:\033[0m %s\n' "$1" >&2
   exit 1
-}
-
-show_help() {
-  sed -n '3,28p' "$0"
 }
 
 on_error() {
   local exit_code=$?
-  local line_number=$1
-
   printf '\n' >&2
-  print_error "Build failed at line ${line_number} with exit code ${exit_code}."
+  printf 'Build failed at line %s (exit %s).\n' \
+    "$1" "$exit_code" >&2
   exit "$exit_code"
 }
 
@@ -96,147 +61,147 @@ require_command() {
     die "Required command not found: $1"
 }
 
-clean_build_directory() {
-  if [[ -d "$BUILD_DIR" ]]; then
-    print_info "Removing build directory"
-    rm -rf "$BUILD_DIR"
-  fi
+show_help() {
+  cat <<EOF
+Usage: build.sh <gcc|clang> [options]
 
-  if [[ -L "$COMPILE_COMMANDS" ]]; then
-    rm -f "$COMPILE_COMMANDS"
-  fi
+Options:
+  -d, --debug          Debug configuration (default)
+      --release        Release configuration
+      --relwithdebinfo RelWithDebInfo configuration
+  -j, --jobs N         Parallel build jobs
+  -v, --verbose        Print compiler commands
+  -h, --help           Show this help message
 
-  rm -rf "${ROOT_DIR}/.cache/clangd"
+Environment:
+  STM32CLT_ROOT        Required STM32CubeCLT path
+EOF
 }
+
+# ------------------------------------------------------------------------------
+# Arguments
+# ------------------------------------------------------------------------------
+
+if [[ $# -eq 0 ]]; then
+  show_help
+  exit 2
+fi
+
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+  show_help
+  exit 0
+fi
+
+TOOLCHAIN="$1"
+shift
+
+case "$TOOLCHAIN" in
+  gcc | clang)
+    ;;
+  *)
+    die "Invalid toolchain: ${TOOLCHAIN}. Expected gcc or clang."
+    ;;
+esac
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
 
-  -c | --clean)
-    CLEAN_ONLY=true
-    shift
-    ;;
-
-  -r | --reconfigure)
-    RECONFIGURE=true
-    shift
-    ;;
-
-  --toolchain)
-    [[ $# -ge 2 ]] ||
-      die "The $1 option requires gcc or clang."
-
-    case "$2" in
-    gcc | clang)
-      TOOLCHAIN="$2"
+    -d | --debug)
+      BUILD_TYPE="Debug"
+      shift
       ;;
+
+    --release)
+      BUILD_TYPE="Release"
+      shift
+      ;;
+
+    --relwithdebinfo)
+      BUILD_TYPE="RelWithDebInfo"
+      shift
+      ;;
+
+    -j | --jobs)
+      [[ $# -ge 2 ]] ||
+        die "Missing value for --jobs"
+
+      [[ "$2" =~ ^[1-9][0-9]*$ ]] ||
+        die "Invalid job count: $2"
+
+      JOBS="$2"
+      shift 2
+      ;;
+
+    -v | --verbose)
+      VERBOSE=true
+      shift
+      ;;
+
     *)
-      die "Unsupported toolchain: $2"
+      die "Unknown option: $1"
       ;;
-    esac
-
-    shift 2
-    ;;
-
-  -d | --debug)
-    BUILD_TYPE="Debug"
-    shift
-    ;;
-
-  --release)
-    BUILD_TYPE="Release"
-    shift
-    ;;
-
-  --relwithdebinfo)
-    BUILD_TYPE="RelWithDebInfo"
-    shift
-    ;;
-
-  -j | --jobs)
-    [[ $# -ge 2 ]] ||
-      die "The $1 option requires a job count."
-
-    [[ "$2" =~ ^[1-9][0-9]*$ ]] ||
-      die "Invalid job count: $2"
-
-    JOBS="$2"
-    shift 2
-    ;;
-
-  -v | --verbose)
-    VERBOSE=true
-    shift
-    ;;
-
-  -h | --help)
-    show_help
-    exit 0
-    ;;
-
-  *)
-    die "Unknown option: $1. Run '$0 --help' for usage."
-    ;;
   esac
 done
 
-cd "$ROOT_DIR"
+# ------------------------------------------------------------------------------
+# Environment
+# ------------------------------------------------------------------------------
 
-require_command cmake
-require_command ninja
+: "${STM32CLT_ROOT:?STM32CLT_ROOT must be defined}"
 
 case "$TOOLCHAIN" in
 
-gcc)
-  TOOLCHAIN_FILE="$GCC_TOOLCHAIN_FILE"
-  TOOLCHAIN_BIN="$GCC_BIN"
-  TOOLCHAIN_NAME="GNU Arm Embedded GCC"
+  gcc)
+    TOOLCHAIN_FILE="${ROOT_DIR}/cmake/gcc-arm-none-eabi.cmake"
+    TOOLCHAIN_BIN="${STM32CLT_ROOT}/GNU-tools-for-STM32/bin"
+    COMPILER="${TOOLCHAIN_BIN}/arm-none-eabi-gcc"
+    TOOLCHAIN_NAME="GNU Arm Embedded GCC"
+    ;;
 
-  [[ -x "${GCC_BIN}/arm-none-eabi-gcc" ]] ||
-    die "GCC toolchain not found: ${GCC_BIN}"
-
-  ;;
-
-clang)
-  TOOLCHAIN_FILE="$CLANG_TOOLCHAIN_FILE"
-  TOOLCHAIN_BIN="$CLANG_BIN"
-  TOOLCHAIN_NAME="ST Arm LLVM Clang"
-
-  [[ -x "${CLANG_BIN}/starm-clang" ]] ||
-    die "ST Arm LLVM toolchain not found: ${CLANG_BIN}"
-
-  ;;
+  clang)
+    TOOLCHAIN_FILE="${ROOT_DIR}/cmake/starm-clang.cmake"
+    TOOLCHAIN_BIN="${STM32CLT_ROOT}/st-arm-clang/bin"
+    COMPILER="${TOOLCHAIN_BIN}/starm-clang"
+    TOOLCHAIN_NAME="ST Arm LLVM Clang"
+    ;;
 
 esac
 
 [[ -f "$TOOLCHAIN_FILE" ]] ||
   die "Toolchain file not found: ${TOOLCHAIN_FILE}"
 
-if "$CLEAN_ONLY"; then
-  clean_build_directory
-  print_success "Project cleaned"
-  exit 0
-fi
+[[ -x "$COMPILER" ]] ||
+  die "Compiler not found: ${COMPILER}"
 
-if "$RECONFIGURE"; then
-  clean_build_directory
-fi
+require_command cmake
+require_command ninja
+
+# ------------------------------------------------------------------------------
+# Configure
+# ------------------------------------------------------------------------------
+
+cd "$ROOT_DIR"
 
 mkdir -p "$BUILD_DIR"
 
 print_info "Configuring STM32 firmware"
 
 printf '    Toolchain:  %s\n' "$TOOLCHAIN_NAME"
-printf '    Toolchain:  %s\n' "$TOOLCHAIN_BIN"
+printf '    Compiler:   %s\n' "$COMPILER"
 printf '    Build type: %s\n' "$BUILD_TYPE"
 printf '    Build dir:  %s\n' "$BUILD_DIR"
 printf '    Jobs:       %s\n' "$JOBS"
 
+# CMake cannot change toolchain in an existing build directory.
 if [[ -f "${BUILD_DIR}/CMakeCache.txt" ]]; then
-  CACHED_TOOLCHAIN=$(grep CMAKE_TOOLCHAIN_FILE "${BUILD_DIR}/CMakeCache.txt" | cut -d= -f2)
+  CACHED_TOOLCHAIN="$(
+    grep '^CMAKE_TOOLCHAIN_FILE:' \
+      "${BUILD_DIR}/CMakeCache.txt" | cut -d= -f2 || true
+  )"
 
-  if [[ -n "$CACHED_TOOLCHAIN" && "$CACHED_TOOLCHAIN" != "$TOOLCHAIN_FILE" ]]; then
-    die "Build directory was configured with another toolchain. Use --reconfigure."
+  if [[ -n "$CACHED_TOOLCHAIN" &&
+        "$CACHED_TOOLCHAIN" != "$TOOLCHAIN_FILE" ]]; then
+    die "Build directory uses another toolchain. Run just clean first."
   fi
 fi
 
@@ -248,6 +213,10 @@ cmake \
   -DSTM32_TOOLCHAIN_BIN="$TOOLCHAIN_BIN" \
   -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# ------------------------------------------------------------------------------
+# Build
+# ------------------------------------------------------------------------------
 
 print_info "Building firmware"
 
@@ -263,14 +232,16 @@ fi
 
 "${BUILD_COMMAND[@]}"
 
+# ------------------------------------------------------------------------------
+# Clangd integration
+# ------------------------------------------------------------------------------
+
 if [[ -f "${BUILD_DIR}/compile_commands.json" ]]; then
   ln -sfn \
     "${BUILD_DIR}/compile_commands.json" \
     "$COMPILE_COMMANDS"
 
-  rm -rf "${ROOT_DIR}/.cache/clangd"
-
-  print_info "Updated compile_commands.json for clangd"
+  print_info "Updated compile_commands.json"
 fi
 
 print_success "Build completed successfully"
