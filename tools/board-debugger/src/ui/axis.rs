@@ -361,7 +361,7 @@ impl AxisPanel {
                             for (label, symbol, range) in [(
                                 "open_loop_speed",
                                 prefix("control.open_loop_speed"),
-                                -50.0..=50.0,
+                                -100.0..=100.0,
                             )] {
                                 let mut value = get(&symbol, 0.0);
 
