@@ -10,3 +10,6 @@
 [submodule "sim"]
 	path = sim
 	url = git@github.com:arach9-project/bldc-sim.git
+[submodule "cad/cycloidal-drive"]
+	path = cad/cycloidal-drive
+	url = git@github.com:arach9-project/cycloidal-drive.git
