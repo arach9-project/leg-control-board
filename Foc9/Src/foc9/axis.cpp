@@ -5,7 +5,7 @@
 #include "foc9/types.hpp"
 #include "foc9/utils.hpp"
 
-constexpr float voltage = 3.0f;
+constexpr float voltage = 5.0f;
 
 Axis::Axis(Axis_Config_t config)
     : config(config), d_axis_loop_(PIController(config.vbus, config.kCurrentKp, config.kCurrentKi)),

@@ -1,0 +1,3 @@
+# Start a disposable SolidCraft live preview (or choose a part/assembly ID).
+run target="auto":
+    uv run caddev dev --preview {{quote(target)}}

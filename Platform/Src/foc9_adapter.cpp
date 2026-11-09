@@ -12,8 +12,8 @@
  * The examples assume three separate PWM timers and a shared SPI bus.
  */
 
-#define IQ_LIMIT 2.0f
-#define ID_LIMIT 2.0f
+#define IQ_LIMIT 8.0f
+#define ID_LIMIT 8.0f
 #define CALIBRATION_VOLTAGE 2.0f
 #define VBUS 12.0f
 #define RAMP_CYCLES 1000
